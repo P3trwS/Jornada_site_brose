@@ -20,15 +20,15 @@ function darkMode() {
     const linhas = document.querySelectorAll('img[alt="3 linhas"]');
 
     //Operação para a troca de tema
-    if (css.getAttribute('href') === 'dark mode/home page dark mode.css') {
+    if (css.getAttribute('href') === '/Jornada_site_brose/Home Page/Dark Mode/home page dark mode.css') {
         css.setAttribute('href', 'home page light mode.css'); // Muda para o modo claro
         cursos.setAttribute('src', 'cursos_brose-removebg-preview.png'); // Muda o logo
         linhas.forEach(linha => linha.setAttribute('src', '3 linhas preto.png'));
 
     } else {
-        css.setAttribute('href', 'dark mode/home page dark mode.css'); // Muda para o modo escuro
-        cursos.setAttribute('src', 'dark mode/Cursos dark mode.png'); // Volta o logo padrão
-        linhas.forEach(linha => linha.setAttribute('src', 'dark mode/3 linhas branco.png'));
+        css.setAttribute('href', '/Jornada_site_brose/Home Page/Dark Mode/home page dark mode.css'); // Muda para o modo escuro
+        cursos.setAttribute('src', '/Jornada_site_brose/Home Page/Dark Mode/Cursos dark mode.png'); // Volta o logo padrão
+        linhas.forEach(linha => linha.setAttribute('src', '/Jornada_site_brose/Home Page/Dark Mode/3 linhas branco.png'));
 
     }
 };
@@ -74,6 +74,9 @@ const translations = {
 
 //Função para atualizar a língua com base na língua selecionada
 function updateLanguage(language) {
+
+    localStorage.setItem('selectedLanguage', language);
+
     document.getElementById('Cursos').textContent = translations[language].Cursos;
     document.getElementById('Cargos').textContent = translations[language].Cargos;
     document.getElementById('Perfil').textContent = translations[language].Perfil;
