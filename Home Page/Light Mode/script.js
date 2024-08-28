@@ -1,16 +1,22 @@
 
-// Função para abrir ou fechar a SideBar
 function abrirOuFecharSideBar() {
-// Seleciona o botão de 3 linhas e a barra lateral
-const sidebarBackground = document.querySelector('.sidebar-background');
+    const sidebarBackground = document.querySelector('.sidebar-background');
+    const sidebar = document.querySelector('.sidebar');
 
     // Alterna a visibilidade da barra lateral
-    if (sidebarBackground.style.display === 'none') {
-        sidebarBackground.style.display = 'block'; // Mostra a sidebar
+    if (sidebar.style.left === '0px') {
+        sidebar.style.left = '-250px'; // Esconde a sidebar
+        setTimeout(() => {
+            sidebarBackground.style.display = 'none'; // Esconde o background após a animação
+        }, 300); // Espera a transição terminar
     } else {
-        sidebarBackground.style.display = 'none'; // Esconde a sidebar
+        sidebarBackground.style.display = 'block'; // Mostra o background
+        setTimeout(() => {
+            sidebar.style.left = '0px'; // Mostra a sidebar com animação
+        }, 10); // Pequeno atraso para garantir que o display seja alterado antes da animação
     }
-};
+}
+
 
 // Realizar a troca do tema
 function darkMode() {

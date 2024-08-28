@@ -59,8 +59,10 @@ header label {
     background: rgba(213, 211, 211, 0.77);
 }
 
+
+/* Sidebar Background */
 .sidebar-background {
-    display: block;
+    display: none; /* Iniciar escondido */
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -71,15 +73,20 @@ header label {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+/* Sidebar */
 .sidebar {
     height: 100%;
     width: 250px;
     position: fixed;
     top: 0;
-    left: 0;
+    left: -250px; /* Inicialmente fora da tela */
     background-color: #ffffff;
     padding-top: 20px;
+    transition: left 0.3s ease; /* Transição suave para a propriedade left */
 }
+
+/* Outros estilos continuam os mesmos */
+
 
 .sidebar h2 {
     color: black;
