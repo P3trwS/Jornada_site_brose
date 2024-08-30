@@ -81,6 +81,7 @@ const translations = {
 //Função para atualizar a língua com base na língua selecionada
 function updateLanguage(language) {
 
+    //Armazena no LocalStorage se quiser realizar um load em outras páginas da Língua
     localStorage.setItem('selectedLanguage', language);
 
     document.getElementById('Cursos').textContent = translations[language].Cursos;

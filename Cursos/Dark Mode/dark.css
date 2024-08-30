@@ -4,9 +4,14 @@ body {
     padding: 0;
 }
 
+body {
+    background: #000000;
+}
+
 header {
-    background-color: white;
+    background-color: rgb(0, 0, 0);
     padding: 10px 20px;
+    color: #d0043c;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,14 +35,14 @@ header label {
 
 .openSideBar {
     border: none;
-    background-color: #ffffff;
+    background-color: #000000;
     cursor: pointer;
     margin-right: 10px;
 }
 
 .openSideBar1 {
     border: none;
-    background-color: #ffffff;
+    background-color: #000000;
     cursor: pointer;
     margin-right: 10px;
 }
@@ -48,9 +53,9 @@ header label {
 }
 
 .dark-mode {
-    border: 1px solid #000000;
-    color: #000000;
-    background: #ffffff;
+    border: 1px solid #d0043c;
+    color: #d0043c;
+    background: #000000;
     padding: 10px;
     cursor: pointer;
 }
@@ -80,7 +85,7 @@ header label {
     position: fixed;
     top: 0;
     left: -250px; /* Inicialmente fora da tela */
-    background-color: #ffffff;
+    background-color: #000000;
     padding-top: 20px;
     transition: left 0.3s ease; /* Transição suave para a propriedade left */
 }
@@ -89,7 +94,7 @@ header label {
 
 
 .sidebar h2 {
-    color: black;
+    color: white;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -98,7 +103,7 @@ header label {
     padding: 15px 20px;
     text-decoration: none;
     font-size: 18px;
-    color: black;
+    color: white;
     display: block;
 }
 
@@ -135,13 +140,13 @@ header label {
 .página {
     font-family: 'Roboto', sans-serif; /* Ou 'Arial', 'Helvetica', 'Open Sans' */
     font-size: 1.5em;
-    color: #333;
+    color: #fff;
     display: flex;
     width: 25%;
     flex-direction: column;
     align-items: center;
     position: relative;
-    box-shadow: 0px 0px 30px #000000, 0px 0px 30px #000000;
+    box-shadow: 0px 0px 30px #ffffff, 0px 0px 30px #ffffff;
     border-radius: 70px;
     padding: 20px;
 
@@ -155,7 +160,7 @@ header label {
 .página p {
     font-family: 'Open Sans', sans-serif; /* Ou 'Roboto', 'Lato', 'Arial', 'Helvetica' */
     font-size: 1em;
-    color: #666;
+    color: #ffffff;
     line-height: 1.5;
 }
 
@@ -181,9 +186,9 @@ header label {
 
 .botãoHome {
     border-radius: 20px;
-    background: #d0043c;
-    color: #ffffff;
-    border: none;
+    background: #000000;
+    color: #d0043c;
+    border:2px solid #d0043c;
     padding: 10px;
     width: 190px;
     font-size: 25px;
@@ -191,7 +196,11 @@ header label {
     cursor: pointer;
 }
 
+.botãoHome:hover {
+    background-color: #575757;
+}
 .roleta-topicos {
+
     position: relative;
     margin-top: 20px;
     display: flex;
@@ -205,8 +214,9 @@ header label {
 }
 
 .roleta-topicos  label {
-    cursor: pointer;
+    color: #ffffff;    cursor: pointer;
 }
+
 
 #linha-animada {
     position: absolute;
