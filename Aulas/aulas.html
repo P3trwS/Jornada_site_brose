@@ -1,31 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Player with Playlist</title>
-    <link rel="stylesheet" href="light.css">
+    <link id="css" rel="stylesheet" href="/Jornada_site_brose/Aulas/dark/dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+
+    <header>
+        <nav>
+                <!-- Aqui está o botão para abrir a side bar, juntamente com a função para abrir o mesmo -->
+            <button onclick="abrirOuFecharSideBar()" class="openSideBar"><img class="botãoAbrir3linhas" src="/Jornada_site_brose/Aulas/dark/3 linhas branco.png" alt="3 linhas"></button>
+            <!-- Logo da Brose -->
+            <img src="Brose_logo.png" alt="Brose Logo" class="logo">
+        </nav>
+
+        <nav>
+            <!-- Linguagens disponíveis do site -->
+            <label>PT</label>
+            <label>EN</label>
+            <label>GR</label>
+            <!-- Botão que altera o tema com base no ID do css-->
+            <button id="botão-dark" onclick="darkMode()" class="dark-mode">Alterar Tema</button>
+        </nav>
+
+    </header>
+
+
+<main>
+
+    <img class="banner" src="banner.png">
+
     <div class="container">
         <div class="video-player">
-            <video id="main-video" controls  poster="Brose_logo.png">
-                <source src="video1.mp4" type="video/mp4" >
+            <video id="main-video" controls poster="Brose_logo.png">
+                <source src="Excellence inside_ Brose enables new mobility experiences.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <div class="description">
-                <h2 id="video-title">Video 1 Title</h2>
-                <p id="video-description">Description of Video 1</p>
+                <h2 id="video-title">Aula 1 - Principíos da Administração</h2>
+                <p id="video-description">Nesta aula, veremos os Principíos da Administração para que assim tenha um maior entendimento sobre o que é Administração.</p>
             </div>
         </div>
         <div class="playlist">
             <h3>Playlist</h3>
-                <div class="video-playlist">
+            <div class="video-playlist">
+                <img src="Brose_logo.png" alt="video">
+                <label for="Aula 1"> Aula 1</label>
+            </div>
+            <div class="video-playlist locked">
                 <img src="Brose_logo.png" alt="video">
                 <label for="Aula 2"> Aula 2</label>
-                </div>
+                <i class="fas fa-lock"></i> <!-- Ícone de cadeado -->
+            </div>
+            <div class="video-playlist locked">
+                <img src="Brose_logo.png" alt="video">
+                <label for="Aula 3"> Aula 3</label>
+                <i class="fas fa-lock"></i> <!-- Ícone de cadeado -->
+            </div>
+            <div class="video-playlist locked">
+                <img src="Brose_logo.png" alt="video">
+                <label for="Aula 4"> Aula 4</label>
+                <i class="fas fa-lock"></i> <!-- Ícone de cadeado -->
+            </div>
+            <div class="video-playlist locked">
+                <img src="Brose_logo.png" alt="video">
+                <label for="Aula 5"> Aula 5</label>
+                <i class="fas fa-lock"></i> <!-- Ícone de cadeado -->
+            </div>
+            <div class="video-playlist locked">
+            <i  class="fa-regular fa-file fa-2x"></i>
+            <label for="Prova"> Prova </label>
+            <i class="fas fa-lock"></i>
+            </div>
         </div>
     </div>
+
+    <div class="sidebar-background" style="display: none;">
+        <div class="sidebar">
+        <div class="sidebarBotao">
+            <h2 id="Menu-sideBar">Menu</h2>
+            <!-- Botão para fechar a SideBar -->
+            <button class="openSideBar1" onclick="abrirOuFecharSideBar()"><img class="botãoAbrir3linhas" src="/Jornada_site_brose/Aulas/dark/3 linhas branco.png" alt="3 linhas"></button>
+        </div>
+        <!-- Botões para ir para a página respectiva -->
+        <a id="Home-sideBar" href="">Home</a>
+        <a id="Cursos-sideBar" href="">Cursos</a>
+        <a id="Cargos-sideBar" href="">Cargos</a>
+        <a id="Perfil-sideBar" href="">Perfil</a>
+        </div>
+    </div>
+
+</main>
 
     <script src="script.js"></script>
 </body>
