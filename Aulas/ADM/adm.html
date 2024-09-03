@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player with Playlist</title>
+    <link id="css" rel="stylesheet" href="/Jornada_site_brose/Aulas/ADM/dark/dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+                <!-- Aqui está o botão para abrir a side bar, juntamente com a função para abrir o mesmo -->
+            <button onclick="abrirOuFecharSideBar()" class="openSideBar"><img class="botãoAbrir3linhas" src="/Jornada_site_brose/Aulas/ADM/dark/3 linhas branco.png" alt="3 linhas"></button>
+            <!-- Logo da Brose -->
+            <img src="Brose_logo.png" alt="Brose Logo" class="logo">
+        </nav>
+
+        <nav>
+            <!-- Linguagens disponíveis do site -->
+            <label>PT</label>
+            <label>EN</label>
+            <label>GR</label>
+            <!-- Botão que altera o tema com base no ID do css-->
+            <button id="botão-dark" onclick="darkMode()" class="dark-mode">Alterar Tema</button>
+        </nav>
+
+    </header>
+
+
+<main>
+
+    <img class="banner" src="banner.png">
+
+    <div class="container">
+        <div class="video-player">
+            <video id="main-video" controls poster="Brose_logo.png">
+                <source src="Excellence inside_ Brose enables new mobility experiences.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="description">
+                <h2 id="video-title">Aula 1 - Principíos da Administração</h2>
+                <p id="video-description">Nesta aula, veremos os Principíos da Administração para que assim tenha um maior entendimento sobre o que é Administração.</p>
+            </div>
+        </div>
+        <div class="playlist">
+            <h3>Playlist</h3>
+            <div class="video-playlist">
+                <img src="Brose_logo.png" alt="video">
+                <label for="Aula 1"> Aula 1</label>
+            </div>
+            <div class="video-playlist">
+                <img src="Brose_logo.png" alt="video">
+                <label for="Aula 2"> Aula 2</label>
+
+            </div>
+            <div class="video-playlist">
+                <img src="Brose_logo.png" alt="video">
+                <label for="Aula 3"> Aula 3</label>
+
+            </div>
+            <div class="video-playlist">
+                <img src="Brose_logo.png" alt="video">
+                <label for="Aula 4"> Aula 4</label>
+
+            </div>
+            <div class="video-playlist">
+                <img src="Brose_logo.png" alt="video">
+                <label for="Aula 5"> Aula 5</label>
+
+            </div>
+            <div class="video-playlist">
+            <i  class="fa-regular fa-file fa-2x" onclick="fazerProva('modalBack', 'modal')"></i>
+            <label for="Prova"> Prova </label>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar-background" style="display: none;">
+        <div class="sidebar">
+        <div class="sidebarBotao">
+            <h2 id="Menu-sideBar">Menu</h2>
+            <!-- Botão para fechar a SideBar -->
+            <button class="openSideBar1" onclick="abrirOuFecharSideBar()"><img class="botãoAbrir3linhas" src="/Jornada_site_brose/Aulas/ADM/dark/3 linhas branco.png" alt="3 linhas"></button>
+        </div>
+        <!-- Botões para ir para a página respectiva -->
+        <a id="Home-sideBar" href="">Home</a>
+        <a id="Cursos-sideBar" href="">Cursos</a>
+        <a id="Cargos-sideBar" href="">Cargos</a>
+        <a id="Perfil-sideBar" href="">Perfil</a>
+        </div>
+    </div>
+
+
+    <div id="modalBack" class="modal-background" style="display: none;">
+        <div id="modal" class="modal" style="display: none;">
+            <h1 id="pergunta-titulo">Pergunta 1</h1>
+            <img id="pergunta-imagem" src="/Jornada_site_brose/Aulas/ADM/pergunta1.png" alt="Descrição da Imagem">
+            
+            <div class="resposta">
+                <div class="input">
+                    <div class="vrau">
+                        <input type="radio" id="opcao1" name="resposta" value="1">
+                        <label id="opcao1-label" for="opcao1">Maximizar o lucro da organização sem considerar a sustentabilidade.</label>
+                    </div>
+                    <div class="errado-certo" style="display: none;">&times;</div>
+                </div>
+                <div class="input">
+                    <div class="vrau">
+                        <input type="radio" id="opcao2" name="resposta" value="2">
+                        <label id="opcao2-label" for="opcao2">Controlar e alocar eficientemente os recursos da organização para alcançar os objetivos estabelecidos.</label>
+                    </div>
+                    <div class="errado-certo" style="display: none;">&times;</div>
+                </div>
+                <div class="input">
+                    <div class="vrau">
+                        <input type="radio" id="opcao3" name="resposta" value="3">
+                        <label id="opcao3-label" for="opcao3">Delegar todas as decisões estratégicas aos funcionários de nível operacional.</label>
+                    </div>
+                    <div class="errado-certo" style="display: none;">&times;</div>
+                </div>
+                <div class="input">
+                    <div class="vrau">
+                        <input type="radio" id="opcao4" name="resposta" value="4">
+                        <label id="opcao4-label" for="opcao4">Focar exclusivamente na redução de custos, independentemente das consequências para a qualidade dos produtos.</label>
+                    </div>
+                    <div class="errado-certo" id="certo" style="display: none;">&check;</div>
+                </div>
+            </div>
+            
+            <button class="confirmar-resposta">Confirmar Resposta</button>
+            
+            <div class="playlist-perguntas">
+                <label class="pergunta" data-pergunta="1" for="pergunta1">1</label>
+                <label class="pergunta" data-pergunta="2" for="pergunta2">2</label>
+                <label class="pergunta" data-pergunta="3" for="pergunta3">3</label>
+                <label class="pergunta" data-pergunta="4" for="pergunta4">4</label>
+                <label class="pergunta" data-pergunta="5" for="pergunta5">5</label>
+            </div>
+            
+            <button class="confirmar-prova">Finalizar Prova</button>
+        </div>
+    </div>
+    
+    
+
+</main>
+
+    <script src="script.js"></script>
+</body>
+</html>

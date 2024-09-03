@@ -226,3 +226,136 @@ video {
     margin-left: 10px;
 }
 
+.modal-background {
+    background: rgb(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    z-index: 1;
+    position: fixed;
+    display: block;
+    top: 0;
+}
+
+.modal {
+    background-color: #000000;
+    color: #ffffff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* Largura do modal */
+    max-width: 1000px; /* Largura máxima */
+    border-radius: 8px; /* Bordas arredondadas */
+}
+
+.modal img {
+    width: 500px;
+}
+
+.playlist-perguntas {
+    display: flex;
+    margin: 20px;
+    margin-bottom: 10px;
+    border-top: 2px solid #ffffff;
+    padding: 20px;
+    justify-content: space-evenly;
+}
+
+.vrau {
+    display: flex;
+    align-items: center;
+}
+
+.vrau label {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.pergunta {
+    padding: 10px;
+    border: 2px solid #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.pergunta:hover {
+    background-color: #575757;
+}
+
+.resposta {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.input {
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border:2px solid #888;
+}
+
+input[type="radio"] {
+    appearance: none; /* Remove o estilo padrão do botão de rádio */
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff; /* Define a cor preta */
+    border: 2px solid #ffffff; /* Adiciona uma borda preta */
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px; /* Espaçamento entre o botão de rádio e o texto */
+    margin: 5px;
+}
+
+input[type="radio"]:checked {
+    background-color: #000; /* Cor preta quando selecionado */
+}
+
+input[type="radio"]:checked::after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #fff; /* Cor branca para o "check" */
+    margin: 4px;
+    position: relative;
+}
+
+.errado-certo {
+    margin-right: 10px  ;
+    font-size: 30px;
+
+}
+
+#certo {
+
+    font-size: 30px;
+}
+
+.confirmar-resposta {
+    border:2px solid #fff;
+    padding: 10px;
+    color: #fff;
+    background: #000000;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.confirmar-resposta:hover {
+    background: #575757
+}
+
+.confirmar-prova {
+    border:2px solid #fff;
+    padding: 10px;
+    color: #fff;
+    background: #000000;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.confirmar-prova:hover {
+    background-color: #575757;
+}
