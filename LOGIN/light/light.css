@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #d0043c;
+
+}
+
+header label {
+    margin: 10px;
+    cursor: pointer;
+}
+
+.logo {
+    height: 2.5rem;
+}
+
+.dark-mode {
+    border: 1px solid #000000;
+    color: #000000;
+    background: #ffffff;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dark-mode:hover {
+    background: rgba(213, 211, 211, 0.77);
+}
+
+
+main {
+    padding: 20px;
+}
+
+.login-espaço {
+    border-radius: 4%;
+    width: 40%;
+    margin: 3.125rem auto;
+    display: flex;
+    background: #ffffff;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid #000000;
+}
+
+.brose-login {
+    margin: auto;
+}
+
+.brose-login h1 {
+    margin: 1rem;
+}
+
+.brose-login img {
+    margin-top: 1.5em;
+    width: 15rem;
+}
+
+.inputs-login {
+    display: flex;
+    flex-direction: column;
+    margin: 1.875rem;
+
+
+}
+
+.inputs-login label {
+    font-size: 1.25rem;
+
+    margin-top: 10px;
+    text-align: left;
+}
+
+#F-senha {
+    font-size: 10px;
+    color: blue;
+}
+
+.inputs-login input {
+    border-radius: 12px;
+    border-top: 2px solid #d4d2d2; /* Cor cinza sólida */
+    border-right: 2px solid #d4d2d2; /* Cor cinza sólida */
+    border-left: 2px solid rgb(118, 118, 118);
+    box-shadow: -6px 6px 4px 0px rgba(0, 0, 0, 0.7);
+    padding: 5px;
+}
+
+.login-confirmar-butao {
+    align-items: center;
+}
+
+.botao-login {
+    color: #ffffff;
+    background-color: #d0043c;
+    font-size: 1.5rem;
+    border: red;
+    border-radius: 1.563rem;
+    margin: auto;
+    padding: 10px 6.25rem;
+    margin: 1.25rem auto;
+    cursor: pointer;
+}
+
+.botao-login:hover {
+    background: rgba(97, 1, 1, 0.42);
+}
+
+footer {
+    background-color: white;
+    padding: 10px 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    margin-top: 1.25rem;
+}
+
+.footer-logo {
+    height: 2.5rem;
+}

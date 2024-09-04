@@ -148,50 +148,7 @@ function darkMode() {
 //NÃO TEM TRADUÇÕES DE TUDO PQ DA MUITO TRABALHO DE TRADUZIR TUDO E ABRIR UM JSON PRA ISSO
 //NA APRESENTAÇÃO NÃO CLICAR NAS TRADUÇÕES APENAS NO LOGIN E NA HOME
 //VEJAM ISSO
-const translations = {
-    PT: {
-        Menu: "Menu",
-        Home: "Home",
-        Cursos: "Cursos",
-        Cargos: "Cargos",
-        Perfil: "Perfil",
-        alterarTema: "Mudar Tema"
-    },
-    EN: {
-        Menu: "Menu",
-        Home: "Home",
-        Cursos: "Courses",
-        Cargos: "Positions",
-        Perfil: "Profile",
-        alterarTema: "Change Theme",
-    },
-    GR: {
-        Menu: "Speisekarte",
-        Home: "Heim",
-        Cursos: "Kurse",
-        Cargos: "Positionen",
-        Perfil: "Profil",
-        alterarTema: "Thema ändern",
 
-    }
-};
-
-//função para atualizar as linguas
-function updateLanguage(language) {
-
-    localStorage.setItem('selectedLanguage', language);
-
-    document.getElementById('Cursos').textContent = translations[language].Cursos;
-    document.getElementById('Cargos').textContent = translations[language].Cargos;
-    document.getElementById('Perfil').textContent = translations[language].Perfil;
-    document.getElementById('botão-dark').textContent = translations[language].alterarTema;
-    document.getElementById('Home-sideBar').textContent = translations[language].Home;
-    document.getElementById('Cursos-sideBar').textContent = translations[language].Cursos;
-    document.getElementById('Cargos-sideBar').textContent = translations[language].Cargos;
-    document.getElementById('Perfil-sideBar').textContent = translations[language].Perfil;
-    document.getElementById('Menu-sideBar').textContent = translations[language].Menu;    
-
-}
 
 // Função para destacar o Idioma
 document.querySelectorAll('nav label').forEach(label => {

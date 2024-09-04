@@ -135,6 +135,7 @@ header label {
     align-items: flex-start;
     text-align: center;
     margin: 60px auto;
+    margin-bottom: 10px;
 }
 
 .página {
@@ -225,4 +226,25 @@ header label {
     width: 0;
     background-color: #d0043c;
     transition: left 0.3s, width 0.3s;
+}
+
+.botao-add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao {
+    background: #000000;
+    border:2px solid #ffffff;
+    color: #ffffff;
+    padding: 20px;
+    margin-bottom:50px ;
+    margin-left: 30px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.botao:hover {
+    background-color: #575757;
 }
