@@ -60,7 +60,6 @@ header label {
     background: rgba(213, 211, 211, 0.77);
 }
 
-
 /* Sidebar Background */
 .sidebar-background {
     display: none; /* Iniciar escondido */
@@ -87,7 +86,6 @@ header label {
 }
 
 /* Outros estilos continuam os mesmos */
-
 
 .sidebar h2 {
     color: black;
@@ -133,14 +131,15 @@ header label {
 }
 
 .main-setor {
-
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 33%;
+    justify-content: space-between; /* Espaço uniforme entre os cargos */
+    align-items: flex-start; /* Alinha os itens no topo */
+    flex-wrap: wrap; /* Permite que os cargos quebrem para a próxima linha quando necessário */
+    width: 45%; /* Ajuste conforme o layout desejado */
+    position: relative;
 }
+
+
 
 .setor {
     display: flex;
@@ -163,18 +162,32 @@ header label {
     flex-direction: column;
     padding: 20px;
     box-shadow: 0px 0px 20px #000000;
-    border:2px solid #000000;
+    border: 2px solid #000000;
     border-radius: 20px;
     margin: 20px;
     cursor: pointer;
     background: #ffffff;
     align-items: center;
+    flex-basis: calc(40% - 20px); /* Ajuste para 3 cargos por linha, levando em conta as margens */
+    max-width: calc(40% - 20px); /* Ajuste para garantir a largura máxima adequada */
 }
 
 .cargo h2 {
     margin-top: 10px;
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    overflow: hidden; /* Esconde o texto que ultrapassa o limite */
+    text-overflow: ellipsis; /* Adiciona "..." ao final do texto cortado */
+    max-width: 250px;
+}
+
+.cargo p {
+    font-size: 20px;
 }
 
 .cargo:hover {
     background: #d6d4d4;
+}
+
+.cargo:last-child {
+    margin-bottom: 50px;
 }
