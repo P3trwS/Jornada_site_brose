@@ -3,6 +3,6 @@ from .models import Post
 
 # Create your views here.
 
-def index(request):
+def login(request):
     posts = Post.objects.all()
-    return render(request, 'index.html')
+    return render(request, 'login.html')
