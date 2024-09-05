@@ -27,9 +27,9 @@ function darkMode() {
 
     //Operação para a troca de tema
     if (css.getAttribute('href') === '/Jornada_site_brose/Home Page/Dark Mode/home page dark mode.css') {
-        css.setAttribute('href', 'home page light mode.css'); // Muda para o modo claro
-        cursos.setAttribute('src', 'cursos_brose-removebg-preview.png'); // Muda o logo
-        linhas.forEach(linha => linha.setAttribute('src', '3 linhas preto.png'));
+        css.setAttribute('href', '/Jornada_site_brose/Home Page/Light Mode/home page light mode.css'); // Muda para o modo claro
+        cursos.setAttribute('src', '/Jornada_site_brose/Home Page/Light Mode/cursos_brose-removebg-preview.png'); // Muda o logo
+        linhas.forEach(linha => linha.setAttribute('src', '/Jornada_site_brose/Home Page/Light Mode/3 linhas preto.png'));
 
     } else {
         css.setAttribute('href', '/Jornada_site_brose/Home Page/Dark Mode/home page dark mode.css'); // Muda para o modo escuro

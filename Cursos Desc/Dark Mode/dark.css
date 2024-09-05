@@ -5,17 +5,17 @@ body {
 }
 
 body {
-    background: #000000;
+    background: #3c3c3c;
 }
 
 header {
-    background-color: rgb(0, 0, 0);
+    background-color: #3c3c3c;
     padding: 10px 20px;
-    color: #d0043c;
+    color: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #d0043c;
+    border-bottom: 1px solid #ffffff;
 
 }
 
@@ -35,14 +35,14 @@ header label {
 
 .openSideBar {
     border: none;
-    background-color: #000000;
+    background-color: #3c3c3c;
     cursor: pointer;
     margin-right: 10px;
 }
 
 .openSideBar1 {
     border: none;
-    background-color: #000000;
+    background-color: #3c3c3c;
     cursor: pointer;
     margin-right: 10px;
 }
@@ -53,9 +53,9 @@ header label {
 }
 
 .dark-mode {
-    border: 1px solid #d0043c;
-    color: #d0043c;
-    background: #000000;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    background: #3c3c3c;
     padding: 10px;
     cursor: pointer;
 }
@@ -101,7 +101,7 @@ main h1 {
 .botao {
     border: 2px solid #fff;
     color: #fff;
-    background: #000000;
+    background: #3c3c3c;
     padding: 10px;
     margin: 5px;
     cursor: pointer;
@@ -133,7 +133,7 @@ main h1 {
     position: fixed;
     top: 0;
     left: -250px; /* Inicialmente fora da tela */
-    background-color: #000000;
+    background-color: #3c3c3c;
     padding-top: 20px;
     transition: left 0.3s ease; /* Transição suave para a propriedade left */
 }
