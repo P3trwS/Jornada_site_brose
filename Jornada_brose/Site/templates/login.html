@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     {% load static %}
     <link id="css" rel="stylesheet" href="{% static 'LOGIN/light/light.css' %}">
 </head>
+
 <body>
     <header>
         <nav>
@@ -29,25 +31,25 @@
                 <img id="logo-login" src="{% static 'LOGIN/Brose_Logo_Nova.png' %}" alt="Brose_login_cadeado">
             </div>
 
-            <div class="inputs-login">
-                <label for="username" id="username-label">Usuário</label>
-                <input type="text" id="username">
+            <form method="post">
+                {% csrf_token %}
+                <div class="inputs-login">
+                    <label for="username" id="username-label">Usuário</label>
+                    {{ form.username }}
 
-                <label for="senha" id="senha-label">Senha</label>
-                <input type="text" id="senha">
-                <label id="F-senha">Esqueceu a senha?</label>
+                    <label for="senha" id="senha-label">Senha</label>
+                    {{ form.password }}
+                    <label id="F-senha">Esqueceu a senha?</label>
+                </div>
 
-            </div>
-
-            <div class="login-confirmar-butao">
-                <button class="botao-login">Entrar</button>
-
-            </div>
-        </div>
-
+                <div class="login-confirmar-butao">
+                    <button class="botao-login" type="submit">Entrar</button>
+                </div>
+            </form>
     </main>
 
     <script src="{% static 'LOGIN/script.js' %}"></script>
 
 </body>
+
 </html>

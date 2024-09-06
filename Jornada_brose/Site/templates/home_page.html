@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    {% load static %}
     <!-- o css está com o ID para realizar a alteração de Tema -->
     <link id="css" rel="stylesheet" href="{% static 'Home Page/Light Mode/home page light mode.css' %}">
 </head>
@@ -70,7 +71,7 @@
         <div class="sidebarBotao">
             <h2 id="Menu-sideBar">Menu</h2>
             <!-- Botão para fechar a SideBar -->
-            <button class="openSideBar1" onclick="abrirOuFecharSideBar()"> <img src="/Jornada_site_brose/Jornada_brose/static/Home Page/Dark Mode/3 linhas branco.png" alt="3 linhas"></button>
+            <button class="openSideBar1" onclick="abrirOuFecharSideBar()"> <img src="{% static 'Home Page/Dark Mode/3 linhas branco.png' %}" alt="3 linhas"></button>
         </div>
         <!-- Botões para ir para a página respectiva -->
         <a id="Home-sideBar" href="">Home</a>
