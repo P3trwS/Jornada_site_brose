@@ -12,11 +12,11 @@ document.getElementById('botão-dark').addEventListener('click', function() {
     var themeStyle = document.getElementById('css');
     
     // Verifica o tema atual
-    if (themeStyle.getAttribute('href') === '/Jornada_site_brose/Jornada_brose/static/LOGIN/dark/dark.css') {
-        themeStyle.setAttribute('href', '/Jornada_site_brose/Jornada_brose/static/LOGIN/light/light.css'); // Muda para o modo claro
+    if (themeStyle.getAttribute('href') === "/static/LOGIN/dark/dark.css") {
+        themeStyle.setAttribute('href', "/static/LOGIN/light/light.css"); // Muda para o modo claro
         
     } else {
-        themeStyle.setAttribute('href', '/Jornada_site_brose/Jornada_brose/static/LOGIN/dark/dark.css'); // Muda para o modo escuro
+        themeStyle.setAttribute('href', "/static/LOGIN/dark/dark.css"); // Muda para o modo escuro
         
     }
 });

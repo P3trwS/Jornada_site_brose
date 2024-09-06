@@ -26,15 +26,15 @@ function darkMode() {
     const linhas = document.querySelectorAll('img[alt="3 linhas"]');
 
     //Operação para a troca de tema
-    if (css.getAttribute('href') === '/Jornada_site_brose/Jornada_brose/static/Home Page/Dark Mode/home page dark mode.css') {
-        css.setAttribute('href', '/Jornada_site_brose/Jornada_brose/static/Home Page/Light Mode/home page light mode.css'); // Muda para o modo claro
-        cursos.setAttribute('src', '/Jornada_site_brose/Jornada_brose/static/Home Page/Light Mode/cursos_brose-removebg-preview.png'); // Muda o logo
-        linhas.forEach(linha => linha.setAttribute('src', '/Jornada_site_brose/Jornada_brose/static/Home Page/Light Mode/3 linhas preto.png'));
+    if (css.getAttribute('href') === '/static/Home Page/Dark Mode/home page dark mode.css') {
+        css.setAttribute('href', '/static/Home Page/Light Mode/home page light mode.css'); // Muda para o modo claro
+        cursos.setAttribute('src', '/static/Home Page/Light Mode/cursos_brose-removebg-preview.png'); // Muda o logo
+        linhas.forEach(linha => linha.setAttribute('src', '/static/Home Page/Light Mode/3 linhas preto.png'));
 
     } else {
-        css.setAttribute('href', '/Jornada_site_brose/Jornada_brose/static/Home Page/Dark Mode/home page dark mode.css'); // Muda para o modo escuro
-        cursos.setAttribute('src', '/Jornada_site_brose/Jornada_brose/static/Home Page/Dark Mode/Cursos dark mode.png'); // Volta o logo padrão
-        linhas.forEach(linha => linha.setAttribute('src', '/Jornada_site_brose/Jornada_brose/static/Home Page/Dark Mode/3 linhas branco.png'));
+        css.setAttribute('href', '/static/Home Page/Dark Mode/home page dark mode.css'); // Muda para o modo escuro
+        cursos.setAttribute('src', '/static/Home Page/Dark Mode/Cursos dark mode.png'); // Volta o logo padrão
+        linhas.forEach(linha => linha.setAttribute('src', '/static/Home Page/Dark Mode/3 linhas branco.png'));
 
     }
 };

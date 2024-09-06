@@ -13,7 +13,7 @@ function selecionarTopico(element, topico) {
     linhaAnimada.style.left = `${element.offsetLeft}px`;
 
     //trocar a cor do topico com base no tema 
-    if (css.getAttribute('href') === '/Jornada_site_brose/Jornada_brose/static/Cursos/Dark Mode/dark.css') {
+    if (css.getAttribute('href') === '/static/Cursos/Dark Mode/dark.css') {
 
         topicos.forEach(topico => topico.style.color = '#fff');
         element.style.color = '#f00'; // Change color of selected topic
@@ -40,7 +40,7 @@ function atualizarConteudo(topico) {
             <!-- Tópico por tópico -->
             <div class="página">
             <!-- Descrição do Curso correspondente, sendo imagem, nome e descrição do curso respectivamente. -->
-                <img id="imagem-cursos" src="/Jornada_site_brose/Jornada_brose/static/Cursos/icone adm básico.png">
+                <img id="imagem-cursos" src="/static/Cursos/icone adm básico.png">
                 <h1 id="Cursos">Administração Básica</h1>
                 <O id="descCursos"> Este curso é ideal para iniciantes e profissionais <br> que desejam entender os princípios essenciais da <br>administração e como aplicá-los no ambiente de trabalho.</p>
                 <!-- Botões para ir para a página respectiva -->
@@ -48,14 +48,14 @@ function atualizarConteudo(topico) {
             </div>
 
             <div class="página">
-                <img id="imagem-cargos" src="/Jornada_site_brose/Jornada_brose/static/Cursos/icone mecanica.png">
+                <img id="imagem-cargos" src="/static/Cursos/icone mecanica.png">
                 <h1 id="Cargos">Mecânica Básica</h1>
                 <p id="descCargos">O Curso de Mecânica Básica oferece uma base sólida em princípios e práticas fundamentais da mecânica.</p>
                 <button id="botaoCargos" class="botãoHome">Acessar Curso</button>
             </div>
 
             <div id="perfil-home" class="página">
-                <img id="imagem-perfil" src="/Jornada_site_brose/Jornada_brose/static/Cursos/trabalho.png">
+                <img id="imagem-perfil" src="/static/Cursos/trabalho.png">
                 <h1 id="Perfil">Segurança do Trabalho Básico</h1>
                 <p id="descPerfil">O Curso de Segurança do Trabalho Básico proporciona uma introdução aos princípios fundamentais da segurança no ambiente de trabalho.</p>
                 <button id="botaoPerfil" class="botãoHome">Acessar Curso</button>
@@ -70,7 +70,7 @@ function atualizarConteudo(topico) {
                                 <div class="páginas">
             <!-- Tópico por tópico -->
             <div class="página">
-                <img id="imagem-cursos" src="/Jornada_site_brose/Jornada_brose/static/Cursos/excel.png">
+                <img id="imagem-cursos" src="/static/Cursos/excel.png">
                 <h1 id="Cursos">Excel Básico</h1>
                 <p id="descCursos">O Curso de Excel Básico é ideal para iniciantes que desejam aprender a usar o 
                     Microsoft Excel para tarefas cotidianas e aprimorar suas habilidades em análise de dados.</p>
@@ -79,14 +79,14 @@ function atualizarConteudo(topico) {
             </div>
 
             <div class="página">
-                <img id="imagem-cargos" src="/Jornada_site_brose/Jornada_brose/static/Cursos/sistemas-de-ti.png">
+                <img id="imagem-cargos" src="/static/Cursos/sistemas-de-ti.png">
                 <h1 id="Cargos">T.I Infraestrutura</h1>
                 <p id="descCargos">O Curso de Tecnologia da Informação com Ênfase em Infraestrutura <br> é projetado para profissionais que desejam especializar-se <br> na criação, manutenção e gestão de ambientes de TI <br> robustos e eficientes.</p>
                 <button id="botaoCargos" class="botãoHome">Acessar Curso</button>
             </div>
 
             <div id="perfil-home" class="página">
-                <img id="imagem-perfil" src="/Jornada_site_brose/Jornada_brose/static/Cursos/bolsa-de-dinheiro.png">
+                <img id="imagem-perfil" src="/static/Cursos/bolsa-de-dinheiro.png">
                 <h1 id="Perfil">Matemática Financeira Básica</h1>
                 <p id="descPerfil">O Curso de Matemática Financeira Básica é ideal para quem deseja entender e 
                     aplicar conceitos fundamentais de finanças pessoais e empresariais.</p>
@@ -102,7 +102,7 @@ function atualizarConteudo(topico) {
             html = `
     <div class="páginas">
         <div id="perfil-home" class="página">
-            <img id="imagem-perfil" src="/Jornada_site_brose/Jornada_brose/static/Cursos/sinais-de-codigo.png">
+            <img id="imagem-perfil" src="/static/Cursos/sinais-de-codigo.png">
             <h1 id="Perfil">Lógica de Programação</h1>
             <p id="descPerfil">O Curso de Lógica de Programação é ideal para quem deseja desenvolver uma base sólida em conceitos fundamentais de programação, independentemente da linguagem utilizada.</p>
             <button id="botaoPerfil" class="botãoHome">Acessar Curso</button>
@@ -128,14 +128,14 @@ function darkMode() {
     const linhas = document.querySelectorAll('img[alt="3 linhas"]');
 
     //Operação para a troca de tema
-    if (css.getAttribute('href') === '/Jornada_site_brose/Jornada_brose/static/Cursos/Dark Mode/dark.css') {
-        css.setAttribute('href', '/Jornada_site_brose/Jornada_brose/static/Cursos/Light Mode/light.css'); // Muda para o modo claro
-        linhas.forEach(linha => linha.setAttribute('src', '/Jornada_site_brose/Jornada_brose/static/Cursos/Light Mode/3 linhas preto.png'));
+    if (css.getAttribute('href') === '/static/Cursos/Dark Mode/dark.css') {
+        css.setAttribute('href', '/static/Cursos/Light Mode/light.css'); // Muda para o modo claro
+        linhas.forEach(linha => linha.setAttribute('src', '/static/Cursos/Light Mode/3 linhas preto.png'));
 
     } else {
-        css.setAttribute('href', '/Jornada_site_brose/Jornada_brose/static/Cursos/Dark Mode/dark.css'); // Muda para o modo escuro
+        css.setAttribute('href', '/static/Cursos/Dark Mode/dark.css'); // Muda para o modo escuro
 
-        linhas.forEach(linha => linha.setAttribute('src', '/Jornada_site_brose/Jornada_brose/static/Cursos/Dark Mode/3 linhas branco.png'));
+        linhas.forEach(linha => linha.setAttribute('src', '/static/Cursos/Dark Mode/3 linhas branco.png'));
 
     }
 

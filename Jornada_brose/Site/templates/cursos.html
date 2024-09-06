@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cursos</title>
     <!-- o css está com o ID para realizar a alteração de Tema -->
-    <link id="css" rel="stylesheet" href="/Jornada_site_brose/Jornada_brose/static/Cursos/Dark Mode/dark.css">
+    <link id="css" rel="stylesheet" href="{% static 'Cursos/Light Mode/light.css  %}">
 </head>
 <body>
 
@@ -14,7 +14,7 @@
                 <!-- Aqui está o botão para abrir a side bar, juntamente com a função para abrir o mesmo -->
             <button onclick="abrirOuFecharSideBar()" class="openSideBar"><img class="botãoAbrir3linhas" src="/Jornada_site_brose/Jornada_brose/static/Cursos/Dark Mode/3 linhas branco.png" alt="3 linhas"></button>
             <!-- Logo da Brose -->
-            <img src="/Jornada_site_brose/Jornada_brose/static/Cursos/Brose_logo.png" alt="Brose Logo" class="logo">
+            <img src="{% static 'Cursos/Brose_logo.png' %}" alt="Brose Logo" class="logo">
         </nav>
 
         <nav>
@@ -31,7 +31,7 @@
     <main>
 
             <!-- Banner -->
-        <img class="banner" src="/Jornada_site_brose/Jornada_brose/static/Cursos/banner cursos.jpg">
+        <img class="banner" src="{% static 'Cursos/banner cursos.jpg' %}">
 
         <div class="roleta-topicos">
 
@@ -65,7 +65,7 @@
     </div>
 
     
-    <script src="/Jornada_site_brose/Jornada_brose/static/Cursos/script.js"></script>
+    <script src="{% static 'Cursos/script' %}"></script>
 
 </body>
 </html>
