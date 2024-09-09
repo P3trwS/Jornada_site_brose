@@ -124,3 +124,74 @@ document.getElementById('confirmar-filtro').addEventListener('click', aplicarFil
 
 // Adiciona um evento ao input de busca para pesquisar conforme o usuário digita
 document.getElementById('searchBar').addEventListener('input', searchCargos);
+
+
+function darkMode() {
+    const css = document.getElementById('css');
+    const linhas = document.querySelectorAll('img[alt="3 linhas"]');
+    const filtro = document.getElementsByClassName('filtroBotao')[0];
+
+    //Operação para a troca de tema
+    if (css.getAttribute('href') === '/Jornada_site_brose/Cargos/Dark Mode/dark.css') {
+        css.setAttribute('href', '/Jornada_site_brose/Cargos/Light Mode/light.css'); // Muda para o modo claro
+        linhas.forEach(linha => linha.setAttribute('src', '/Jornada_site_brose/Cargos/Light Mode/3 linhas preto.png'));
+        filtro.setAttribute('src', '/Jornada_site_brose/Cargos/Light Mode/settings.png')
+
+    } else {
+        css.setAttribute('href', '/Jornada_site_brose/Cargos/Dark Mode/dark.css'); // Muda para o modo escuro
+
+        linhas.forEach(linha => linha.setAttribute('src', '/Jornada_site_brose/Cargos/Dark Mode/3 linhas branco.png'));
+        filtro.setAttribute('src', '/Jornada_site_brose/Cargos/Dark Mode/settings branco.png')
+
+    }
+
+    //quando o topico volta ele começa com o basíco para resetar as cores 
+    const topicoInicial = document.querySelector('.topico');
+    selecionarTopico(topicoInicial, 'basico');      
+};
+
+// Função para destacar o Idioma
+document.querySelectorAll('nav label').forEach(label => {
+    label.addEventListener('click', function() {
+        const selectedLanguage = this.textContent;
+        
+        // Destaca o idioma selecionado
+        document.querySelectorAll('nav label').forEach(label => label.style.fontWeight = 'normal');
+        this.style.fontWeight = 'bold';
+        
+        // Atualizar com base na língua destacada
+        updateLanguage(selectedLanguage);
+    });
+});
+
+function abrirOuFecharSideBar() {
+    const sidebarBackground = document.querySelector('.sidebar-background');
+    const sidebar = document.querySelector('.sidebar');
+
+    // Alterna a visibilidade da barra lateral
+    if (sidebar.style.left === '0px') {
+        sidebar.style.left = '-250px'; // Esconde a sidebar
+        setTimeout(() => {
+            sidebarBackground.style.display = 'none'; // Esconde o background após a animação
+        }, 300); // Espera a transição terminar
+    } else {
+        sidebarBackground.style.display = 'block'; // Mostra o background
+        setTimeout(() => {
+            sidebar.style.left = '0px'; // Mostra a sidebar com animação
+        }, 10); // Pequeno atraso para garantir que o display seja alterado antes da animação
+    }
+}
+
+//Função para o Idioma padrão
+window.addEventListener('load', function() {
+    const defaultLanguage = 'PT'; // Idioma padrão
+
+    // Destaca o idioma padrão
+    const defaultLabel = Array.from(document.querySelectorAll('nav label')).find(label => label.textContent === defaultLanguage);
+    if (defaultLabel) {
+        defaultLabel.style.fontWeight = 'bold';
+    }
+
+    // Atualizar com base na língua destacada
+    updateLanguage(defaultLanguage);
+});

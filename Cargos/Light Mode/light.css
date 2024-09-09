@@ -259,7 +259,8 @@ header label {
     border: 1px solid #888;
     width: 80%; /* Largura do modal */
     max-width: 500px;
-}
+    border-radius: 20px;
+}  
 
 .inputs {
     display: flex;

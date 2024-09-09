@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionários</title>
+    <!-- o css está com o ID para realizar a alteração de Tema -->
+    <link id="css" rel="stylesheet" href="/Jornada_site_brose/Funcionarios/light.css">
+</head>
+
+<header>
+    <nav>
+        <!-- Aqui está o botão para abrir a side bar, juntamente com a função para abrir o mesmo -->
+        <button onclick="abrirOuFecharSideBar()" class="openSideBar"><img class="botãoAbrir3linhas" src="/Jornada_site_brose/Cursos/Light Mode/3 linhas preto.png" alt="3 linhas"></button>
+        <!-- Logo da Brose -->
+        <img src="/Jornada_site_brose/Cargos/Brose_logo.png" alt="Brose Logo" class="logo">
+    </nav>
+
+    <nav>
+        <!-- Linguagens disponíveis do site -->
+        <label>PT</label>
+        <label>EN</label>
+        <label>GR</label>
+        <!-- Botão que altera o tema com base no ID do css-->
+        <button id="botão-dark" onclick="darkMode()" class="dark-mode">Alterar Tema</button>
+    </nav>
+
+</header>
+
+<main>
+
+    <div class="tela-tabela">
+        <h1>Tabela de Funcionários</h1>
+        <div class="rolagem">
+            <table class="tabela">
+                <thead>
+                    <tr>
+                        <th>Matrícula</th>
+                        <th>Nome</th>
+                        <th>Idade</th>
+                        <th>Cargo</th>  
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Gabriel</td>
+                        <td>1</td>
+                        <td>China Number One</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>JEÃO</td>
+                        <td>21</td>
+                        <td>JEANZÃO</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Lucão</td>
+                        <td>20</td>
+                        <td>VHSEXO</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>MANO CLEI</td>
+                        <td>17</td>
+                        <td>TOMO</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Eduarto Nogaroto</td>
+                        <td>20</td>
+                        <td>FAZ TUDO</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Pedrão</td>
+                        <td>20</td>
+                        <td>Paysandu Men</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Emerson Filho</td>
+                        <td>19</td>
+                        <td>É O HOMI</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Maria Wongs</td>
+                        <td>22</td>
+                        <td>UCRANIA PIU PIU</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Vini Boy</td>
+                        <td>22</td>
+                        <td>Doutor Sexo</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+    
+    </div>
+
+
+</main>
+
+<div class="sidebar-background" style="display: none;">
+    <div class="sidebar">
+    <div class="sidebarBotao">
+        <h2 id="Menu-sideBar">Menu</h2>
+        <!-- Botão para fechar a SideBar -->
+        <button class="openSideBar1" onclick="abrirOuFecharSideBar()"><img class="botãoAbrir3linhas" src="/Jornada_site_brose/Cursos/Light Mode/3 linhas preto.png" alt="3 linhas"></button>
+    </div>
+    <!-- Botões para ir para a página respectiva -->
+    <a id="Home-sideBar" href="">Home</a>
+    <a id="Cursos-sideBar" href="">Cursos</a>
+    <a id="Cargos-sideBar" href="">Cargos</a>
+    <a id="Perfil-sideBar" href="">Perfil</a>
+    </div>
+</div>
+
+<script src="/Jornada_site_brose/Funcionarios/script.js"></script>
