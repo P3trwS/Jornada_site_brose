@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'Jornada_brose.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'Brose',
+#         'NAME': 'brose',
 #         'USER': 'postgres',
 #         'PASSWORD': 'qwertyzxc',
 #         'HOST': 'localhost',
