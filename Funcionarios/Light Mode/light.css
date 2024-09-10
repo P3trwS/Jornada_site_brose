@@ -122,11 +122,23 @@ header label {
     width: 25px;
 }
 
+.novoFuncionario {
+    border-radius: 20px;
+    color: #000000;
+    background: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.novoFuncionario:hover {
+    background: #cac6c6;
+}
+
 main {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 650px;
 }
 
 .tela-tabela {
@@ -135,7 +147,7 @@ main {
     border-radius: 8px;
     overflow: hidden;
     width: 90%;
-    max-width: 800px;
+
     border: 2px solid #000000;
 }
 
@@ -183,8 +195,108 @@ h1 {
 .tabela tbody td {
     padding: 12px 15px;
     border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.tabela td {
+    word-wrap: break-word;  /* Permite a quebra de palavras longas */
+    max-width: 150px;       /* Define um tamanho máximo para a célula, ajuste conforme necessário */
 }
 
 .tabela tbody tr:last-child td {
     border-bottom: none;
+}
+
+.filtros {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 20px;
+}
+
+#filtro {
+    width: 200px;
+}
+
+.botoes {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+}
+
+.botao {
+    border-radius: 20px;
+    border-color:2px solid #000000 ;
+    color: #000000;
+    background: #ffffff;
+    font-size: 20px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.botao:hover {
+    background: #cac6c6;
+}
+
+@media print {
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+    }
+
+    header, .sidebar-background, .sidebar, .dark-mode {
+        display: none; /* Oculta elementos que não devem ser impressos */
+    }
+
+    .tela-tabela {
+        width: 100%;
+        box-shadow: none;
+        border: 1px solid #000000; /* Adiciona borda para a impressão */
+        border-radius: 0; /* Remove borda arredondada */
+    }
+
+    .tabela {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .tabela thead {
+        background-color: #ffffff;
+        color: #d0043c;
+    }
+
+    .tabela thead th {
+        padding: 12px 15px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    .tabela tbody tr:nth-child(even) {
+        background-color: #f4f4f9;
+    }
+
+    .tabela tbody tr:hover {
+        background-color: #ffffff; /* Remove o efeito de hover na impressão */
+    }
+
+    .tabela tbody td {
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        word-wrap: break-word; /* Permite quebra de palavras longas */
+    }
+
+    .tabela td {
+        word-wrap: break-word;
+        max-width: none; /* Remove o limite de largura na impressão */
+    }
+
+    h1 {
+        font-size: 1.2em; /* Ajusta o tamanho do título para impressão */
+        border-bottom: 1px solid #d0043c;
+    }
+
+    .filtros {
+        display: none; /* Oculta filtros na impressão */
+    }
 }

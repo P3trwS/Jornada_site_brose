@@ -5,15 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Funcionários</title>
     <!-- o css está com o ID para realizar a alteração de Tema -->
-    <link id="css" rel="stylesheet" href="/Jornada_site_brose/Funcionarios/light.css">
+    <link id="css" rel="stylesheet" href="/Jornada_site_brose/Funcionarios/Light Mode/light.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+
+
 </head>
 
 <header>
     <nav>
         <!-- Aqui está o botão para abrir a side bar, juntamente com a função para abrir o mesmo -->
-        <button onclick="abrirOuFecharSideBar()" class="openSideBar"><img class="botãoAbrir3linhas" src="/Jornada_site_brose/Cursos/Light Mode/3 linhas preto.png" alt="3 linhas"></button>
+        <button onclick="abrirOuFecharSideBar()" class="openSideBar"><img class="botãoAbrir3linhas" src="/Jornada_site_brose/Funcionarios/Light Mode/3 linhas preto.png" alt="3 linhas"></button>
         <!-- Logo da Brose -->
-        <img src="/Jornada_site_brose/Cargos/Brose_logo.png" alt="Brose Logo" class="logo">
+        <img src="/Jornada_site_brose/Funcionarios/Brose_logo.png" alt="Brose Logo" class="logo">
     </nav>
 
     <nav>
@@ -27,12 +34,19 @@
 
 </header>
 
+
 <main>
 
     <div class="tela-tabela">
         <h1>Tabela de Funcionários</h1>
+        
+        <div class="filtros">
+            <input type="text" id="filtroMatricula" placeholder="Filtrar por matrícula..." onkeyup="filtrarMatricula()">
+            <button class="novoFuncionario"> Novo Funcionário </button>
+            <input type="text" id="filtro" placeholder="Filtrar por nome, idade ou cargo..." onkeyup="filtrarTabela()">
+        </div>
         <div class="rolagem">
-            <table class="tabela">
+            <table class="tabela" id="tabelaFuncionarios">
                 <thead>
                     <tr>
                         <th>Matrícula</th>
@@ -68,7 +82,7 @@
                     </tr>
                     <tr>
                         <td>5</td>
-                        <td>Eduarto Nogaroto</td>
+                        <td>Eduardo Nogaroto</td>
                         <td>20</td>
                         <td>FAZ TUDO</td>
                     </tr>
@@ -104,15 +118,20 @@
     
     </div>
 
-
 </main>
+
+<div class="botoes">
+    <button class="botao" onclick="PDF()">  Exportar como PDF </button>
+    <button class="botao" onclick="CSV()"> Exportar como Excel </button>
+    <button class="botao" onclick="IMPRIMIR()"> Imprimir </button>
+</div>
 
 <div class="sidebar-background" style="display: none;">
     <div class="sidebar">
     <div class="sidebarBotao">
         <h2 id="Menu-sideBar">Menu</h2>
         <!-- Botão para fechar a SideBar -->
-        <button class="openSideBar1" onclick="abrirOuFecharSideBar()"><img class="botãoAbrir3linhas" src="/Jornada_site_brose/Cursos/Light Mode/3 linhas preto.png" alt="3 linhas"></button>
+        <button class="openSideBar1" onclick="abrirOuFecharSideBar()"><img class="botãoAbrir3linhas" src="/Jornada_site_brose/Funcionarios/Light Mode/3 linhas preto.png" alt="3 linhas"></button>
     </div>
     <!-- Botões para ir para a página respectiva -->
     <a id="Home-sideBar" href="">Home</a>
