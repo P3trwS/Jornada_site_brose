@@ -237,6 +237,32 @@ h1 {
     background: #cac6c6;
 }
 
+.modalCadastro-background {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    overflow: auto;
+    z-index: 1000;
+    position: fixed;
+    display: block;
+    top: 0;
+}
+
+.modalCadastro {
+    width: 50%;
+    top: 0;
+    left: 0;
+    margin: 15% auto;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.cadastro1 {
+    display: flex;
+    align-content: space-between;
+}
+
 @media print {
     body {
         font-family: Arial, sans-serif;
