@@ -258,9 +258,41 @@ h1 {
     padding: 20px;
 }
 
+.modalCadastro h2 {
+    margin-bottom: 30px;
+}
+
 .cadastro1 {
     display: flex;
-    align-content: space-between;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.cadastro1 label {
+    font-size: 1.25rem;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+
+}
+
+.inputs {
+    border-radius: 20px;
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#skills {
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.botoesModal {
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+    justify-content: space-around;
 }
 
 @media print {

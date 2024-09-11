@@ -193,3 +193,20 @@ function IMPRIMIR() {
     novaJanela.focus(); // Necessário para IE
     novaJanela.print();
 }
+
+function abrirOuFecharModal() {
+    const modalBackground = document.querySelector('.modalCadastro-background');
+    const modal = document.querySelector('.modalCadastro');
+
+    if (modalBackground.style.display === "block") {
+        modalBackground.style.display = "none";
+    } else {
+        modalBackground.style.display ="block";
+    }
+
+    if (modal.style.display === "block") {
+        modal.style.display = "none"; 
+    } else {
+        modal.style.display = "block";
+    }
+}

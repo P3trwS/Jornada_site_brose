@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Funcionários</title>
     <!-- o css está com o ID para realizar a alteração de Tema -->
-    <link id="css" rel="stylesheet" href="/Funcionarios/Light Mode/light.css">
+    <link id="css" rel="stylesheet" href="/Jornada_site_brose/Funcionarios/Light Mode/light.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
@@ -42,7 +42,7 @@
         
         <div class="filtros">
             <input type="text" id="filtroMatricula" placeholder="Filtrar por matrícula..." onkeyup="filtrarMatricula()">
-            <button class="novoFuncionario"> Novo Funcionário </button>
+            <button class="novoFuncionario" onclick="abrirOuFecharModal()"> Novo Funcionário </button>
             <input type="text" id="filtro" placeholder="Filtrar por nome, idade ou cargo..." onkeyup="filtrarTabela()">
         </div>
         <div class="rolagem">
@@ -141,22 +141,36 @@
     </div>
 </div>
 
-<div class="modalCadastro-background">
+<div class="modalCadastro-background" style="display: none;">
     <div class="modalCadastro">
         <h2>Cadastro de Funcionários</h2>
         <div class="cadastro1">
-            <div class="infos"> 
-                <label>Nome</label>
-                <input type="text" id="Nome" placeholder="Digite o nome do novo colaborador">
+
+            <label>Matrícula</label>
+            <input type="text" class="inputs" id="matricula" placeholder="Digite a matrícula do novo colaborador">
+
+            <label>Nome</label>
+            <input type="text" class="inputs" id="Nome" placeholder="Digite o nome do novo colaborador">
+
+
+            <label>Idade</label>
+            <input type="text" class="inputs" id="Idade" placeholder="Digite a idade do colaborador">
+
+            <label>Cargo</label>
+            <input type="text" class="inputs" id="Cargo" placeholder="Digite o cargo do colaborador">
+
+            <label>Skills</label>
+            <textarea id="skills"></textarea>
+
+            <div class="botoesModal">
+                <button class="botao"> Confirmar </button>
+                <button class="botao" onclick="abrirOuFecharModal()"> Fechar</button>
             </div>
-            <div class="infos">
-                <label>Idade</label>
-                <input type="text" id="Idade" placeholder="Digite a idade do colaborador">
-            </div>
+
         </div>
 
     </div>
 
 </div>
 
-<script src="   /Funcionarios/script.js"></script>
+<script src="/Jornada_site_brose/Funcionarios/script.js"></script>

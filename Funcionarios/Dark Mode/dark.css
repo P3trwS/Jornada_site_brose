@@ -140,7 +140,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 700px;
+    min-height: 650px;
 }
 
 .tela-tabela {
@@ -255,6 +255,73 @@ h1 {
 .botao:hover {
     background: #817f7f;
 }
+
+.modalCadastro-background {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    overflow: auto;
+    z-index: 1000;
+    position: fixed;
+    display: block;
+    top: 0;
+}
+
+.modalCadastro {
+    color: #ffffff;
+    width: 50%;
+    top: 0;
+    left: 0;
+    margin: 15% auto;
+    background: #3c3c3c;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.modalCadastro h2 {
+    margin-bottom: 30px;
+}
+
+.cadastro1 {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.cadastro1 label {
+    font-size: 1.25rem;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.inputs {
+    color: #ffffff;
+    background-color: #3c3c3c;
+    border-radius: 20px;
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.inputs::placeholder {
+    color: #aeacac;
+}
+
+#skills {
+    color: #ffffff;
+    background-color: #3c3c3c;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.botoesModal {
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+    justify-content: space-around;
+}
+
 
 @media print {
     body {
