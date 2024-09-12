@@ -16,9 +16,12 @@ def login_view(request):
                 login(request, user)
                 return redirect('home_page')  # redireciona para a página inicial ou dashboard
             else:
-                return HttpResponse('Login inválido')  # você pode tratar isso melhor com uma mensagem no template
+                return HttpResponse('Login inválido')   # você pode tratar isso melhor com uma mensagem no template
     return render(request, 'login.html', {'form': form})
 
 @login_required
 def home_view(request):
     return render(request, 'home_page.html')
+
+def cursos_view(request):
+    return render(request, 'cursos.html')
