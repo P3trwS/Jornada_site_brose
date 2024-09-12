@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cargos - Descrição</title>
     <!-- o css está com o ID para realizar a alteração de Tema -->
-    <link id="css" rel="stylesheet" href="/Jornada_site_brose/Funcionarios Desc/light.css">
+    <link id="css" rel="stylesheet" href="/Jornada_site_brose/Funcionarios Desc/Light Mode/light.css">
 </head>
 <body>
 
@@ -13,9 +13,9 @@
 <header>
     <nav>
         <!-- Aqui está o botão para abrir a side bar, juntamente com a função para abrir o mesmo -->
-        <button onclick="abrirOuFecharSideBar()" class="openSideBar"><img class="botãoAbrir3linhas" src="/Jornada_site_brose/Cursos/Light Mode/3 linhas preto.png" alt="3 linhas"></button>
+        <button onclick="abrirOuFecharSideBar()" class="openSideBar"><img class="botãoAbrir3linhas" src="/Jornada_site_brose/IMAGENS IGUAIS/Light Mode/3 linhas preto.png" alt="3 linhas"></button>
         <!-- Logo da Brose -->
-        <img src="/Jornada_site_brose/Cargos/Brose_logo.png" alt="Brose Logo" class="logo">
+        <img src="/Jornada_site_brose/IMAGENS IGUAIS/Brose_logo.png" alt="Brose Logo" class="logo">
     </nav>
 
     <nav>
@@ -34,31 +34,38 @@
         <div class="cabecalho">
             <h1> Nome do Funcionário</h1>
             <div class="botoes">
-                <button class="botao" title="Excluir Funcionário"><img src="delete.png" alt="Excluir Funcionário"></button>
+                <button class="botao" title="Editar Funcionário" onclick="toggleEdit()"><img src="/Jornada_site_brose/Funcionarios Desc/Light Mode/user-avatar preto.png" alt="Editar Funcionário"></button>
+                <button class="botao" title="Cancelar" onclick="cancelEdit()" style="display: none;">
+                    <img src="cancelar.png" alt="Cancelar">
+                </button>
+                <button class="botao" title="Excluir Funcionário"><img src="/Jornada_site_brose/Funcionarios Desc/Light Mode/delete.png" alt="Excluir Funcionário"></button>
             </div>
         </div>
 
         <div class="infos">
             <div class="duplas">
-                <strong> Matrícula:</strong>
-                <label id="matricula"> 1 </label>
+                <strong>Matrícula:</strong>
+                <label id="matricula">1</label>
+                <input type="text" id="edit-matricula" value="1" style="display: none;">
             </div>
             <div class="duplas">
-                <strong> Cargo:</strong>
-                <label id="cargo"> T.I </label>
+                <strong>Cargo:</strong>
+                <label id="cargo">T.I</label>
+                <input type="text" id="edit-cargo" value="T.I" style="display: none;">
             </div>
             <div class="duplas">
-                <strong> Idade: </strong>
-                <label id="idade"> 20 </label>
+                <strong>Idade:</strong>
+                <label id="idade">20</label>
+                <input type="number" id="edit-idade" value="20" style="display: none;">
             </div>
         </div>
+        
 
-        <h2>Cursos/Skills</h2>
-        <p id="skills"> Tenho SENAI</p>
+        <h2>Cursos/Skills:</h2>
+        <p id="skills">Tenho SENAI</p>
+        <textarea id="edit-skills" style="display: none;">Tenho SENAI</textarea>
+        
 
-        <div class="botoes">
-            <button class="botao" title="Excluir Funcionário"> Excluir Funcionário </button>
-        </div>
     </div>
 
     
@@ -71,7 +78,7 @@
     <div class="sidebarBotao">
         <h2 id="Menu-sideBar">Menu</h2>
         <!-- Botão para fechar a SideBar -->
-        <button class="openSideBar1" onclick="abrirOuFecharSideBar()"><img class="botãoAbrir3linhas" src="/Jornada_site_brose/Cursos/Light Mode/3 linhas preto.png" alt="3 linhas"></button>
+        <button class="openSideBar1" onclick="abrirOuFecharSideBar()"><img class="botãoAbrir3linhas" src="/Jornada_site_brose/IMAGENS IGUAIS/Light Mode/3 linhas preto.png" alt="3 linhas"></button>
     </div>
     <!-- Botões para ir para a página respectiva -->
     <a id="Home-sideBar" href="">Home</a>

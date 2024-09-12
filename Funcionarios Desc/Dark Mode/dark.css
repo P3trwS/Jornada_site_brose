@@ -2,20 +2,21 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background: #3c3c3c;
+    width: 100%;
+    height: auto;
 }
 
-body {
-    background: #3c3c3c;
-}
+
 
 header {
     background-color: #3c3c3c;
     padding: 10px 20px;
-    color: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 1px solid #d0043c;
+    color: #ffffff;
 
 }
 
@@ -49,7 +50,7 @@ header label {
 
 .banner {
     width: 100%;
-    height: 650px;
+    height: 750px;
 }
 
 .dark-mode {
@@ -61,55 +62,6 @@ header label {
 }
 
 .dark-mode:hover {
-    background: rgba(213, 211, 211, 0.77);
-}
-
-main {
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-main h1 {
-    margin-bottom: 5px;
-
-}
-
-.desc {
-    border: #fff;
-    box-shadow: 0px 0px 10px #fff, 0px 0px 10px #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
-}
-
-#titulo {
-    font-size: 40px;
-    text-decoration: underline;
-}
-
-#descricao {
-    margin-top: 5px;
-    text-decoration: underline;
-    font-size: 30px;
-}
-
-.botao {
-
-    color: #fff;
-    background: #3c3c3c;
-    padding: 10px;
-    margin: 5px;
-    cursor: pointer;
-    margin-bottom: 20px;
-    font-size: 18px;
-}
-
-.botao:hover {
     background: rgba(213, 211, 211, 0.77);
 }
 
@@ -139,7 +91,6 @@ main h1 {
 }
 
 /* Outros estilos continuam os mesmos */
-
 
 .sidebar h2 {
     color: white;
@@ -175,3 +126,70 @@ main h1 {
 .sidebarBotao img {
     width: 25px;
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0px 0px 20px #ffffff, 0px 0px 20px #ffffff;
+    width: 60%;
+    margin: 10% auto;
+    border-radius: 20px;
+    padding: 20px;
+    color: #ffffff;
+}
+
+.container h2 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.container p {
+    word-wrap: break-word;
+    max-width: 1000px;
+    font-size: 20px;
+}
+
+.container input {
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.container textarea {
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.infos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 20px;  
+}
+
+.cabecalho {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #d0043c;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+}
+
+.botao {
+    padding: 15px;
+    background-color: #3c3c3c;
+    border-radius: 20px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+}
+
+.botao img {
+    width: 30px;
+}
+
