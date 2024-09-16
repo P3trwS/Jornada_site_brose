@@ -358,3 +358,413 @@ h1 {
         display: none; /* Oculta filtros na impressão */
     }
 }
+
+@media (max-width: 768px) {
+    
+    header {
+        background-color: #ffffff   ;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #d0043c;
+    
+    }
+    
+    header label {
+        margin: 5px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    
+    .logo {
+        height: 1.8rem;
+    }
+    
+    .dark-mode {
+        border: 1px solid #000000;
+        color: #000000;
+        background: #ffffff;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 10px;
+    }
+    
+    .dark-mode:hover {
+        background: rgba(213, 211, 211, 0.77);
+    }
+
+    .botãoAbrir3linhas {
+        width: 30px;
+    
+    }
+    
+    .openSideBar {
+        border: none;
+        background-color: #ffffff;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    
+    .openSideBar1 {
+        border: none;
+        background-color: #ffffff;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    
+    
+    .banner {
+        width: 100%;
+        height: 65vh;
+    }
+
+    .novoFuncionario {
+        border-radius: 20px;
+        color: #000000;
+        background: #ffffff;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    
+    .novoFuncionario:hover {
+        background: #cac6c6;
+    }
+    
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 650px;
+    }
+    
+    .tela-tabela {
+        background-color: #fff;
+        box-shadow: 0px 0px 20px #000000, 0px 0px 20px #000000; 
+        border-radius: 8px;
+        overflow: hidden;
+        width: 90%;
+    
+        border: 2px solid #000000;
+    }
+    
+    h1 {
+        background-color: #ffffff;
+        color: #d0043c;
+        padding: 20px;
+        margin: 0;
+        text-align: center;
+        font-size: 1.5em;
+        border-bottom: 2px solid #d0043c;
+    }
+    
+    .rolagem {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+    
+    .tabela {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .tabela thead {
+        background-color: #ffffff;
+        color: #d0043c;
+        position: sticky;
+        top: 0;
+        z-index: 10; /* Garante que o thead fique sobre as linhas */
+    }
+    
+    .tabela thead th {
+        padding: 12px 15px;
+        text-align: left;
+    }
+    
+    .tabela tbody tr:nth-child(even) {
+        background-color: #f4f4f9;
+    }
+    
+    .tabela tbody tr:hover {
+        background-color: #e0e0e0;
+    }
+    
+    .tabela tbody td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #ddd;
+        cursor: pointer;
+    }
+    
+    .tabela td {
+        word-wrap: break-word;  /* Permite a quebra de palavras longas */
+        max-width: 150px;       /* Define um tamanho máximo para a célula, ajuste conforme necessário */
+    }
+    
+    .tabela tbody tr:last-child td {
+        border-bottom: none;
+    }
+    
+    .filtros {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 20px;
+    }
+    
+    #filtroMatricula {
+        width: 120px;
+    }
+
+    #filtro {
+        width: 200px;
+    }
+    
+    .botoes {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 50px;
+    }
+    
+    .botao {
+        border-radius: 20px;
+        border-color:2px solid #000000 ;
+        color: #000000;
+        background: #ffffff;
+        font-size: 20px;
+        padding: 20px;
+        cursor: pointer;
+    }
+    
+    .botao:hover {
+        background: #cac6c6;
+    }
+    
+    .modalCadastro-background {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        overflow: auto;
+        z-index: 1000;
+        position: fixed;
+        display: block;
+        top: 0;
+    }
+    
+    .modalCadastro {
+        width: 50%;
+        top: 0;
+        left: 0;
+        margin: 15% auto;
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 20px;
+    }
+    
+    .modalCadastro h2 {
+        margin-bottom: 30px;
+    }
+    
+    .cadastro1 {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+    
+    .cadastro1 label {
+        font-size: 1.25rem;
+        margin-left: 10px;
+        margin-bottom: 5px;
+        text-align: left;
+    
+    }
+    
+    .inputs {
+        border-radius: 20px;
+        width: 50%;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    
+    #skills {
+        border-radius: 20px;
+        padding: 15px;
+    }
+    
+    .botoesModal {
+        display: flex;
+        flex-direction: row;
+        margin: 15px;
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 600px) {
+    
+
+    .novoFuncionario {
+        border-radius: 20px;
+        color: #000000;
+        background: #ffffff;
+        font-size: 15px;
+        cursor: pointer;
+    }
+    
+
+    
+    .botao {
+        border-radius: 20px;
+        border: 2px solid #000000;
+        color: #000000;
+        background: #ffffff;
+        font-size: 15px;
+        padding: 15px;
+        cursor: pointer;
+    }
+    
+    
+    .modalCadastro-background {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        overflow: auto;
+        z-index: 1000;
+        position: fixed;
+        display: block;
+        top: 0;
+    }
+    
+    .modalCadastro {
+        width: 50%;
+        top: 0;
+        left: 0;
+        margin: 15% auto;
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 20px;
+    }
+    
+    .modalCadastro h2 {
+        margin-bottom: 30px;
+    }
+    
+    .cadastro1 {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+    
+    .cadastro1 label {
+        font-size: 1.25rem;
+        margin-left: 10px;
+        margin-bottom: 5px;
+        text-align: left;
+    
+    }
+    
+    .inputs {
+        border-radius: 20px;
+        width: 50%;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    
+    #skills {
+        border-radius: 20px;
+        padding: 15px;
+    }
+    
+    .botoesModal {
+        display: flex;
+        flex-direction: row;
+        margin: 15px;
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 450px) {
+    
+
+    .novoFuncionario {
+        border-radius: 20px;
+        color: #000000;
+        background: #ffffff;
+        font-size: 10px;
+        cursor: pointer;
+    }
+    
+    #filtroMatricula {
+        width: 100px;
+    }
+
+    #filtro {
+        width: 100px;
+    }
+    
+    .botao {
+        border-radius: 20px;
+        border: 2px solid #000000;
+        color: #000000;
+        background: #ffffff;
+        font-size: 15px;
+        padding: 15px;
+        cursor: pointer;
+    }
+    
+    
+    .modalCadastro-background {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        overflow: auto;
+        z-index: 1000;
+        position: fixed;
+        display: block;
+        top: 0;
+    }
+    
+    .modalCadastro {
+        width: 50%;
+        top: 0;
+        left: 0;
+        margin: 15% auto;
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 20px;
+    }
+    
+    .modalCadastro h2 {
+        margin-bottom: 30px;
+    }
+    
+    .cadastro1 {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+    
+    .cadastro1 label {
+        font-size: 1.25rem;
+        margin-left: 10px;
+        margin-bottom: 5px;
+        text-align: left;
+    
+    }
+    
+    .inputs {
+        border-radius: 20px;
+        width: 50%;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    
+    #skills {
+        border-radius: 20px;
+        padding: 15px;
+    }
+    
+    .botoesModal {
+        display: flex;
+        flex-direction: row;
+        margin: 15px;
+        justify-content: space-around;
+    }
+}

@@ -386,3 +386,232 @@ h1 {
         display: none; /* Oculta filtros na impressão */
     }
 }
+
+
+@media (max-width: 768px) {
+    
+    header {
+        background-color: #3c3c3c   ;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #d0043c;
+    
+    }
+    
+    header label {
+        margin: 5px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    
+    .logo {
+        height: 1.8rem;
+    }
+    
+    .dark-mode {
+        border: 1px solid #ffffff;
+        color: #ffffff;
+        background: #3c3c3c;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 10px;
+    }
+    
+    .dark-mode:hover {
+        background: rgba(213, 211, 211, 0.77);
+    }
+
+    .botãoAbrir3linhas {
+        width: 30px;
+    
+    }
+    
+    .openSideBar {
+        border: none;
+        background-color: #3c3c3c;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    
+    .openSideBar1 {
+        border: none;
+        background-color: #3c3c3c;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    
+}
+
+@media (max-width: 600px) {
+    
+
+    .novoFuncionario {
+        border-radius: 20px;
+        color: #000000;
+        background: #ffffff;
+        font-size: 15px;
+        cursor: pointer;
+    }
+    
+
+    
+    .botao {
+        border-radius: 20px;
+        border: 2px solid #000000;
+        color: #000000;
+        background: #ffffff;
+        font-size: 15px;
+        padding: 15px;
+        cursor: pointer;
+    }
+    
+    
+    .modalCadastro-background {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        overflow: auto;
+        z-index: 1000;
+        position: fixed;
+        display: block;
+        top: 0;
+    }
+    
+    .modalCadastro {
+        width: 50%;
+        top: 0;
+        left: 0;
+        margin: 15% auto;
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 20px;
+    }
+    
+    .modalCadastro h2 {
+        margin-bottom: 30px;
+    }
+    
+    .cadastro1 {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+    
+    .cadastro1 label {
+        font-size: 1.25rem;
+        margin-left: 10px;
+        margin-bottom: 5px;
+        text-align: left;
+    
+    }
+    
+    .inputs {
+        border-radius: 20px;
+        width: 50%;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    
+    #skills {
+        border-radius: 20px;
+        padding: 15px;
+    }
+    
+    .botoesModal {
+        display: flex;
+        flex-direction: row;
+        margin: 15px;
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 450px) {
+    
+
+    .novoFuncionario {
+        border-radius: 20px;
+        color: #000000;
+        background: #ffffff;
+        font-size: 10px;
+        cursor: pointer;
+    }
+    
+    #filtroMatricula {
+        width: 100px;
+    }
+
+    #filtro {
+        width: 100px;
+    }
+    
+    .botao {
+        border-radius: 20px;
+        border: 2px solid #000000;
+        color: #000000;
+        background: #ffffff;
+        font-size: 15px;
+        padding: 15px;
+        cursor: pointer;
+    }
+    
+    
+    .modalCadastro-background {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        overflow: auto;
+        z-index: 1000;
+        position: fixed;
+        display: block;
+        top: 0;
+    }
+    
+    .modalCadastro {
+        width: 50%;
+        top: 0;
+        left: 0;
+        margin: 15% auto;
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 20px;
+    }
+    
+    .modalCadastro h2 {
+        margin-bottom: 30px;
+    }
+    
+    .cadastro1 {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+    
+    .cadastro1 label {
+        font-size: 1.25rem;
+        margin-left: 10px;
+        margin-bottom: 5px;
+        text-align: left;
+    
+    }
+    
+    .inputs {
+        border-radius: 20px;
+        width: 50%;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    
+    #skills {
+        border-radius: 20px;
+        padding: 15px;
+    }
+    
+    .botoesModal {
+        display: flex;
+        flex-direction: row;
+        margin: 15px;
+        justify-content: space-around;
+    }
+}

@@ -228,5 +228,178 @@ header label {
     transition: left 0.3s, width 0.3s;
 }
 
+@media (max-width: 768px) {
+    
+    header {
+        background-color: #3c3c3c   ;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #d0043c;
+    
+    }
+    
+    header label {
+        margin: 5px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    
+    .logo {
+        height: 1.8rem;
+    }
+    
+    .dark-mode {
+        border: 1px solid #ffffff;
+        color: #ffffff;
+        background: #3c3c3c;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 10px;
+    }
+    
+    .dark-mode:hover {
+        background: rgba(213, 211, 211, 0.77);
+    }
+
+    .botãoAbrir3linhas {
+        width: 30px;
+    
+    }
+    
+    .openSideBar {
+        border: none;
+        background-color: #3c3c3c;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    
+    .openSideBar1 {
+        border: none;
+        background-color: #3c3c3c;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    
+    
+    .banner {
+        width: 100%;
+        height: 65vh;
+    }
+
+    .páginas {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        margin: 60px auto;
+    }
+    
+    .página {
+        font-family: 'Roboto', sans-serif; /* Ou 'Arial', 'Helvetica', 'Open Sans' */
+        font-size: 1.5em;
+        color: #ffffff;
+        display: flex;
+        width: 70%;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        box-shadow: 0px 0px 30px #000000, 0px 0px 30px #000000;
+        border-radius: 70px;
+        padding: 20px;
+        margin-bottom: 50px;
+    
+    
+    }
+    
+    .página h1 {
+        margin-bottom: 15px;
+    }
+    
+    .página p {
+        font-family: 'Open Sans', sans-serif; /* Ou 'Roboto', 'Lato', 'Arial', 'Helvetica' */
+        font-size: 1em;
+        color: #ffffff;
+        line-height: 1.5;
+    }
+    
+    .página img {
+    
+        width: 33%;
+    
+    }
+    
+    .página:first-child {
+        margin-left: 0px;
+    }
+    
+    .página:last-child {
+        margin-right: 0px;
+    }
+    
+    
+    
+    #perfil-home {
+        margin-bottom: 80px;
+    }
+    
+    .botãoHome {
+        border-radius: 20px;
+        background: #d0043c;
+        color: #ffffff;
+        border: none;
+        padding: 10px;
+        width: 190px;
+        font-size: 25px;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+    
+    .roleta-topicos {
+        position: relative;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 23px;
+        padding: 0px 100px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #d0043c;
+    }
+    
+    .roleta-topicos  label {
+        cursor: pointer;
+    }
+    
+    #linha-animada {
+        position: absolute;
+        bottom: 10px;
+        height: 3px;
+        width: 0;
+        background-color: #d0043c;
+        transition: left 0.3s, width 0.3s;
+    }
+}
+
+@media (max-width: 450px) {
+    
+    .roleta-topicos {
+        position: relative;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 15px;
+        padding: 0px 50px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #d0043c;
+    }
+    
+}
+
 
 
