@@ -3,6 +3,9 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from .forms import LoginForm
+import json
+from django.http import JsonResponse
+from .models import Respostas
 # Create your views here.
 
 def login_view(request):
@@ -25,3 +28,24 @@ def home_view(request):
 
 def cursos_view(request):
     return render(request, 'cursos.html')
+
+def formulario_view(request):
+    if request.method == 'POST':
+        try:
+            # Captura os dados do Google Forms enviados via JSON
+            data = json.loads(request.body)
+            answers = data.get('answers')
+
+            # Suponha que a tabela Respostas tenha campos correspondentes
+            Respostas.objects.create(
+                pergunta1=answers[0],
+                pergunta2=answers[1],
+                # Adicione outras perguntas conforme o formulário
+            )
+
+            render(request, 'formulario.html')
+            return JsonResponse({'status': 'success'}, status=200)
+
+        except Exception as e:
+            return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
+    return JsonResponse({'status': 'invalid request'}, status=400)
