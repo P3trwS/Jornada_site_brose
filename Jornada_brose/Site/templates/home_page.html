@@ -58,16 +58,16 @@
                 <p id="descCargos">Poderá ser visto os cargos disponíveis dentro da Brose. Para que assim tenha a
                     possibilidade de evoluir de cargos
                     ou ver o que é necessário para atingir a vaga desejada.</p>
-                <a herf="">
+                <a href="{% url 'cargos' %}">
                     <button id="botaoCargos" class="botãoHome">Cargos</button>
                 </a>
             </div>
 
             <div id="perfil-home" class="página">
                 <img id="imagem-perfil" src="{% static 'Home Page/perfil.png' %}">
-                <h1 id="Perfil">Perfil</h1>
+                <h1 id="Perfil">Funcionários</h1>
                 <p id="descPerfil">Os colaboradores se encontram aqui.<br> Podendo ver suas certificações, histórico e skills.</p>
-                <a href="">
+                <a href="{% url 'funcionario' %}">
                     <button id="botaoPerfil" class="botãoHome">Perfil</button>
                 </a>
             </div>
@@ -81,13 +81,13 @@
                 <h2 id="Menu-sideBar">Menu</h2>
                 <!-- Botão para fechar a SideBar -->
                 <button class="openSideBar1" onclick="abrirOuFecharSideBar()"> <img
-                        src="{% static 'Home Page/Dark Mode/3 linhas branco.png' %}" alt="3 linhas"></button>
+                        src="{% static 'Home Page/Light Mode/3 linhas preto.png' %}" alt="3 linhas"></button>
             </div>
             <!-- Botões para ir para a página respectiva -->
-            <a id="Home-sideBar" href="">Home</a>
+            <a id="Home-sideBar" href="{% url 'home_page' %}">Home</a>
             <a id="Cursos-sideBar" href="{% url 'cursos' %}">Cursos</a>
-            <a id="Cargos-sideBar" href="">Cargos</a>
-            <a id="Perfil-sideBar" href="">Perfil</a>
+            <a id="Cargos-sideBar" href="{% url 'cargos' %}">Cargos</a>
+            <a id="Perfil-sideBar" href="{% url 'funcionario' %}">Perfil</a>
         </div>
     </div>
 

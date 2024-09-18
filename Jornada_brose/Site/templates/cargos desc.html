@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargos - Descrição</title>
+    {% load static %}
+    <!-- o css está com o ID para realizar a alteração de Tema -->
+    <link id="css" rel="stylesheet" href="{% static 'Cargos Desc/Light Mode/light.css' %}">
+</head>
+
+<header>
+    <nav>
+        <!-- Aqui está o botão para abrir a side bar, juntamente com a função para abrir o mesmo -->
+        <button onclick="abrirOuFecharSideBar()" class="openSideBar"><img class="botãoAbrir3linhas" src="{% static 'IMAGENS IGUAIS/Light Mode/3 linhas preto.png' %}" alt="3 linhas"></button>
+        <!-- Logo da Brose -->
+        <img src="{% static 'IMAGENS IGUAIS/Brose_logo.png' %}" alt="Brose Logo" class="logo">
+    </nav>
+
+    <nav>
+        <!-- Linguagens disponíveis do site -->
+        <label>PT</label>
+        <label>EN</label>
+        <label>GR</label>
+        <!-- Botão que altera o tema com base no ID do css-->
+        <button id="botão-dark" onclick="darkMode()" class="dark-mode">Alterar Tema</button>
+    </nav>
+
+</header>
+
+    <img class="banner" src="{% static 'Cargos Desc/banner cargos.png' %}" alt="banner">
+
+<main>
+
+    <div class="moldura">
+        <div class="titulo">
+
+            <h1> Gerente Financeiro </h1>
+
+        </div>
+
+        
+        <div class="main-desc">
+            <div class="desc">
+                <div class="desc-cargo">
+                    <h2>Descrição: </h2>
+                    <p> O Gerente Financeiro é responsável por supervisionar todas as operações financeiras da empresa, garantindo a saúde financeira e o cumprimento de obrigações fiscais e regulamentares. Este profissional desenvolve estratégias financeiras, gerencia o fluxo de caixa, elabora relatórios e orçamentos, e oferece suporte à alta gestão em decisões estratégicas de investimentos e financiamentos. </p>
+                </div>
+
+                <div class="setor">
+                    <h2>Setor: </h2>
+                    <p> Financeiro </p>
+                </div>
+            </div>
+
+            <div class="desc">
+                <div class="requisitos">
+                    <h2> Requisitos:  </h2>
+                    <p> Graduação em Finanças, Contabilidade, Economia, Administração ou áreas correlatas. </p>
+                    <p> Pós-graduação ou MBA em Finanças, Controladoria, ou Gestão Empresarial (diferencial). </p>
+                    <p> Experiência mínima de 5 a 7 anos na área financeira, preferencialmente com atuação em cargos de liderança ou gestão.</p>
+                    <p> Vivência em gestão de equipes financeiras e operações de grande porte, com histórico comprovado de sucesso em funções de planejamento e controle financeiro. </p>
+                </div>
+            
+                <div class="colaborador">
+                    <h2> Colaborador: </h2>
+                    <p> Cleidson Tomohiro Matsuda </p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+<div class="sidebar-background" style="display: none;">
+    <div class="sidebar">
+    <div class="sidebarBotao">
+        <h2 id="Menu-sideBar">Menu</h2>
+        <!-- Botão para fechar a SideBar -->
+        <button class="openSideBar1" onclick="abrirOuFecharSideBar()"><img class="botãoAbrir3linhas" src="{% static 'IMAGENS IGUAIS/3 linhais preto.png' %}" alt="3 linhas"></button>
+    </div>
+    <!-- Botões para ir para a página respectiva -->
+    <a id="Home-sideBar" href="{% url 'home_page' %}">Home</a>
+    <a id="Cursos-sideBar" href="{% url 'cursos' %}">Cursos</a>
+    <a id="Cargos-sideBar" href="{% url 'cargos' %}">Cargos</a>
+    <a id="Perfil-sideBar" href="{% url 'funcinario' %}">Funcionários</a>
+    </div>
+</div>
+
+<script src="{% static 'Cargos Desc/script.js' %}"></script>

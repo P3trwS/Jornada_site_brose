@@ -1,0 +1,303 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #3c3c3c;
+}
+
+header {
+    background-color: #3c3c3c;
+    color: #ffffff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #d0043c;
+
+}
+
+header label {
+    margin: 10px;
+    cursor: pointer;
+}
+
+.logo {
+    height: 2.5rem;
+}
+
+.botãoAbrir3linhas {
+    width: 30px;
+
+}
+
+.openSideBar {
+    border: none;
+    background-color: #3c3c3c;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.openSideBar1 {
+    border: none;
+    background-color: #3c3c3c;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.banner {
+    width: 100%;
+    height: 750px;
+}
+
+.dark-mode {
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    background: #3c3c3c;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dark-mode:hover {
+    background: rgba(213, 211, 211, 0.77);
+}
+
+/* Sidebar Background */
+.sidebar-background {
+    display: none; /* Iniciar escondido */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Sidebar */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Inicialmente fora da tela */
+    background-color: #3c3c3c;
+    padding-top: 20px;
+    transition: left 0.3s ease; /* Transição suave para a propriedade left */
+}
+
+/* Outros estilos continuam os mesmos */
+
+.sidebar h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar a {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+    color: white;
+}
+
+.sidebarBotao {
+    display: flex;
+    align-items: center ;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 0px 10px; /* Reduz o espaço entre os itens */
+}
+
+.sidebarBotao  {
+    border-bottom: 2px solid #d0043c;
+}
+
+.sidebarBotao img {
+    width: 25px;
+}
+
+.main {
+    display: flex; /* Define o container principal como flexível */
+    justify-content: space-between; /* Distribui os containers com espaço entre eles */
+    align-items: flex-start; /* Alinha os containers ao topo */
+    gap: 30px;
+    
+}
+
+.main-setor {
+    display: flex;
+    justify-content: space-between; /* Espaço uniforme entre os cargos */
+    align-items: flex-start; /* Alinha os itens no topo */
+    flex-wrap: wrap; /* Permite que os cargos quebrem para a próxima linha quando necessário */
+    width: 46%; /* Ajuste conforme o layout desejado */
+    position: relative;
+}
+
+
+
+.setor {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-radius: 40px;
+    border:2px solid #ffffff;
+    padding: 20px;
+    font-size: 20px;
+    margin: 20px;
+    background: #000000;
+    color: #ffffff;
+    font-size: 30px;
+
+}
+
+.cargo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0px 0px 20px #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 50px;
+    margin: 20px;
+    cursor: pointer;
+    background: #c6c0c0;
+    align-items: center;
+    flex-basis: calc(40% - 20px); /* Ajuste para 3 cargos por linha, levando em conta as margens */
+    max-width: calc(40% - 20px); /* Ajuste para garantir a largura máxima adequada */
+}
+
+.cargo h2 {
+    margin-top: 10px;
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    overflow: hidden; /* Esconde o texto que ultrapassa o limite */
+    text-overflow: ellipsis; /* Adiciona "..." ao final do texto cortado */
+    max-width: 250px;
+}
+
+.cargo p {
+    font-size: 20px;
+}
+
+.cargo:hover {
+    background: #d6d4d4;
+}
+
+.cargo:last-child {
+    margin-bottom: 50px;
+}
+
+#searchBar {
+    width: 80%;
+    padding: 20px;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 70px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 20px #ffffff;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.titulo-cargo {
+    font-weight: bold;
+}
+
+.main-setor:first-child {
+    margin-left: 20px;
+}
+
+.main-setor:last-child {
+    margin-right: 20px;
+}
+
+#nenhumResultado {
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: 150px;
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+
+.barra-pesquisa {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.filtroBotao {
+    width: 50px;
+    background: #3c3c3c;
+}
+
+.filtro {
+    background: #3c3c3c;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-background {
+    display: block; /* Iniciar escondido */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-filtro {
+    color: #ffffff;
+    background-color: #3c3c3c;
+    margin: 15% auto; /* Centraliza o modal */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largura do modal */
+    max-width: 500px;
+    border-radius: 20px;
+}  
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.check-filtro {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    margin: 5px;
+}
+
+.check-filtro label {
+    font-size: 17px;
+}
+
+.botoes-filtro {
+    display: flex;
+    justify-content: space-between;
+}
+
+.enter-filtros {
+    background-color: #3c3c3c;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.enter-filtros:hover {
+    background-color: #c8c5c5 ;
+}

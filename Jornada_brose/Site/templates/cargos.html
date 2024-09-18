@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargos</title>
+    {% load static %}
+    <!-- o css está com o ID para realizar a alteração de Tema -->
+    <link id="css" rel="stylesheet" href="{% static 'Cargos/Light Mode/light.css' %}">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <!-- Aqui está o botão para abrir a side bar, juntamente com a função para abrir o mesmo -->
+            <button onclick="abrirOuFecharSideBar()" class="openSideBar"><img class="botãoAbrir3linhas" src="{% static 'IMAGENS IGUAIS/Light Mode/3 linhas preto.png' %}" alt="3 linhas"></button>
+            <!-- Logo da Brose -->
+            <img src="{% static 'IMAGENS IGUAIS/Brose_logo.png' %}" alt="Brose Logo" class="logo">
+        </nav>
+
+        <nav>
+            <!-- Linguagens disponíveis do site -->
+            <label>PT</label>
+            <label>EN</label>
+            <label>GR</label>
+            <!-- Botão que altera o tema com base no ID do css-->
+            <button id="botão-dark" onclick="darkMode()" class="dark-mode">Alterar Tema</button>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <img class="banner" src="{% static 'Cargos/banner cargos.png' %}" alt="banner">
+
+
+    <div class="barra-pesquisa">
+        <input type="text" id="searchBar" onkeyup="searchCargos()" placeholder="Buscar cargos...">
+        <button class="filtro" onclick="abrirOuFecharFiltro()"><img class="filtroBotao" src="{% static 'Cargos/Light Mode/settings.png' %}" > </button>  
+    </div>
+
+
+
+        <div class="main">
+            <div class="main-setor">
+                <div class="setor">
+                    FINANCEIRO
+                </div>
+                <div class="cargo">
+                    <a href="">
+                    <h2 class="titulo-cargo">Gerente Financeiro</h2>
+                    <p>Vagas: 1/1</p>
+                    </a>
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Analista Financeiro</h2>
+                    <p>Vagas: 18/20</p>
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Assistente Financeiro</h2>
+                    <p>Vagas: 5/5</p>
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Contador</h2>
+                    <p>Vagas: 3/3</p>
+                </div>
+                
+            </div>
+
+            <div class="main-setor">
+                <div class="setor">
+                    PCP
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Gerente de PCP</h2>
+                    <p>Vagas: 1/1</p>
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Analista de PCP</h2>
+                    <p>Vagas: 18/20</p>
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Assistente de PCP</h2>
+                    <p>Vagas: 5/5</p>
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Aprendiz do PCP</h2>
+                    <p>Vagas: 3/3</p>
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Programador de Produção</h2>
+                    <p>Vagas: 4/7</p>
+                </div>
+                
+            </div>
+
+            
+
+        </div>
+
+        <div class="main">
+            <div class="main-setor">
+                <div class="setor">
+                    T.I
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Gerente de T.I</h2>
+                    <p>Vagas: 1/1</p>
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Analista de Sistemas SR</h2>
+                    <p>Vagas: 18/20</p>
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Suporte Técnico</h2>
+                    <p>Vagas: 5/5</p>
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Analista de Sistemas JR</h2>
+                    <p>Vagas: 3/3</p>
+                </div>
+                
+            </div>
+
+            <div class="main-setor">
+                <div class="setor">
+                    PRODUÇÃO
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Gestor da Produção</h2>
+                    <p>Vagas: 1/1</p>
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Auxiliar de Produção</h2>
+                    <p>Vagas: 18/20</p>
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Operador de Máquina</h2>
+                    <p>Vagas: 5/5</p>
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Torneiro</h2>
+                    <p>Vagas: 3/3</p>
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Montador</h2>
+                    <p>Vagas: 4/7</p>
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Ferramenteiro</h2>
+                    <p>Vagas: 4/7</p>
+                </div>
+                
+            </div>
+
+            
+
+        </div>
+
+        <div class="main">
+            <div class="main-setor">
+                <div class="setor">
+                    Manutenção
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Gerente de Manuntenção</h2>
+                    <p>Vagas: 1/1</p>
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Eletricista</h2>
+                    <p>Vagas: 18/20</p>
+                </div>
+                <div class="cargo">
+                    <h2 class="titulo-cargo">Manutencionista</h2>
+                    <p>Vagas: 5/5</p>
+                </div>
+                
+            </div>
+
+            
+
+        </div>
+
+        <div id="nenhumResultado" style="display: none;">Nenhum resultado encontrado...</div>
+
+        <div class="sidebar-background" style="display: none;">
+            <div class="sidebar">
+            <div class="sidebarBotao">
+                <h2 id="Menu-sideBar">Menu</h2>
+                <!-- Botão para fechar a SideBar -->
+                <button class="openSideBar1" onclick="abrirOuFecharSideBar()"><img class="botãoAbrir3linhas" src="{% static 'IMAGENS IGUAIS/Light Mode/3 linhas preto.png' %}" alt="3 linhas"></button>
+            </div>
+            <!-- Botões para ir para a página respectiva -->
+            <a id="Home-sideBar" href="{% url 'home_page' %}">Home</a>
+            <a id="Cursos-sideBar" href="{% url 'cursos' %}">Cursos</a>
+            <a id="Cargos-sideBar" href="{% url 'cargos' %}">Cargos</a>
+            <a id="Perfil-sideBar" href="{% url 'funcionario' %}">Funcionários</a>
+            </div>
+        </div>
+
+        <div class="modal-background" style="display: none;">
+            <div class="modal-filtro" style="display: none;">
+                <h1>Preferências de Pesquisa</h1>
+                <h2>Setores:</h2>
+
+                <div class="inputs">
+                    <div class="check-filtro">
+                        <input type="checkbox" name="Financeiro"><label for="Financeiro">Financeiro</label>
+                    </div>
+                    <div class="check-filtro">
+                        <input type="checkbox" name="PCP"><label for="PCP">PCP</label>
+                    </div>
+                    <div class="check-filtro">
+                        <input type="checkbox" name="TI"><label for="TI">T.I</label>
+                    </div>
+                    <div class="check-filtro">
+                        <input type="checkbox" name="Producao"><label for="Producao">Produção</label>
+                    </div>
+                    <div class="check-filtro">
+                        <input type="checkbox" name="Manutencao"><label for="Manutencao">Manutenção</label>
+                    </div>
+                </div>
+
+            <div class="botoes-filtro">
+                <button class="enter-filtros" id="confirmar-filtro"> Confirmar Preferências </button>
+                <button class="enter-filtros" id="fechar-filtro" onclick="abrirOuFecharFiltro()"> Fechar </button>
+            </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="{% static 'Cargos/script.js' %}"></script>
+
+</body>
+</html>

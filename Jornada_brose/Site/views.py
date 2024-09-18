@@ -32,6 +32,18 @@ def cursos_view(request):
 def cursosDesc_view(request):
     return render(request, 'cursos desc.html')
 
+def cargos_view(request):
+    return render(request, 'cargos.html')
+
+def cargosDesc_view(request):
+    return render(request, 'cargos desc.html')
+
+def funcionario_view(request):
+    return render(request, 'funcionarios.html')
+
+def funcionarioDesc_view(request):
+    return render(request, 'funcionarios desc.html')
+
 def formulario_view(request):
     if request.method == 'POST':
         try:

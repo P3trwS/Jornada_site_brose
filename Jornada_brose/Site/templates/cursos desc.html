@@ -2,8 +2,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
     <title>Cursos - Edição</title>
+    {% load static %}
     <!-- o css está com o ID para realizar a alteração de Tema -->
     <link id="css" rel="stylesheet" href="{% static 'Cursos Desc/Light Mode/light.css' %}">
 </head>
@@ -43,7 +43,7 @@
 
         <div class="botoes">
 
-            <button class="botao"> Voltar </button>
+            <a href="{% url 'cursos' %}"><button class="botao"> Voltar </button></a>
 
         </div>
 
@@ -57,8 +57,8 @@
               <!-- Botões para ir para a página respectiva -->
               <a id="Home-sideBar" href="{% url 'home_page' %}">Home</a>
               <a id="Cursos-sideBar" href="{% url 'cursos' %}">Cursos</a>
-              <a id="Cargos-sideBar" href="">Cargos</a>
-              <a id="Perfil-sideBar" href="">Perfil</a>
+              <a id="Cargos-sideBar" href="{% url 'cargos' %}">Cargos</a>
+              <a id="Perfil-sideBar" href="{% url 'funcionario' %}">Funcionários</a>
             </div>
           </div>
 

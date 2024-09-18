@@ -24,6 +24,10 @@ urlpatterns = [
     path('home/', views.home_view, name='home_page'),
     path('cursos/', views.cursos_view, name='cursos'),
     path('cursos desc/', views.cursosDesc_view, name='cursos desc'),
+    path('cargos/', views.cargos_view, name='cargos'),
+    path('cargos desc/', views.cargosDesc_view, name='cargos desc'),
+    path('funcionario/', views.funcionario_view, name='funcionario'),
+    path('funcionario desc/', views.funcionarioDesc_view, name='funcionario desc'),
     path("formulario/", views.formulario_view, name="formulario"),
     path('admin/', admin.site.urls),
 ]
