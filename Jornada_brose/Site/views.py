@@ -5,62 +5,111 @@ from django.http import HttpResponse
 from .forms import LoginForm
 import json
 from django.http import JsonResponse
-from .models import Respostas
+from googleapiclient.discovery import build
+from google_auth_oauthlib.flow import Flow
+import os
+import pickle
+
 # Create your views here.
+
 
 def login_view(request):
     form = LoginForm(request.POST or None)
-    if request.method == 'POST':
+    if request.method == "POST":
         if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
+            username = form.cleaned_data.get("username")
+            password = form.cleaned_data.get("password")
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('home_page')  # redireciona para a página inicial ou dashboard
+                return redirect(
+                    "home_page"
+                )  # redireciona para a página inicial ou dashboard
             else:
-                return HttpResponse('Login inválido')   # você pode tratar isso melhor com uma mensagem no template
-    return render(request, 'login.html', {'form': form})
+                return HttpResponse(
+                    "Login inválido"
+                )  # você pode tratar isso melhor com uma mensagem no template
+    return render(request, "login.html", {"form": form})
+
 
 @login_required
 def home_view(request):
-    return render(request, 'home_page.html')
+    return render(request, "home_page.html")
+
 
 def cursos_view(request):
-    return render(request, 'cursos.html')
+    return render(request, "cursos.html")
+
 
 def cursosDesc_view(request):
-    return render(request, 'cursos desc.html')
+    return render(request, "cursos desc.html")
+
 
 def cargos_view(request):
-    return render(request, 'cargos.html')
+    return render(request, "cargos.html")
+
 
 def cargosDesc_view(request):
-    return render(request, 'cargos desc.html')
+    return render(request, "cargos desc.html")
+
 
 def funcionario_view(request):
-    return render(request, 'funcionarios.html')
+    return render(request, "funcionarios.html")
+
 
 def funcionarioDesc_view(request):
-    return render(request, 'funcionarios desc.html')
+    return render(request, "funcionarios desc.html")
+
 
 def formulario_view(request):
-    if request.method == 'POST':
-        try:
-            # Captura os dados do Google Forms enviados via JSON
-            data = json.loads(request.body)
-            answers = data.get('answers')
+    return render(request, 'formulario.html')
 
-            # Suponha que a tabela Respostas tenha campos correspondentes
-            Respostas.objects.create(
-                pergunta1=answers[0],
-                pergunta2=answers[1],
-                # Adicione outras perguntas conforme o formulário
-            )
+SCOPES = ["https://www.googleapis.com/auth/forms.responses.readonly"]
 
-            render(request, 'formulario.html')
-            return JsonResponse({'status': 'success'}, status=200)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-        except Exception as e:
-            return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
-    return JsonResponse({'status': 'invalid request'}, status=400)
+def oauth2callback(request):
+    
+    os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+    # Caminho para o arquivo credentials.json
+    creds_path = os.path.join(BASE_DIR, 'credentials.json')
+
+    flow = Flow.from_client_secrets_file(
+        creds_path, scopes=SCOPES, redirect_uri='http://localhost:8000/oauth2callback/')
+
+    if 'code' not in request.GET:
+        authorization_url, state = flow.authorization_url(
+            access_type='offline',
+            include_granted_scopes='true')
+        return redirect(authorization_url)
+    else:
+        flow.fetch_token(authorization_response=request.build_absolute_uri())
+        credentials = flow.credentials
+        # Salve as credenciais em um arquivo
+        token_path = os.path.join(BASE_DIR, 'token.pkl')
+        with open(token_path, 'wb') as token:
+            pickle.dump(credentials, token)
+        return HttpResponse('Autenticação concluída!')
+
+
+def get_form_responses(request):
+    # Caminho para o arquivo token.pkl
+    token_path = os.path.join(BASE_DIR, 'token.pkl')
+
+    if os.path.exists(token_path):
+        with open(token_path, 'rb') as token:
+            credentials = pickle.load(token)
+    else:
+        return redirect('oauth2callback')
+
+    # Construir o serviço da API
+    service = build('forms', 'v1', credentials=credentials)
+
+    # Substitua 'your_form_id' pelo ID do seu formulário
+    form_id = '1P4mTdpevdkJ4K3P-R_lqo95bVuOpCbDKbnQOH6v8rds'
+    result = service.forms().responses().list(formId=form_id).execute()
+
+    responses = result.get('responses', [])
+
+    # Processar as respostas conforme necessário
+    return HttpResponse(f'Respostas: {responses}')

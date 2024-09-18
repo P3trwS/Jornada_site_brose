@@ -19,6 +19,7 @@ from django.urls import include, path
 from Site import views
 
 
+
 urlpatterns = [
     path('', views.login_view, name='login'),
     path('home/', views.home_view, name='home_page'),
@@ -30,6 +31,9 @@ urlpatterns = [
     path('funcionario desc/', views.funcionarioDesc_view, name='funcionario desc'),
     path("formulario/", views.formulario_view, name="formulario"),
     path('admin/', admin.site.urls),
+    path('oauth2callback/', views.oauth2callback, name='oauth2callback'),
+    path('get_form_responses/', views.get_form_responses, name='get_form_responses'),
+    
 ]
 
 # urlpatterns = [
