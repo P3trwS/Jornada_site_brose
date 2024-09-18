@@ -44,7 +44,7 @@ function atualizarConteudo(topico) {
                 <h1 id="Cursos">Administração Básica</h1>
                 <O id="descCursos"> Este curso é ideal para iniciantes e profissionais <br> que desejam entender os princípios essenciais da <br>administração e como aplicá-los no ambiente de trabalho.</p>
                 <!-- Botões para ir para a página respectiva -->
-                <button id="botaoCursos" class="botãoHome">Acessar Curso</button>
+                <button id="botaoCursos" class="botãoHome" onclick="window.location.href='${cursosDescUrl}'">Acessar Curso</button>
             </div>
 
             <div class="página">
@@ -148,33 +148,7 @@ function darkMode() {
 //NÃO TEM TRADUÇÕES DE TUDO PQ DA MUITO TRABALHO DE TRADUZIR TUDO E ABRIR UM JSON PRA ISSO
 //NA APRESENTAÇÃO NÃO CLICAR NAS TRADUÇÕES APENAS NO LOGIN E NA HOME
 //VEJAM ISSO
-const translations = {
-    PT: {
-        Menu: "Menu",
-        Home: "Home",
-        Cursos: "Cursos",
-        Cargos: "Cargos",
-        Perfil: "Perfil",
-        alterarTema: "Mudar Tema"
-    },
-    EN: {
-        Menu: "Menu",
-        Home: "Home",
-        Cursos: "Courses",
-        Cargos: "Positions",
-        Perfil: "Profile",
-        alterarTema: "Change Theme",
-    },
-    GR: {
-        Menu: "Speisekarte",
-        Home: "Heim",
-        Cursos: "Kurse",
-        Cargos: "Positionen",
-        Perfil: "Profil",
-        alterarTema: "Thema ändern",
 
-    }
-};
 
 //função para atualizar as linguas
 function updateLanguage(language) {

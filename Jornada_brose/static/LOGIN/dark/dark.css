@@ -2,17 +2,17 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #000000;
+    background-color: #3c3c3c;
 }
 
 header {
-    background-color: rgb(0, 0, 0);
-    color: #d0043c;
+    background-color: #3c3c3c;
+    color: #ffffff;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #d0043c;
+    border-bottom: 1px solid #ffffff;
 
 }
 
@@ -26,9 +26,9 @@ header label {
 }
 
 .dark-mode {
-    border: 1px solid #d0043c;
-    color: #d0043c;
-    background: #000000;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    background: #3c3c3c;
     padding: 10px;
     cursor: pointer;
 }
@@ -42,13 +42,13 @@ main {
 }
 
 .login-espaço {
-    border:2px solid #d0043c;
+    border:2px solid #ffffff;
     color: #ffffff;
     border-radius: 4%;
     width: 40%;
     margin: 3.125rem auto;
     display: flex;
-    background: #000000;
+    background: #3c3c3c;
     align-items: center;
     flex-direction: column;
 
@@ -88,9 +88,9 @@ main {
 
 .inputs-login input {
     color: #ffffff;
-    background: #000000;
+    background: #3c3c3c;
     border-radius: 12px;
-    border:2px solid #d0043c;
+    border:2px solid #ffffff;
     padding: 5px;
 }
 
@@ -99,10 +99,10 @@ main {
 }
 
 .botao-login {
-    color: #d0043c;
-    background-color: #000000;
+    color: #ffffff;
+    background-color: #3c3c3c;
     font-size: 1.5rem;
-    border:2px solid #d0043c;
+    border:2px solid #ffffff;
     border-radius: 1.563rem;
     margin: auto;
     padding: 10px 6.25rem;
@@ -114,4 +114,331 @@ main {
     background: rgba(255, 255, 255, 0.282);
 }
 
+@media (max-width: 450px) {
+    
+    header {
+        background-color: #3c3c3c;
 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #d0043c;
+    
+    }
+    
+    header label {
+        margin: 5px;
+        cursor: pointer;
+        font-size: 10px;
+    }
+    
+    .logo {
+        height: 1.4rem;
+    }
+    
+    .dark-mode {
+        border: 1px solid #ffffff;
+        color: #ffffff;
+        background: #3c3c3c;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 10px;
+    }
+    
+    .dark-mode:hover {
+        background: rgba(213, 211, 211, 0.77);
+    }
+    
+    
+    main {
+        padding: 20px;
+    }
+    
+    .login-espaço {
+        border-radius: 4%;
+        width: 90%;
+        margin: 3.125rem auto;
+        display: flex;
+        background: #3c3c3c;
+        align-items: center;
+        flex-direction: column;
+        border: 2px solid #ffffff;
+    }
+    
+    .brose-login {
+        margin: auto;
+    }
+    
+    .brose-login h1 {
+        margin: 1rem;
+    }
+    
+    .brose-login img {
+        margin-top: 1.5em;
+        width: 60vw;
+    }
+    
+    .inputs-login {
+        display: flex;
+        flex-direction: column;
+        margin: 1.875rem;
+    
+    
+    }
+    
+    .inputs-login label {
+        font-size: 1.25rem;
+    
+        margin-top: 10px;
+        text-align: left;
+    }
+    
+    
+    .inputs-login input {
+        border-radius: 12px;
+
+        box-shadow: -6px 6px 4px 0px rgba(0, 0, 0, 0.7);
+        padding: 5px;
+    }
+    
+    .login-confirmar-butao {
+        align-items: center;
+    }
+    
+    .botao-login {
+        color: #d0043c;
+        background-color: #3c3c3c;
+        font-size: 1.5rem;
+        border:2px solid #d0043c;
+        border-radius: 1.563rem;
+
+        padding: 10px 20vw;
+        margin: 1.25rem auto;
+        cursor: pointer;
+    }
+    
+    .botao-login:hover {
+        background: rgba(97, 1, 1, 0.42);
+    }
+
+}
+
+@media (max-width: 768px) {
+    
+    header {
+        background-color: #3c3c3c;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #d0043c;
+    
+    }
+    
+    header label {
+        margin: 10px;
+        cursor: pointer;
+
+    }
+    
+    .logo {
+        height: 7vw;
+    }
+    
+    .dark-mode {
+        border: 1px solid #ffffff;
+        color: #ffffff;
+        background: #3c3c3c;
+        padding: 10px;
+        cursor: pointer;
+
+    }
+    
+    .dark-mode:hover {
+        background: rgba(213, 211, 211, 0.77);
+    }
+    
+    
+    main {
+        padding: 20px;
+    }
+    
+    .login-espaço {
+        border-radius: 4%;
+        width: 90%;
+        margin: 3.125rem auto;
+        display: flex;
+        background: #3c3c3c;
+        align-items: center;
+        flex-direction: column;
+        border: 2px solid #ffffff;
+    }
+    
+    .brose-login {
+        margin: auto;
+    }
+    
+    .brose-login h1 {
+        margin: 1rem;
+    }
+    
+    .brose-login img {
+        margin-top: 1.5em;
+        width: 40vw;
+    }
+    
+    .inputs-login {
+        display: flex;
+        flex-direction: column;
+        margin: 1.875rem;
+    
+    
+    }
+    
+    .inputs-login label {
+        font-size: 1.25rem;
+    
+        margin-top: 10px;
+        text-align: left;
+    }
+    
+
+    
+    .inputs-login input {
+        border-radius: 12px;
+        width: 40vw;
+        box-shadow: -6px 6px 4px 0px rgba(0, 0, 0, 0.7);
+        padding: 5px;
+    }
+    
+    .login-confirmar-butao {
+        align-items: center;
+    }
+    
+    .botao-login {
+        color: #d0043c;
+        background-color: #3c3c3c;
+        font-size: 1.5rem;
+        border:2px solid #d0043c;
+        border-radius: 1.563rem;
+
+        padding: 10px 20vw;
+        margin: 1.25rem auto;
+        cursor: pointer;
+    }
+    
+    .botao-login:hover {
+        background: rgba(97, 1, 1, 0.42);
+    }
+
+}
+
+@media (max-width: 1050px) {
+    
+    header {
+        background-color: #3c3c3c;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #d0043c;
+    
+    }
+    
+    header label {
+        margin: 10px;
+        cursor: pointer;
+
+    }
+    
+    .logo {
+        height: 5vw;
+    }
+    
+    .dark-mode {
+        border: 1px solid #ffffff;
+        color: #ffffff;
+        background: #3c3c3c;
+        padding: 10px;
+        cursor: pointer;
+
+    }
+    
+    .dark-mode:hover {
+        background: rgba(213, 211, 211, 0.77);
+    }
+    
+    
+    main {
+        padding: 20px;
+    }
+    
+    .login-espaço {
+        border-radius: 4%;
+        width: 90%;
+        margin: 3.125rem auto;
+        display: flex;
+        background: #3c3c3c;
+        align-items: center;
+        flex-direction: column;
+        border: 2px solid #ffffff;
+    }
+    
+    .brose-login {
+        margin: auto;
+    }
+    
+    .brose-login h1 {
+        margin: 1rem;
+    }
+    
+    .brose-login img {
+        margin-top: 1.5em;
+        width: 30vw;
+    }
+    
+    .inputs-login {
+        display: flex;
+        flex-direction: column;
+        margin: 1.875rem;
+    
+    
+    }
+    
+    .inputs-login label {
+        font-size: 1.75rem;
+    
+        margin-top: 10px;
+        text-align: left;
+    }
+    
+
+    
+    .inputs-login input {
+        border-radius: 12px;
+        width: 40vw;
+        box-shadow: -6px 6px 4px 0px rgba(0, 0, 0, 0.7);
+        padding: 5px;
+    }
+    
+    .login-confirmar-butao {
+        align-items: center;
+    }
+    
+    .botao-login {
+        color: #d0043c;
+        background-color: #3c3c3c;
+        font-size: 2rem;
+        border:2px solid #d0043c;
+        border-radius: 1.563rem;
+        
+        padding: 10px 20vw;
+        margin: 1.25rem auto;
+        cursor: pointer;
+    }
+    
+    .botao-login:hover {
+        background: rgba(97, 1, 1, 0.42);
+    }
+
+}

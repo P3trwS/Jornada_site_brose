@@ -29,6 +29,9 @@ def home_view(request):
 def cursos_view(request):
     return render(request, 'cursos.html')
 
+def cursosDesc_view(request):
+    return render(request, 'cursos desc.html')
+
 def formulario_view(request):
     if request.method == 'POST':
         try:

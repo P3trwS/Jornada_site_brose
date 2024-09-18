@@ -76,21 +76,21 @@ WSGI_APPLICATION = 'Jornada_brose.wsgi.application'
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'brose_db_sql',
-        'USER': 'postgres',
-        'PASSWORD': 'qwertyzxc',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'brose_db_sql',
+       'USER': 'postgres',
+       'PASSWORD': 'qwertyzxc',
+       'HOST': 'localhost',
+       'PORT': '5432',
+   }
 }
 
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
+#      'default': {
+#          'ENGINE': 'django.db.backends.sqlite3',
+#          'NAME': BASE_DIR / 'db.sqlite3',
+#      }
 # }
 
 

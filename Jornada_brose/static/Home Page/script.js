@@ -46,10 +46,10 @@ const translations = {
         Home: "Home",
         Cursos: "Cursos",
         Cargos: "Cargos",
-        Perfil: "Perfil",
+        Perfil: "Funcionários",
         descCursos: "Aqui você poderá ver os cursos disponíveis, realizando eles terá o certificado e adicionando a skill equivalente ao seu perfil.",
         descCargos: "Poderá ser visto os cargos disponíveis dentro da Brose. Para que assim tenha a possibilidade de evoluir de cargos ou ver o que é necessário para atingir a vaga desejada.",
-        descPerfil: "O seu Perfil se encontra aqui. Podendo ver suas certificações, histórico e skills.",
+        descPerfil: "Os colaboradores se encontram aqui. Podendo ver suas certificações, histórico e skills.",
 
         alterarTema: "Mudar Tema"
     },
