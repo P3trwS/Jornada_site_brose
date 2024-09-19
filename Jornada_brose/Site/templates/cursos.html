@@ -15,7 +15,9 @@
         <!-- Aqui está o botão para abrir a side bar, juntamente com a função para abrir o mesmo -->
         <button onclick="abrirOuFecharSideBar()" class="openSideBar"><img class="botãoAbrir3linhas" src="{% static 'Cursos/Light Mode/3 linhas preto.png' %}" alt="3 linhas" /></button>
         <!-- Logo da Brose -->
-        <img src="{% static 'Cursos/Brose_logo.png' %}" alt="Brose Logo" class="logo" />
+        <a href="{% url 'home_page' %}">
+          <img src="{% static 'Cursos/Brose_logo.png' %}" alt="Brose Logo" class="logo">
+      </a>
       </nav>
 
       <nav>

@@ -18,7 +18,9 @@
             <button onclick="abrirOuFecharSideBar()" class="openSideBar"><img class="botãoAbrir3linhas"
                     src="{% static 'Home Page/Light Mode/3 linhas preto.png' %}" alt="3 linhas"></button>
             <!-- Logo da Brose -->
-            <img src="{% static 'Home Page/Brose_logo.png' %}" alt="Brose Logo" class="logo">
+            <a href="{% url 'home_page' %}">
+                <img src="{% static 'Home Page/Brose_logo.png' %}" alt="Brose Logo" class="logo">
+            </a>
         </nav>
 
         <nav>
@@ -66,7 +68,8 @@
             <div id="perfil-home" class="página">
                 <img id="imagem-perfil" src="{% static 'Home Page/perfil.png' %}">
                 <h1 id="Perfil">Funcionários</h1>
-                <p id="descPerfil">Os colaboradores se encontram aqui.<br> Podendo ver suas certificações, histórico e skills.</p>
+                <p id="descPerfil">Os colaboradores se encontram aqui.<br> Podendo ver suas certificações, histórico e
+                    skills.</p>
                 <a href="{% url 'funcionario' %}">
                     <button id="botaoPerfil" class="botãoHome">Perfil</button>
                 </a>
