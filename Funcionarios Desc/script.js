@@ -6,6 +6,8 @@ let originalValues = {};
 function toggleEdit() {
     const labels = document.querySelectorAll('.infos label');
     const inputs = document.querySelectorAll('.infos input');
+    const selectCargo = document.getElementById('edit-cargo'); // Seleciona o campo de seleção de cargo
+    const cargoLabel = document.getElementById('cargo-label'); // Seleciona o label do cargo
     const css = document.getElementById('css');
     const editButton = document.querySelector('.botoes .botao[title="Editar Funcionário"] img');
     const cancelButton = document.querySelector('.botoes .botao[title="Cancelar"]');
@@ -24,6 +26,11 @@ function toggleEdit() {
                 input.style.display = 'none'; // Esconde os inputs
                 labels[index].style.display = ''; // Mostra os labels
             });
+
+            // Atualiza o valor do label do cargo com o valor selecionado no select
+            cargoLabel.textContent = selectCargo.value;
+            selectCargo.style.display = 'none'; // Esconde o select
+            cargoLabel.style.display = ''; // Exibe o label
 
             // Salva o valor de skills e converte em parágrafos apenas para quebras reais de linha
             const skillsText = skillsTextarea.value.split(/\r?\n/); // Divide apenas nas quebras de linha reais
@@ -48,19 +55,15 @@ function toggleEdit() {
             }
         }
     } else {
-        // Armazena os valores originais antes de editar
-        originalValues = {
-            matricula: document.getElementById('edit-matricula').value,
-            cargo: document.getElementById('edit-cargo').value,
-            idade: document.getElementById('edit-idade').value,
-            skills: skillsTextarea.value
-        };
-
         // Habilita a edição
         inputs.forEach((input, index) => {
             input.style.display = 'block';
             labels[index].style.display = '';
         });
+
+        // Exibe o select de cargo
+        selectCargo.style.display = 'block';
+        cargoLabel.style.display = 'none'; // Esconde o label do cargo
 
         skillsTextarea.style.display = 'block';
         skillsParagraph.style.display = '';
@@ -69,6 +72,7 @@ function toggleEdit() {
         cancelButton.style.display = 'inline'; // Mostra o botão de cancelar
     }
 }
+
 
 
 // Função para cancelar a edição e reverter os valores

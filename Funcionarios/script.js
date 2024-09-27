@@ -1,15 +1,17 @@
 function darkMode() {
     const css = document.getElementById('css');
     const linhas = document.querySelectorAll('img[alt="3 linhas"]');
+    const editar = document.querySelectorAll('img[alt="Editar"]');
 
     //Operação para a troca de tema
     if (css.getAttribute('href') === '/Jornada_site_brose/Funcionarios/Dark Mode/dark.css') {
         css.setAttribute('href', '/Jornada_site_brose/Funcionarios/Light Mode/light.css'); // Muda para o modo claro
         linhas.forEach(linha => linha.setAttribute('src', '/Jornada_site_brose/IMAGENS IGUAIS/Light Mode/3 linhas preto.png'));
+        editar.forEach(edit => edit.setAttribute('src', '/Jornada_site_brose/Funcionarios/Light Mode/user-avatar-preto.png'))
 
     } else {
         css.setAttribute('href', '/Jornada_site_brose/Funcionarios/Dark Mode/dark.css'); // Muda para o modo escuro
-
+        editar.forEach(edit => edit.setAttribute('src', '/Jornada_site_brose/Funcionarios/Dark Mode/user-avatar branco.png'))
         linhas.forEach(linha => linha.setAttribute('src', '/Jornada_site_brose/IMAGENS IGUAIS/Dark Mode/3 linhas branco.png'));
 
     }
@@ -139,7 +141,7 @@ function filtrarMatricula() {
 
 function PDF() {
     // Seleciona o elemento da tabela para exportação
-    var elementoTabela = document.querySelector('.tela-tabela');
+    var elementoTabela = document.querySelector('.tabela');
 
     // Configurações para o PDF
     var opt = {
@@ -210,3 +212,66 @@ function abrirOuFecharModal() {
         modal.style.display = "block";
     }
 }
+
+const inputField = document.getElementById('inputField');
+const optionsList = document.getElementById('optionsList');
+const cargoField = document.getElementById('cargoField');
+
+// Lista de funcionários e seus respectivos cargos
+const funcionarios = [
+    { nome: 'Gerente', cargo: 'CR321' },
+    { nome: 'Vendedora', cargo: 'CR320' },
+    { nome: 'Desenvolvedor', cargo: 'CR319' },
+    { nome: 'Designer', cargo: 'CR318' },
+    { nome: 'Marketing', cargo: 'CR317' }
+];
+
+function filterOptions(value) {
+    // Limpa as opções existentes
+    optionsList.innerHTML = '';
+    
+    // Filtra os funcionários com base no valor digitado
+    const filteredOptions = funcionarios.filter(funcionario => 
+        funcionario.nome.toLowerCase().includes(value.toLowerCase())
+    );
+    
+    // Adiciona as opções filtradas na lista
+    filteredOptions.forEach(funcionario => {
+        const optionItem = document.createElement('div');
+        optionItem.classList.add('option-item');
+        optionItem.textContent = funcionario.nome;
+        
+        // Adiciona o clique para preencher o input
+        optionItem.addEventListener('click', () => {
+            inputField.value = funcionario.nome;
+            cargoField.value = funcionario.cargo; // Preenche o cargo automaticamente
+            optionsList.style.display = 'none';
+        });
+
+        optionsList.appendChild(optionItem);
+    });
+
+    // Exibe a lista de opções
+    if (filteredOptions.length > 0) {
+        optionsList.style.display = 'block';
+    } else {
+        optionsList.style.display = 'none';
+    }
+}
+
+// Exibe as opções quando o campo de entrada é clicado
+inputField.addEventListener('focus', () => {
+    filterOptions(inputField.value);
+});
+
+// Filtra as opções enquanto o usuário digita
+inputField.addEventListener('input', () => {
+    filterOptions(inputField.value);
+});
+
+// Esconde a lista de opções quando o usuário clica fora do input
+document.addEventListener('click', (event) => {
+    if (!event.target.closest('.autocomplete')) {
+        optionsList.style.display = 'none';
+    }
+});

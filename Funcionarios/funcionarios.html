@@ -41,9 +41,11 @@
         <h1>Tabela de Funcionários</h1>
         
         <div class="filtros">
-            <input type="text" id="filtroMatricula" placeholder="Filtrar por matrícula..." onkeyup="filtrarMatricula()">
+            <div class="filtros-inputs">
+                <input type="text" id="filtroMatricula" placeholder="Filtrar por matrícula..." onkeyup="filtrarMatricula()">
+                <input type="text" id="filtro" placeholder="Filtrar por nome, idade ou cargo..." onkeyup="filtrarTabela()">
+            </div>
             <button class="novoFuncionario" onclick="abrirOuFecharModal()"> Novo Funcionário </button>
-            <input type="text" id="filtro" placeholder="Filtrar por nome, idade ou cargo..." onkeyup="filtrarTabela()">
         </div>
         <div class="rolagem">
             <table class="tabela" id="tabelaFuncionarios">
@@ -51,8 +53,9 @@
                     <tr>
                         <th>Matrícula</th>
                         <th>Nome</th>
-                        <th>Idade</th>
+                        <th>ID Cargo</th>
                         <th>Cargo</th>  
+                        <th>Editar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -61,54 +64,63 @@
                         <td>Gabriel</td>
                         <td>1</td>
                         <td>China Number One</td>
+                        <td><button class="editar-imagem"><img src="/Jornada_site_brose/Funcionarios/Light Mode/user-avatar-preto.png" alt="Editar"></button></td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>JEÃO</td>
                         <td>21</td>
                         <td>Roubar</td>
+                        <td><button class="editar-imagem"><img src="/Jornada_site_brose/Funcionarios/Light Mode/user-avatar-preto.png" alt="Editar"></button></td>
                     </tr>
                     <tr>
                         <td>3</td>
                         <td>Lucão</td>
                         <td>20</td>
                         <td>VHSEXO</td>
+                        <td><button class="editar-imagem"><img src="/Jornada_site_brose/Funcionarios/Light Mode/user-avatar-preto.png" alt="Editar"></button></td>
                     </tr>
                     <tr>
                         <td>4</td>
                         <td>MANO CLEI</td>
                         <td>17</td>
                         <td>TOMO</td>
+                        <td><button class="editar-imagem"><img src="/Jornada_site_brose/Funcionarios/Light Mode/user-avatar-preto.png" alt="Editar"></button></td>
                     </tr>
                     <tr>
                         <td>5</td>
                         <td>Eduardo Nogaroto</td>
                         <td>20</td>
                         <td>FAZ TUDO</td>
+                        <td><button class="editar-imagem"><img src="/Jornada_site_brose/Funcionarios/Light Mode/user-avatar-preto.png" alt="Editar"></button></td>
                     </tr>
                     <tr>
                         <td>6</td>
                         <td>Pedrão</td>
                         <td>20</td>
                         <td>Paysandu Men</td>
+                        <td><button class="editar-imagem"><img src="/Jornada_site_brose/Funcionarios/Light Mode/user-avatar-preto.png" alt="Editar"></button></td>
                     </tr>
                     <tr>
                         <td>7</td>
                         <td>Emerson Filho</td>
                         <td>19</td>
                         <td>É O HOMI</td>
+                        <td><button class="editar-imagem"><img src="/Jornada_site_brose/Funcionarios/Light Mode/user-avatar-preto.png" alt="Editar"></button></td>
                     </tr>
                     <tr>
                         <td>8</td>
                         <td>Maria Wongs</td>
                         <td>22</td>
                         <td>UCRANIA PIU PIU</td>
+                        <td><button class="editar-imagem"><img src="/Jornada_site_brose/Funcionarios/Light Mode/user-avatar-preto.png" alt="Editar"></button></td>
                     </tr>
                     <tr>
                         <td>9</td>
                         <td>Vini Boy</td>
                         <td>22</td>
                         <td>Doutor Sexo</td>
+                        <td><button class="editar-imagem"><img src="/Jornada_site_brose/Funcionarios/Light Mode/user-avatar-preto.png" alt="Editar"></button></td>
                     </tr>
 
                 </tbody>
@@ -152,12 +164,19 @@
             <label>Nome</label>
             <input type="text" class="inputs" id="Nome" placeholder="Digite o nome do novo colaborador">
 
+            
+            <div class="autocomplete">
+                <label>Cargo</label>
+                <input type="text" class="inputs" id="inputField" placeholder="Escolha uma opção...">
+                <div id="optionsList" class="options-list"></div>
+            </div>
 
-            <label>Idade</label>
-            <input type="text" class="inputs" id="Idade" placeholder="Digite a idade do colaborador">
+            <label>ID Cargo</label>
+            <div>
+                <input type="text" class="inputs" id="cargoField" placeholder="ID do Cargo será preenchido automaticamente" readonly>
+            </div>
 
-            <label>Cargo</label>
-            <input type="text" class="inputs" id="Cargo" placeholder="Digite o cargo do colaborador">
+            
 
             <label>Skills</label>
             <textarea id="skills"></textarea>

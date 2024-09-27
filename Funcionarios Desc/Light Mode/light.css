@@ -153,6 +153,13 @@ header label {
     border-radius: 20px;
 }
 
+.container select {
+    padding: 5px;
+    border-radius: 20px;
+    width: 176px;
+    border: 2px solid ;
+}
+
 .container textarea {
     border-radius: 20px;
     padding: 15px;
