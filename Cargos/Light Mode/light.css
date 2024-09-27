@@ -122,123 +122,125 @@ header label {
     width: 25px;
 }
 
-.main {
-    display: flex; /* Define o container principal como flexível */
-    justify-content: space-between; /* Distribui os containers com espaço entre eles */
-    align-items: flex-start; /* Alinha os containers ao topo */
-    gap: 30px;
-    
-}
-
-.main-setor {
-    display: flex;
-    justify-content: space-between; /* Espaço uniforme entre os cargos */
-    align-items: flex-start; /* Alinha os itens no topo */
-    flex-wrap: wrap; /* Permite que os cargos quebrem para a próxima linha quando necessário */
-    width: 46%; /* Ajuste conforme o layout desejado */
-    position: relative;
-}
-
-
-
-.setor {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    border-radius: 40px;
-    border:2px solid #000000;
-    padding: 20px;
+.novoFuncionario {
+    border-radius: 20px;
+    color: #000000;
+    background: #ffffff;
     font-size: 20px;
-    margin: 20px;
-    background: #3c3c3c;
-    color: #ffffff;
-    font-size: 30px;
-
-}
-
-.cargo {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 20px;
-    box-shadow: 0px 0px 20px #000000;
-    border: 2px solid #000000;
-    border-radius: 50px;
-    margin: 20px;
     cursor: pointer;
-    background: #efebeb;
-    align-items: center;
-    flex-basis: calc(40% - 20px); /* Ajuste para 3 cargos por linha, levando em conta as margens */
-    max-width: calc(40% - 20px); /* Ajuste para garantir a largura máxima adequada */
 }
 
-.cargo h2 {
-    margin-top: 10px;
-    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
-    overflow: hidden; /* Esconde o texto que ultrapassa o limite */
-    text-overflow: ellipsis; /* Adiciona "..." ao final do texto cortado */
-    max-width: 250px;
+.novoFuncionario:hover {
+    background: #cac6c6;
 }
 
-.cargo p {
-    font-size: 20px;
-}
-
-.cargo:hover {
-    background: #d6d4d4;
-}
-
-.cargo:last-child {
-    margin-bottom: 50px;
-}
-
-#searchBar {
-    width: 80%;
-    padding: 20px;
-    font-size: 20px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: 70px;
-    border-radius: 30px;
-    box-shadow: 0px 0px 20px #000000;
-}
-
-.titulo-cargo {
-    font-weight: bold;
-}
-
-.main-setor:first-child {
-    margin-left: 20px;
-}
-
-.main-setor:last-child {
-    margin-right: 20px;
-}
-
-#nenhumResultado {
-    font-weight: bold;
-    font-size: 30px;
-    margin-left: 150px;
-    margin-top: 30px;
-    margin-bottom: 70px;
-}
-
-.barra-pesquisa {
+main {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-evenly;
+    min-height: 650px;
 }
 
-.filtroBotao {
-    width: 50px;
-    background: #ffffff;
+.tela-tabela {
+    background-color: #fff;
+    box-shadow: 0px 0px 20px #000000; 
+    border-radius: 8px;
+    overflow: hidden;
+    width: 90%;
+
+    border: 2px solid #000000;
 }
 
-.filtro {
-    background: #ffffff;
+h1 {
+    background-color: #ffffff;
+    color: #d0043c;
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+    font-size: 1.5em;
+    border-bottom: 2px solid #d0043c;
+}
+
+.rolagem {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela thead {
+    background-color: #ffffff;
+    color: #d0043c;
+    position: sticky;
+    top: 0;
+    z-index: 10; /* Garante que o thead fique sobre as linhas */
+}
+
+.tabela thead th {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.tabela tbody tr:nth-child(even) {
+    background-color: #f4f4f9;
+}
+
+.tabela tbody tr:hover {
+    background-color: #e0e0e0;
+}
+
+.tabela tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+
+}
+
+.tabela td {
+    word-wrap: break-word;  /* Permite a quebra de palavras longas */
+    max-width: 150px;       /* Define um tamanho máximo para a célula, ajuste conforme necessário */
+}
+
+.tabela tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.editar-imagem {
+    background: none;
     border: none;
     cursor: pointer;
+    position: relative;
+    display: inline-block;
 }
+
+.editar-imagem img {
+    width: 2vw;
+    display: block;
+}
+
+.editar-imagem::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #000; /* Cor da linha */
+    transition: width 0.3s ease;
+}
+
+.editar-imagem:hover::after {
+    width: 100%; /* A linha vai ocupar a largura total do botão ao passar o mouse */
+}
+
+.filtros {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 20px;
+}
+
 
 .modal-background {
     display: block; /* Iniciar escondido */
