@@ -187,6 +187,8 @@ function IMPRIMIR() {
     novaJanela.document.write('.tabela td { max-width: 150px; word-wrap: break-word;}'); // Remove o limite de largura na impressão
     novaJanela.document.write('h1 { font-size: 1.2em; border-bottom: 1px solid #d0043c; }');
     novaJanela.document.write('.filtros { display: none; }'); // Oculta filtros na impressão
+    novaJanela.document.write('.editar-imagem { background: none; border: none; cursor: pointer; position: relative; display: inline-block; }')
+    novaJanela.document.write('.editar-imagem img { width: 2vw; display: block; }')
     novaJanela.document.write('</style>');
     novaJanela.document.write('</head><body >');
     novaJanela.document.write(divToPrint.outerHTML);

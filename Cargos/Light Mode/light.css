@@ -242,58 +242,116 @@ h1 {
 }
 
 
-.modal-background {
-    display: block; /* Iniciar escondido */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
+.modalCadastro-background {
     width: 100%;
     height: 100%;
+    background: rgba(0, 0, 0, 0.4);
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    position: fixed;
+    display: block;
+    top: 0;
 }
 
-.modal-filtro {
-    background-color: #ffffff;
-    margin: 15% auto; /* Centraliza o modal */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Largura do modal */
-    max-width: 500px;
+.modalCadastro {
+    width: 50%;
+    top: 0;
+    left: 0;
+    margin: 15% auto;
+    background: #ffffff;
     border-radius: 20px;
-}  
+    padding: 20px;
+}
+
+.modalCadastro h2 {
+    margin-bottom: 30px;
+}
+
+.cadastro1 {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    position: relative;
+}
+
+.cadastro1 label {
+    font-size: 1.25rem;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+
+}
 
 .inputs {
+    border-radius: 20px;
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#skills {
+    border-radius: 20px;
+    padding: 15px;
+}
+
+#cargoField {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.autocomplete {
+    position: relative;
     display: flex;
     flex-direction: column;
 }
 
-.check-filtro {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 10px;
-    margin: 5px;
+
+.options-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: #fff;
+    z-index: 1000;
+    display: none;
 }
 
-.check-filtro label {
-    font-size: 17px;
-}
-
-.botoes-filtro {
-    display: flex;
-    justify-content: space-between;
-}
-
-.enter-filtros {
-    background-color: #ffffff;
-    font-size: 15px;
-    padding: 10px;
-    margin-top: 20px;
+.option-item {
+    padding: 8px;
     cursor: pointer;
 }
 
-.enter-filtros:hover {
-    background-color: #c8c5c5 ;
+.option-item:hover {
+    background-color: #f0f0f0;
+}
+
+
+.botoesModal {
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+    justify-content: space-around;
+}
+
+.botao {
+    border-radius: 20px;
+    border-color:2px solid #000000 ;
+    color: #000000;
+    background: #ffffff;
+    font-size: 20px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.botao:hover {
+    background: #cac6c6;
+}
+
+.botoes {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
 }

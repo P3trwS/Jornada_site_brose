@@ -105,3 +105,79 @@ window.addEventListener('load', function() {
     // Atualizar com base na língua destacada
     updateLanguage(defaultLanguage);
 });
+
+function abrirOuFecharModal() {
+    const modalBackground = document.querySelector('.modalCadastro-background');
+    const modal = document.querySelector('.modalCadastro');
+
+    if (modalBackground.style.display === "block") {
+        modalBackground.style.display = "none";
+    } else {
+        modalBackground.style.display ="block";
+    }
+
+    if (modal.style.display === "block") {
+        modal.style.display = "none"; 
+    } else {
+        modal.style.display = "block";
+    }
+}
+
+function IMPRIMIR() {
+    var divToPrint = document.querySelector('.tela-tabela'); // Selecione o contêiner que deseja imprimir
+    var novaJanela = window.open("", "", "width=800,height=600");
+
+    // Adiciona o conteúdo da nova janela com os estilos CSS incluídos
+    novaJanela.document.write('<html><head><title>Imprimir Relatório</title>');
+    novaJanela.document.write('<style>');
+    novaJanela.document.write('body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #ffffff; }');
+    novaJanela.document.write('header, .sidebar-background, .sidebar, .dark-mode { display: none; }'); // Oculta elementos desnecessários
+    novaJanela.document.write('.tela-tabela { width: 100%; box-shadow: none; border: 1px solid #000000; border-radius: 0; }');
+    novaJanela.document.write('.tabela { width: 100%; border-collapse: collapse; }');
+    novaJanela.document.write('.tabela thead { background-color: #ffffff; color: #d0043c; }');
+    novaJanela.document.write('.tabela thead th { padding: 12px 15px; text-align: left; border: 1px solid #ddd; }');
+    novaJanela.document.write('.tabela tbody tr:nth-child(even) { background-color: #f4f4f9; }');
+    novaJanela.document.write('.tabela tbody tr:hover { background-color: #ffffff; }'); // Remove o efeito de hover na impressão
+    novaJanela.document.write('.tabela tbody td { padding: 12px 15px; border: 1px solid #ddd; word-wrap: break-word; }');
+    novaJanela.document.write('.tabela td { max-width: 150px; word-wrap: break-word;}'); // Remove o limite de largura na impressão
+    novaJanela.document.write('h1 { font-size: 1.2em; border-bottom: 1px solid #d0043c; }');
+    novaJanela.document.write('.editar-imagem { background: none; border: none; cursor: pointer; position: relative; display: inline-block; }')
+    novaJanela.document.write('.editar-imagem img { width: 2vw; display: block; }')
+    novaJanela.document.write('.filtros { display: none; }'); // Oculta filtros na impressão
+    novaJanela.document.write('</style>');
+    novaJanela.document.write('</head><body >');
+    novaJanela.document.write(divToPrint.outerHTML);
+    novaJanela.document.write('</body></html>');
+    novaJanela.document.close();
+    novaJanela.focus(); // Necessário para IE
+    novaJanela.print();
+}
+
+function CSV() {
+    // Seleciona a tabela HTML
+    var tabela = document.querySelector('.tabela');
+    
+    // Converte a tabela para uma planilha
+    var wb = XLSX.utils.table_to_book(tabela, {sheet: "Cargos"});
+    
+    // Exporta o arquivo Excel
+    XLSX.writeFile(wb, "relatorio_cargos.xlsx");
+}
+
+function PDF() {
+    // Seleciona o elemento da tabela para exportação
+    var elementoTabela = document.querySelector('.tabela');
+
+    // Configurações para o PDF
+    var opt = {
+        margin:       1,
+        filename:     'relatorio_cargos.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+    // Gera o PDF usando html2pdf e a tabela filtrada
+    html2pdf().from(elementoTabela).set(opt).save();
+
+}
