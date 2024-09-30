@@ -23,7 +23,7 @@ def login_view(request):
             if user is not None:
                 login(request, user)
                 return redirect(
-                    "home_page"
+                    "funcionario"
                 )  # redireciona para a página inicial ou dashboard
             else:
                 return HttpResponse(
@@ -32,7 +32,7 @@ def login_view(request):
     return render(request, "login.html", {"form": form})
 
 
-@login_required
+
 def home_view(request):
     return render(request, "home_page.html")
 
@@ -52,7 +52,7 @@ def cargos_view(request):
 def cargosDesc_view(request):
     return render(request, "cargos desc.html")
 
-
+@login_required
 def funcionario_view(request):
     return render(request, "funcionarios.html")
 

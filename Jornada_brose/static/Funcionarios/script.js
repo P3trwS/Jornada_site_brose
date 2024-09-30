@@ -1,16 +1,18 @@
 function darkMode() {
     const css = document.getElementById('css');
     const linhas = document.querySelectorAll('img[alt="3 linhas"]');
+    const editar = document.querySelectorAll('img[alt="Editar"]');
 
     //Operação para a troca de tema
-    if (css.getAttribute('href') === '/Jornada_site_brose/Funcionarios/Dark Mode/dark.css') {
-        css.setAttribute('href', '/Jornada_site_brose/Funcionarios/Light Mode/light.css'); // Muda para o modo claro
-        linhas.forEach(linha => linha.setAttribute('src', '/Jornada_site_brose/IMAGENS IGUAIS/Light Mode/3 linhas preto.png'));
+    if (css.getAttribute('href') === '/static/Funcionarios/Dark Mode/dark.css') {
+        css.setAttribute('href', '/static/Funcionarios/Light Mode/light.css'); // Muda para o modo claro
+        linhas.forEach(linha => linha.setAttribute('src', '/static/IMAGENS IGUAIS/Light Mode/3 linhas preto.png'));
+        editar.forEach(edit => edit.setAttribute('src', '/static/Funcionarios/Light Mode/user-avatar-preto.png'))
 
     } else {
-        css.setAttribute('href', '/Jornada_site_brose/Funcionarios/Dark Mode/dark.css'); // Muda para o modo escuro
-
-        linhas.forEach(linha => linha.setAttribute('src', '/Jornada_site_brose/IMAGENS IGUAIS/Dark Mode/3 linhas branco.png'));
+        css.setAttribute('href', '/static/Funcionarios/Dark Mode/dark.css'); // Muda para o modo escuro
+        editar.forEach(edit => edit.setAttribute('src', '/static/Funcionarios/Dark Mode/user-avatar branco.png'))
+        linhas.forEach(linha => linha.setAttribute('src', '/static/IMAGENS IGUAIS/Dark Mode/3 linhas branco.png'));
 
     }
 }

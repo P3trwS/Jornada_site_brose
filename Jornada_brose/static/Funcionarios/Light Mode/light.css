@@ -207,6 +207,34 @@ h1 {
     border-bottom: none;
 }
 
+.editar-imagem {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
+.editar-imagem img {
+    width: 2vw;
+    display: block;
+}
+
+.editar-imagem::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #000; /* Cor da linha */
+    transition: width 0.3s ease;
+}
+
+.editar-imagem:hover::after {
+    width: 100%; /* A linha vai ocupar a largura total do botão ao passar o mouse */
+}
+
 .filtros {
     display: flex;
     justify-content: space-between;
