@@ -14,7 +14,9 @@
                 <!-- Aqui está o botão para abrir a side bar, juntamente com a função para abrir o mesmo -->
             <button onclick="abrirOuFecharSideBar()" class="openSideBar"><img class="botãoAbrir3linhas" src="{% static 'IMAGENS IGUAIS/Light Mode/3 linhas preto.png' %}" alt="3 linhas"></button>
             <!-- Logo da Brose -->
-            <img src="{% static 'IMAGENS IGUAIS/Brose_logo.png' %}" alt="Brose Logo" class="logo">
+            <a href="{% url 'funcionario' %}">
+                <img src="{% static 'Cursos/Brose_logo.png' %}" alt="Brose Logo" class="logo">
+            </a>
         </nav>
 
         <nav>
@@ -29,8 +31,6 @@
     </header>
 
     <main>
-
-        <img class="banner" src="{% static 'Cursos Desc/banner cursos.jpg' %}">
 
 
         <h1 id="titulo"> Administração </h1>
@@ -55,7 +55,7 @@
                 <button class="openSideBar1" onclick="abrirOuFecharSideBar()"><img class="botãoAbrir3linhas" src="{% static 'IMAGENS IGUAIS/Light Mode/3 linhas preto.png' %}" alt="3 linhas" /></button>
               </div>
               <!-- Botões para ir para a página respectiva -->
-              <a id="Home-sideBar" href="{% url 'home_page' %}">Home</a>
+
               <a id="Cursos-sideBar" href="{% url 'cursos' %}">Cursos</a>
               <a id="Cargos-sideBar" href="{% url 'cargos' %}">Cargos</a>
               <a id="Perfil-sideBar" href="{% url 'funcionario' %}">Funcionários</a>

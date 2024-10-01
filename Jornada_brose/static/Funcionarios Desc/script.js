@@ -65,7 +65,7 @@ function toggleEdit() {
         skillsTextarea.style.display = 'block';
         skillsParagraph.style.display = '';
 
-        editButton.src = "verificar.png"; // Muda o ícone para indicar salvar
+        editButton.src = "/static/Funcionarios Desc/verificar.png"; // Muda o ícone para indicar salvar
         cancelButton.style.display = 'inline'; // Mostra o botão de cancelar
     }
 }

@@ -15,7 +15,7 @@
         <!-- Aqui está o botão para abrir a side bar, juntamente com a função para abrir o mesmo -->
         <button onclick="abrirOuFecharSideBar()" class="openSideBar"><img class="botãoAbrir3linhas" src="{% static 'Cursos/Light Mode/3 linhas preto.png' %}" alt="3 linhas" /></button>
         <!-- Logo da Brose -->
-        <a href="{% url 'home_page' %}">
+        <a href="{% url 'funcionario' %}">
           <img src="{% static 'Cursos/Brose_logo.png' %}" alt="Brose Logo" class="logo">
       </a>
       </nav>
@@ -32,7 +32,6 @@
 
     <main>
       <!-- Banner -->
-      <img class="banner" src="{% static 'Cursos/banner cursos.jpg' %}" />
 
       <div class="roleta-topicos">
         <label class="topico" onclick="selecionarTopico(this, 'basico')">Cursos Básicos</label>

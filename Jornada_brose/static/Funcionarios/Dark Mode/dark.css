@@ -145,7 +145,7 @@ main {
 
 .tela-tabela {
     background-color: #3c3c3c;
-    box-shadow: 0px 0px 20px #ffffff, 0px 0px 20px #ffffff; 
+    box-shadow: 0px 0px 20px #ffffff; 
     border-radius: 8px;
     overflow: hidden;
     width: 90%;
@@ -341,6 +341,41 @@ h1 {
     background-color: #3c3c3c;
     border-radius: 20px;
     padding: 15px;
+}
+
+#cargoField {
+    color: #bdbaba;
+    background-color: rgba(251, 248, 248, 0.3);
+}
+
+.autocomplete {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.options-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: #3c3c3c;
+    z-index: 1000;
+    display: none;
+}
+
+.option-item {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.option-item:hover {
+    background-color: #a5a5a5;
 }
 
 .botoesModal {

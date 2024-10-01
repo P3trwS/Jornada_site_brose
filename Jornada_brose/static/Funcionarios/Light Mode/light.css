@@ -316,6 +316,40 @@ h1 {
     padding: 15px;
 }
 
+#cargoField {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.autocomplete {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.options-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: #fff;
+    z-index: 1000;
+    display: none;
+}
+
+.option-item {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.option-item:hover {
+    background-color: #f0f0f0;
+}
+
 .botoesModal {
     display: flex;
     flex-direction: row;

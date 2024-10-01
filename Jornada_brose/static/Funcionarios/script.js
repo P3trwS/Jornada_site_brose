@@ -210,3 +210,66 @@ function abrirOuFecharModal() {
         modal.style.display = "block";
     }
 }
+
+const inputField = document.getElementById('inputField');
+const optionsList = document.getElementById('optionsList');
+const cargoField = document.getElementById('cargoField');
+
+// Lista de funcionários e seus respectivos cargos
+const funcionarios = [
+    { nome: 'Gerente', cargo: 'CR321' },
+    { nome: 'Vendedora', cargo: 'CR320' },
+    { nome: 'Desenvolvedor', cargo: 'CR319' },
+    { nome: 'Designer', cargo: 'CR318' },
+    { nome: 'Marketing', cargo: 'CR317' }
+];
+
+function filterOptions(value) {
+    // Limpa as opções existentes
+    optionsList.innerHTML = '';
+    
+    // Filtra os funcionários com base no valor digitado
+    const filteredOptions = funcionarios.filter(funcionario => 
+        funcionario.nome.toLowerCase().includes(value.toLowerCase())
+    );
+    
+    // Adiciona as opções filtradas na lista
+    filteredOptions.forEach(funcionario => {
+        const optionItem = document.createElement('div');
+        optionItem.classList.add('option-item');
+        optionItem.textContent = funcionario.nome;
+        
+        // Adiciona o clique para preencher o input
+        optionItem.addEventListener('click', () => {
+            inputField.value = funcionario.nome;
+            cargoField.value = funcionario.cargo; // Preenche o cargo automaticamente
+            optionsList.style.display = 'none';
+        });
+
+        optionsList.appendChild(optionItem);
+    });
+
+    // Exibe a lista de opções
+    if (filteredOptions.length > 0) {
+        optionsList.style.display = 'block';
+    } else {
+        optionsList.style.display = 'none';
+    }
+}
+
+// Exibe as opções quando o campo de entrada é clicado
+inputField.addEventListener('focus', () => {
+    filterOptions(inputField.value);
+});
+
+// Filtra as opções enquanto o usuário digita
+inputField.addEventListener('input', () => {
+    filterOptions(inputField.value);
+});
+
+// Esconde a lista de opções quando o usuário clica fora do input
+document.addEventListener('click', (event) => {
+    if (!event.target.closest('.autocomplete')) {
+        optionsList.style.display = 'none';
+    }
+});
