@@ -39,20 +39,20 @@ function filtrarTabela() {
 function darkMode() {
     const css = document.getElementById('css');
     const linhas = document.querySelectorAll('img[alt="3 linhas"]');
-    const filtro = document.getElementsByClassName('filtroBotao')[0];
+
+    const editar = document.querySelectorAll('img[alt="Editar"]');
 
     //Operação para a troca de tema
     if (css.getAttribute('href') === '/Jornada_site_brose/Cargos/Dark Mode/dark.css') {
         css.setAttribute('href', '/Jornada_site_brose/Cargos/Light Mode/light.css'); // Muda para o modo claro
         linhas.forEach(linha => linha.setAttribute('src', '/Jornada_site_brose/IMAGENS IGUAIS/Light Mode/3 linhas preto.png'));
-        filtro.setAttribute('src', '/Jornada_site_brose/Cargos/Light Mode/settings.png')
 
+        editar.forEach(edit => edit.setAttribute('src', '/Jornada_site_brose/Funcionarios/Light Mode/user-avatar-preto.png'));
     } else {
         css.setAttribute('href', '/Jornada_site_brose/Cargos/Dark Mode/dark.css'); // Muda para o modo escuro
-
         linhas.forEach(linha => linha.setAttribute('src', '/Jornada_site_brose/IMAGENS IGUAIS/Dark Mode/3 linhas branco.png'));
-        filtro.setAttribute('src', '/Jornada_site_brose/Cargos/Dark Mode/settings branco.png')
 
+        editar.forEach(edit => edit.setAttribute('src', '/Jornada_site_brose/Funcionarios/Dark Mode/user-avatar branco.png'));
     }
 
     //quando o topico volta ele começa com o basíco para resetar as cores 
