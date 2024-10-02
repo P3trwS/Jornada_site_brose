@@ -144,12 +144,11 @@ main {
 
 .tela-tabela {
     background-color: #3c3c3c;
-    box-shadow: 0px 0px 20px #000000; 
+    box-shadow: 10px 10px 20px #fff; 
     border-radius: 8px;
     overflow: hidden;
     width: 90%;
-
-    border: 2px solid #000000;
+    
 }
 
 h1 {
@@ -166,6 +165,13 @@ h1 {
     max-height: 400px;
     overflow-y: auto;
 }
+
+/* Para Firefox (ajustando a cor da barra de rolagem) */
+.rolagem {
+    scrollbar-width: auto; /* Largura da barra de rolagem no Firefox */
+    scrollbar-color: #6a6a6a #3c3c3c; /* Cor do polegar e do trilho */
+}
+
 
 .tabela {
     width: 100%;

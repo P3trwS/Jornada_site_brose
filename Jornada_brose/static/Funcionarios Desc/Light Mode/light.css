@@ -130,7 +130,7 @@ header label {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    box-shadow: 0px 0px 20px #000000, 0px 0px 20px #000000;
+    box-shadow: 10px 10px 20px #000000;
     width: 60%;
     margin: 10% auto;
     border-radius: 20px;
@@ -151,6 +151,13 @@ header label {
 .container input {
     padding: 5px;
     border-radius: 20px;
+}
+
+.container select {
+    padding: 5px;
+    border-radius: 20px;
+    width: 176px;
+    border: 2px solid ;
 }
 
 .container textarea {
