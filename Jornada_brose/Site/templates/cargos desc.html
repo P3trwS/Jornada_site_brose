@@ -11,13 +11,18 @@
 
 <header>
     <nav>
-        <!-- Aqui está o botão para abrir a side bar, juntamente com a função para abrir o mesmo -->
-        <button onclick="abrirOuFecharSideBar()" class="openSideBar"><img class="botãoAbrir3linhas" src="{% static 'IMAGENS IGUAIS/Light Mode/3 linhas preto.png' %}" alt="3 linhas"></button>
         <!-- Logo da Brose -->
         <a href="{% url 'funcionario' %}">
             <img src="{% static 'Cursos/Brose_logo.png' %}" alt="Brose Logo" class="logo">
         </a>
     </nav>
+
+    <div class="pages">
+        <a id="Cursos-sideBar" href="{% url 'cursos' %}">Cursos</a>
+        <a id="Cargos-sideBar" href="{% url 'cargos' %}">Cargos</a>
+        <a id="Perfil-sideBar" href="{% url 'funcionario' %}">Funcionários</a>
+        <a id="Form-sideBar" href="{% url 'formulario' %}">Formulário</a>
+    </div>
 
     <nav>
         <!-- Linguagens disponíveis do site -->
@@ -75,18 +80,5 @@
 
 </main>
 
-<div class="sidebar-background" style="display: none;">
-    <div class="sidebar">
-    <div class="sidebarBotao">
-        <h2 id="Menu-sideBar">Menu</h2>
-        <!-- Botão para fechar a SideBar -->
-        <button class="openSideBar1" onclick="abrirOuFecharSideBar()"><img class="botãoAbrir3linhas" src="{% static 'IMAGENS IGUAIS/Light Mode/3 linhas preto.png' %}" alt="3 linhas"></button>
-    </div>
-    <!-- Botões para ir para a página respectiva -->
-    <a id="Cursos-sideBar" href="{% url 'cursos' %}">Cursos</a>
-    <a id="Cargos-sideBar" href="{% url 'cargos' %}">Cargos</a>
-    <a id="Perfil-sideBar" href="{% url 'funcionario' %}">Funcionários</a>
-    </div>
-</div>
 
 <script src="{% static 'Cargos Desc/script.js' %}"></script>

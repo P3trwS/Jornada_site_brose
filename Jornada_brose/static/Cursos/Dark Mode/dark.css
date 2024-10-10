@@ -28,28 +28,23 @@ header label {
     height: 2.5rem;
 }
 
-.botãoAbrir3linhas {
-    width: 30px;
-
+.pages {
+    display: flex;
+    width: 50%;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.openSideBar {
-    border: none;
-    background-color: #3c3c3c;
-    cursor: pointer;
-    margin-right: 10px;
+.pages a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+    padding: 20px;
+    border-radius: 20px;
 }
 
-.openSideBar1 {
-    border: none;
-    background-color: #3c3c3c;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-.banner {
-    width: 100%;
-    height: 650px;
+.pages a:hover {
+    background-color: rgba(255, 255, 255, 0.129);
 }
 
 .dark-mode {
@@ -64,69 +59,6 @@ header label {
     background: rgba(213, 211, 211, 0.77);
 }
 
-
-/* Sidebar Background */
-.sidebar-background {
-    display: none; /* Iniciar escondido */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-/* Sidebar */
-.sidebar {
-    height: 100%;
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: -250px; /* Inicialmente fora da tela */
-    background-color: #3c3c3c;
-    padding-top: 20px;
-    transition: left 0.3s ease; /* Transição suave para a propriedade left */
-}
-
-/* Outros estilos continuam os mesmos */
-
-
-.sidebar h2 {
-    color: white;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.sidebar a {
-    padding: 15px 20px;
-    text-decoration: none;
-    font-size: 18px;
-    color: white;
-    display: block;
-}
-
-.sidebar a:hover {
-    background-color: #575757;
-    color: white;
-}
-
-.sidebarBotao {
-    display: flex;
-    align-items: center ;
-    justify-content: space-between;
-    gap: 20px;
-    margin: 0px 10px; /* Reduz o espaço entre os itens */
-}
-
-.sidebarBotao  {
-    border-bottom: 2px solid #d0043c;
-}
-
-.sidebarBotao img {
-    width: 25px;
-}
 
 .páginas {
     display: flex;
@@ -147,7 +79,7 @@ header label {
     flex-direction: column;
     align-items: center;
     position: relative;
-    box-shadow: 10px 10px 20px #ffffff;
+    border: 2px solid #fff;
     border-radius: 70px;
     padding: 20px;
 }
