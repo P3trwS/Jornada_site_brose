@@ -145,7 +145,7 @@ main {
 
 .tela-tabela {
     background-color: #3c3c3c;
-    box-shadow: 10px 10px 20px #ffffff; 
+    border: 2px solid #ffffff;
     border-radius: 8px;
     overflow: hidden;
     width: 90%;
