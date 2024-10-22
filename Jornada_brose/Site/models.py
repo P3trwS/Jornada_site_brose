@@ -14,3 +14,11 @@ class Respostas(models.Model):
 
     def __str__(self):
         return f'Resposta: {self.pergunta1}, {self.pergunta2}'
+
+class Funcionario(models.Model):
+    nome = models.CharField(max_length=100)
+    cargo = models.CharField(max_length=50)
+    data_contratacao = models.DateField()
+    
+    def __str__(self):
+        return self.nome

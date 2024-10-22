@@ -1,8 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from .forms import LoginForm
+from .models import Funcionario
+from .forms import FuncionarioForm
 import json
 from django.http import JsonResponse
 from googleapiclient.discovery import build
@@ -113,3 +115,31 @@ def get_form_responses(request):
 
     # Processar as respostas conforme necessário
     return HttpResponse(f'Respostas: {responses}')
+
+
+def criar_funcionario(request):
+    if request.method == 'POST':
+        form = FuncionarioForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('listar_funcionarios')
+# Read
+def listar_funcionarios(request):
+    funcionarios = Funcionario.objects.all()
+    return render(request, 'funcionarios/listar_funcionarios.html', {'funcionarios': funcionarios})
+
+# Update
+def editar_funcionario(request, id):
+    funcionario = get_object_or_404(Funcionario, id=id)
+    if request.method == 'POST':
+        form = FuncionarioForm(request.POST, instance=funcionario)
+        if form.is_valid():
+            form.save()
+            return redirect('listar_funcionarios')
+# Delete
+def deletar_funcionario(request, id):
+    funcionario = get_object_or_404(Funcionario, id=id)
+    if request.method == 'POST':
+        funcionario.delete()
+        return redirect('listar_funcionarios')
+    return render(request, 'funcionarios/deletar_funcionario.html', {'funcionario': funcionario})
