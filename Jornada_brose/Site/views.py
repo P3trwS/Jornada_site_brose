@@ -54,14 +54,8 @@ def cargos_view(request):
 def cargosDesc_view(request):
     return render(request, "cargos desc.html")
 
-@login_required
-def funcionario_view(request):
-    return render(request, "funcionarios.html")
-
-
 def funcionarioDesc_view(request):
     return render(request, "funcionarios desc.html")
-
 
 def formulario_view(request):
     return render(request, 'formulario.html')
@@ -117,17 +111,19 @@ def get_form_responses(request):
     return HttpResponse(f'Respostas: {responses}')
 
 
+@login_required
+def funcionario_view(request):  
+    funcionarios = Funcionario.objects.all()
+    return render(request, "funcionarios.html",{'funcionarios': funcionarios})
+
+
 def criar_funcionario(request):
     if request.method == 'POST':
         form = FuncionarioForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('listar_funcionarios')
-# Read
-def listar_funcionarios(request):
-    funcionarios = Funcionario.objects.all()
-    return render(request, 'funcionarios/listar_funcionarios.html', {'funcionarios': funcionarios})
-
+            return redirect('funcionario')
+        
 # Update
 def editar_funcionario(request, id):
     funcionario = get_object_or_404(Funcionario, id=id)
@@ -135,11 +131,11 @@ def editar_funcionario(request, id):
         form = FuncionarioForm(request.POST, instance=funcionario)
         if form.is_valid():
             form.save()
-            return redirect('listar_funcionarios')
+            return redirect('funcionario')
 # Delete
 def deletar_funcionario(request, id):
     funcionario = get_object_or_404(Funcionario, id=id)
     if request.method == 'POST':
         funcionario.delete()
-        return redirect('listar_funcionarios')
+        return redirect('funcionario')
     return render(request, 'funcionarios/deletar_funcionario.html', {'funcionario': funcionario})

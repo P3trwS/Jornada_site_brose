@@ -194,22 +194,59 @@ function IMPRIMIR() {
     novaJanela.print();
 }
 
-function abrirOuFecharModal() {
-    const modalBackground = document.querySelector('.modalCadastro-background');
-    const modal = document.querySelector('.modalCadastro');
+// function abrirOuFecharModal() {
+//     const modalBackground = document.querySelector('.modalCadastro-background');
+//     const modal = document.querySelector('.modalCadastro');
 
-    if (modalBackground.style.display === "block") {
-        modalBackground.style.display = "none";
-    } else {
-        modalBackground.style.display ="block";
-    }
+//     if (modalBackground.style.display === "block") {
+//         modalBackground.style.display = "none";
+//     } else {
+//         modalBackground.style.display ="block";
+//     }
 
-    if (modal.style.display === "block") {
-        modal.style.display = "none"; 
-    } else {
-        modal.style.display = "block";
+//     if (modal.style.display === "block") {
+//         modal.style.display = "none"; 
+//     } else {
+//         modal.style.display = "block";
+//     }
+// }
+
+function abrirModal() {
+    document.getElementById('modalNovoFuncionario').style.display = 'block';
+}
+
+function fecharModal() {
+    document.getElementById('modalNovoFuncionario').style.display = 'none';
+}
+
+// Fecha o modal se clicar fora dele
+window.onclick = function(event) {
+    var modal = document.getElementById('modalNovoFuncionario');
+    if (event.target == modal) {
+        modal.style.display = 'none';
     }
 }
+
+function abrirModalEdicao(id, nome, cargo, dataContratacao) {
+    // Preencher os campos do modal com os dados do funcionário
+    document.getElementById('nomeEditar').value = nome;
+    document.getElementById('cargoEditar').value = cargo;
+    document.getElementById('dataContratacaoEditar').value = dataContratacao;
+
+    // Definir a ação do formulário para editar o funcionário
+    const formEditar = document.getElementById('formEditarFuncionario');
+    formEditar.action = `/funcionarios/editar/${id}/`;
+
+    // Abrir o modal
+    document.getElementById('modalEditarFuncionario').style.display = 'block';
+}
+
+// Função para fechar o modal de edição
+function fecharModalEdicao() {
+    document.getElementById('modalEditarFuncionario').style.display = 'none';
+}
+
+
 
 const inputField = document.getElementById('inputField');
 const optionsList = document.getElementById('optionsList');

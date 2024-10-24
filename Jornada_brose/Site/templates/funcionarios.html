@@ -5,18 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Funcionários</title>
     {% load static %}
-    <!-- o css está com o ID para realizar a alteração de Tema -->
     <link id="css" rel="stylesheet" href="{% static 'Funcionarios/Light Mode/light.css' %}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-
 </head>
 
 <header>
     <nav>
-        <!-- Logo da Brose -->
         <a href="{% url 'funcionario' %}">
             <img src="{% static 'Cursos/Brose_logo.png' %}" alt="Brose Logo" class="logo">
         </a>
@@ -26,162 +19,93 @@
         <a id="Cursos-sideBar" href="{% url 'cursos' %}">Cursos</a>
         <a id="Cargos-sideBar" href="{% url 'cargos' %}">Cargos</a>
         <a id="Perfil-sideBar" href="{% url 'funcionario' %}">Funcionários</a>
-        <a id="Form-sideBar" href="{% url 'formulario' %}">Formulário</a>
     </div>
 
     <nav>
-        <!-- Linguagens disponíveis do site -->
         <label>PT</label>
         <label>EN</label>
         <label>GR</label>
-        <!-- Botão que altera o tema com base no ID do css-->
         <button id="botão-dark" onclick="darkMode()" class="dark-mode">Alterar Tema</button>
     </nav>
-
 </header>
 
-
 <main>
-
     <div class="tela-tabela">
         <h1>Funcionários</h1>
-        
-        <div class="filtros">
-            <div class="filtros-inputs">
-                <input type="text" id="filtroMatricula" placeholder="Filtrar por matrícula..." onkeyup="filtrarMatricula()">
-                <input type="text" id="filtro" placeholder="Filtrar por nome, id ou cargo..." onkeyup="filtrarTabela()">
-            </div>
-            <button class="novoFuncionario" onclick="abrirOuFecharModal()"> Novo Funcionário </button>
-        </div>
+
+        <!-- Botão para abrir o modal de novo funcionário -->
+        <button onclick="abrirModal()" class="novoFuncionario">Novo Funcionário</button>
+
         <div class="rolagem">
             <table class="tabela" id="tabelaFuncionarios">
                 <thead>
                     <tr>
-                        <th>Matrícula</th>
                         <th>Nome</th>
-                        <th>ID Cargo</th>
-                        <th>Cargo</th>  
-                        <th>Editar</th>
+                        <th>Cargo</th>
+                        <th>Data de Contratação</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for funcionario in funcionarios %}
                     <tr>
-                        <td>1</td>
-                        <td>Gabriel</td>
-                        <td>1</td>
-                        <td>Auxiliar de Produção</td>
-                        <td><button class="editar-imagem"><a href="{% url 'funcionario desc' %}"><img src="{% static 'Funcionarios/Light Mode/user-avatar-preto.png' %}" alt="Editar"></a></button></td>
+                        <td>{{ funcionario.nome }}</td>
+                        <td>{{ funcionario.cargo }}</td>
+                        <td>{{ funcionario.data_contratacao }}</td>
+                        <td>
+                            <a href="javascript:void(0);" onclick="abrirModalEdicao('{{ funcionario.id }}', '{{ funcionario.nome }}', '{{ funcionario.cargo }}', '{{ funcionario.data_contratacao }}')">Editar</a> |
+                            <a href="{% url 'deletar_funcionario' funcionario.id %}">Deletar</a>
+                        </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Jean</td>
-                        <td>21</td>
-                        <td>Analista Financeiro</td>
-                        <td><button class="editar-imagem"><img src="{% static 'Funcionarios/Light Mode/user-avatar-preto.png' %}" alt="Editar"></button></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Lucas</td>
-                        <td>20</td>
-                        <td>Estágiario de Segurança do Trabalho</td>
-                        <td><button class="editar-imagem"><img src="{% static 'Funcionarios/Light Mode/user-avatar-preto.png' %}" alt="Editar"></button></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Cleidson</td>
-                        <td>17</td>
-                        <td>Analista de Sistemas</td>
-                        <td><button class="editar-imagem"><img src="{% static 'Funcionarios/Light Mode/user-avatar-preto.png' %}" alt="Editar"></button></td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Eduardo Nogaroto</td>
-                        <td>20</td>
-                        <td>Suporte Técnico</td>
-                        <td><button class="editar-imagem"><img src="{% static 'Funcionarios/Light Mode/user-avatar-preto.png' %}" alt="Editar"></button></td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>Pedro</td>
-                        <td>20</td>
-                        <td>Gerente de T.I</td>
-                        <td><button class="editar-imagem"><img src="{% static 'Funcionarios/Light Mode/user-avatar-preto.png' %}" alt="Editar"></button></td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>Emerson Filho</td>
-                        <td>19</td>
-                        <td>Projetista</td>
-                        <td><button class="editar-imagem"><img src="{% static 'Funcionarios/Light Mode/user-avatar-preto.png' %}" alt="Editar"></button></td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>Maria Wongs</td>
-                        <td>22</td>
-                        <td>Gerente Financeiro</td>
-                        <td><button class="editar-imagem"><img src="{% static 'Funcionarios/Light Mode/user-avatar-preto.png' %}" alt="Editar"></button></td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>Vinicius</td>
-                        <td>22</td>
-                        <td>Analista Comercial</td>
-                        <td><button class="editar-imagem"><img src="{% static 'Funcionarios/Light Mode/user-avatar-preto.png' %}" alt="Editar"></button></td>
-                    </tr>
-
+                    {% endfor %}
                 </tbody>
-
             </table>
         </div>
-    
     </div>
-
 </main>
 
-<div class="botoes">
-    <button class="botao" onclick="PDF()">  Exportar como PDF </button>
-    <button class="botao" onclick="CSV()"> Exportar como Excel </button>
-    <button class="botao" onclick="IMPRIMIR()"> Imprimir </button>
-</div>
+<!-- Modal para criar um novo funcionário -->
+<div id="modalNovoFuncionario" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close" onclick="fecharModal()">&times;</span>
+        <h2>Criar Novo Funcionário</h2>
 
+        <form method="POST" action="{% url 'criar_funcionario' %}">
+            {% csrf_token %}
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
 
-<div class="modalCadastro-background" style="display: none;">
-    <div class="modalCadastro">
-        <h2>Cadastro de Funcionários</h2>
-        <div class="cadastro1">
+            <label for="cargo">Cargo:</label>
+            <input type="text" id="cargo" name="cargo" required>
 
-            <label>Matrícula</label>
-            <input type="text" class="inputs" id="matricula" placeholder="Digite a matrícula do novo colaborador">
+            <label for="data_contratacao">Data de Contratação:</label>
+            <input type="date" id="data_contratacao" name="data_contratacao" required>
 
-            <label>Nome</label>
-            <input type="text" class="inputs" id="Nome" placeholder="Digite o nome do novo colaborador">
-
-            
-            <div class="autocomplete">
-                <label>Cargo</label>
-                <input type="text" class="inputs" id="inputField" placeholder="Escolha uma opção...">
-                <div id="optionsList" class="options-list"></div>
-            </div>
-
-            <label>ID Cargo</label>
-            <div>
-                <input type="text" class="inputs" id="cargoField" placeholder="ID do Cargo será preenchido automaticamente" readonly>
-            </div>
-
-            
-
-            <label>Skills</label>
-            <textarea id="skills"></textarea>
-
-            <div class="botoesModal">
-                <button class="botao"> Confirmar </button>
-                <button class="botao" onclick="abrirOuFecharModal()"> Fechar</button>
-            </div>
-
-        </div>
-
+            <button type="submit">Salvar</button>
+        </form>
     </div>
-
 </div>
+
+<div id="modalEditarFuncionario" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close" onclick="fecharModalEdicao()">&times;</span>
+        <h2>Editar Funcionário</h2>
+
+        <form method="POST" id="formEditarFuncionario">
+            {% csrf_token %}
+            <label for="nomeEditar">Nome:</label>
+            <input type="text" id="nomeEditar" name="nome" required>
+
+            <label for="cargoEditar">Cargo:</label>
+            <input type="text" id="cargoEditar" name="cargo" required>
+
+            <label for="dataContratacaoEditar">Data de Contratação:</label>
+            <input type="date" id="dataContratacaoEditar" name="data_contratacao" required>
+
+            <button type="submit">Salvar Alterações</button>
+        </form>
+    </div>
+</div>
+
 
 <script src="{% static 'Funcionarios/script.js' %}"></script>
