@@ -138,4 +138,4 @@ def deletar_funcionario(request, id):
     if request.method == 'POST':
         funcionario.delete()
         return redirect('funcionario')
-    return render(request, 'funcionarios/deletar_funcionario.html', {'funcionario': funcionario})
+    return render(request, 'funcionarios.html', {'funcionario': funcionario})

@@ -227,11 +227,12 @@ window.onclick = function(event) {
     }
 }
 
-function abrirModalEdicao(id, nome, cargo, dataContratacao) {
+function abrirModalEdicao(id, nome, cargo, dataContratacao, skill) {
     // Preencher os campos do modal com os dados do funcionário
     document.getElementById('nomeEditar').value = nome;
     document.getElementById('cargoEditar').value = cargo;
     document.getElementById('dataContratacaoEditar').value = dataContratacao;
+    document.getElementById('skillEditar').value = skill;
 
     // Definir a ação do formulário para editar o funcionário
     const formEditar = document.getElementById('formEditarFuncionario');

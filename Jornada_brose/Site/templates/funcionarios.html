@@ -52,6 +52,7 @@
                         <td>{{ funcionario.nome }}</td>
                         <td>{{ funcionario.cargo }}</td>
                         <td>{{ funcionario.data_contratacao }}</td>
+                        <td>{{ funcionario.skill }}</td>
                         <td>
                             <a href="javascript:void(0);" onclick="abrirModalEdicao('{{ funcionario.id }}', '{{ funcionario.nome }}', '{{ funcionario.cargo }}', '{{ funcionario.data_contratacao }}')">Editar</a> |
                             <a href="{% url 'deletar_funcionario' funcionario.id %}">Deletar</a>
@@ -80,6 +81,9 @@
 
             <label for="data_contratacao">Data de Contratação:</label>
             <input type="date" id="data_contratacao" name="data_contratacao" required>
+            
+            <label for="skill">skill:</label>
+            <input type="text" id="skill" name="skill" required>
 
             <button type="submit">Salvar</button>
         </form>
@@ -101,6 +105,9 @@
 
             <label for="dataContratacaoEditar">Data de Contratação:</label>
             <input type="date" id="dataContratacaoEditar" name="data_contratacao" required>
+            
+            <label for="skilloEditar">Skill:</label>
+            <input type="date" id="skillEditar" name="skill" required>
 
             <button type="submit">Salvar Alterações</button>
         </form>
