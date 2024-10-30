@@ -8,6 +8,7 @@
     <link id="css" rel="stylesheet" href="{% static 'Funcionarios/Light Mode/light.css' %}">
 </head>
 
+<body>
 <header>
     <nav>
         <a href="{% url 'funcionario' %}">
@@ -32,8 +33,6 @@
 <main>
     <div class="tela-tabela">
         <h1>Funcionários</h1>
-
-        <!-- Botão para abrir o modal de novo funcionário -->
         <button onclick="abrirModal()" class="novoFuncionario">Novo Funcionário</button>
 
         <div class="rolagem">
@@ -42,7 +41,7 @@
                     <tr>
                         <th>Nome</th>
                         <th>Cargo</th>
-                        <th>Data de Contratação</th>
+                        <th>Skill</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
@@ -51,11 +50,13 @@
                     <tr>
                         <td>{{ funcionario.nome }}</td>
                         <td>{{ funcionario.cargo }}</td>
-                        <td>{{ funcionario.data_contratacao }}</td>
                         <td>{{ funcionario.skill }}</td>
                         <td>
-                            <a href="javascript:void(0);" onclick="abrirModalEdicao('{{ funcionario.id }}', '{{ funcionario.nome }}', '{{ funcionario.cargo }}', '{{ funcionario.data_contratacao }}')">Editar</a> |
-                            <a href="{% url 'deletar_funcionario' funcionario.id %}">Deletar</a>
+                            <a href="javascript:void(0);" onclick="abrirModalEdicao('{{ funcionario.id }}', '{{ funcionario.nome }}', '{{ funcionario.cargo }}', '{{ funcionario.skill }}')">Editar</a> |
+                            <form action="{% url 'deletar_funcionario' funcionario.id %}" method="POST" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" onclick="return confirm('Tem certeza que deseja excluir?')">Deletar</button>
+                            </form>
                         </td>
                     </tr>
                     {% endfor %}
@@ -78,11 +79,8 @@
 
             <label for="cargo">Cargo:</label>
             <input type="text" id="cargo" name="cargo" required>
-
-            <label for="data_contratacao">Data de Contratação:</label>
-            <input type="date" id="data_contratacao" name="data_contratacao" required>
             
-            <label for="skill">skill:</label>
+            <label for="skill">Skill:</label>
             <input type="text" id="skill" name="skill" required>
 
             <button type="submit">Salvar</button>
@@ -90,6 +88,7 @@
     </div>
 </div>
 
+<!-- Modal para editar um funcionário -->
 <div id="modalEditarFuncionario" class="modal" style="display:none;">
     <div class="modal-content">
         <span class="close" onclick="fecharModalEdicao()">&times;</span>
@@ -102,17 +101,15 @@
 
             <label for="cargoEditar">Cargo:</label>
             <input type="text" id="cargoEditar" name="cargo" required>
-
-            <label for="dataContratacaoEditar">Data de Contratação:</label>
-            <input type="date" id="dataContratacaoEditar" name="data_contratacao" required>
             
-            <label for="skilloEditar">Skill:</label>
-            <input type="date" id="skillEditar" name="skill" required>
+            <label for="skillEditar">Skill:</label>
+            <input type="text" id="skillEditar" name="skill" required>
 
             <button type="submit">Salvar Alterações</button>
         </form>
     </div>
 </div>
 
-
 <script src="{% static 'Funcionarios/script.js' %}"></script>
+</body>
+</html>

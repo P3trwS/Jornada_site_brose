@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from .forms import LoginForm
@@ -114,28 +115,40 @@ def get_form_responses(request):
 @login_required
 def funcionario_view(request):  
     funcionarios = Funcionario.objects.all()
-    return render(request, "funcionarios.html",{'funcionario': funcionarios})
+    return render(request, "funcionarios.html", {'funcionarios': funcionarios})
 
-
+# Create
+@login_required
 def criar_funcionario(request):
     if request.method == 'POST':
         form = FuncionarioForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Funcionário criado com sucesso!')
             return redirect('funcionario')
-        
+        else:
+            messages.error(request, 'Corrija os erros no formulário.')
+    return redirect('funcionario')
+
 # Update
+@login_required
 def editar_funcionario(request, id):
     funcionario = get_object_or_404(Funcionario, id=id)
     if request.method == 'POST':
         form = FuncionarioForm(request.POST, instance=funcionario)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Funcionário atualizado com sucesso!')
             return redirect('funcionario')
+        else:
+            messages.error(request, 'Corrija os erros no formulário.')
+    return redirect('funcionario')
+
 # Delete
+@login_required
 def deletar_funcionario(request, id):
     funcionario = get_object_or_404(Funcionario, id=id)
     if request.method == 'POST':
         funcionario.delete()
-        return redirect('funcionario')
-    return render(request, 'funcionarios.html', {'funcionario': funcionario})
+        messages.success(request, 'Funcionário deletado com sucesso!')
+    return redirect('funcionario')

@@ -1,3 +1,4 @@
+/* Reset básico e configuração da fonte */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -5,81 +6,80 @@ body {
     background: #ffffff;
 }
 
+/* Header e Navbar */
 header {
-    background-color: white;
+    background-color: #ffffff;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #d0043c;
+}
 
+header .logo {
+    height: 2.5rem;
 }
 
 header label {
-    margin: 10px;
+    margin: 0 10px;
     cursor: pointer;
-}
-
-.logo {
-    height: 2.5rem;
 }
 
 .pages {
     display: flex;
-    width: 50%;
-    flex-direction: row;
-    justify-content: space-between;
+    gap: 15px;
 }
 
 .pages a {
     text-decoration: none;
     font-size: 20px;
     color: #000;
-    padding: 20px;
+    padding: 10px 20px;
     border-radius: 20px;
 }
 
 .pages a:hover {
-    background-color: rgba(0, 0, 0, 0.129);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .dark-mode {
-    border: 1px solid #000000;
-    color: #000000;
-    background: #ffffff;
+    border: 1px solid #000;
+    color: #000;
+    background: #fff;
     padding: 10px;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .dark-mode:hover {
-    background: rgba(213, 211, 211, 0.77);
+    background: rgba(213, 211, 211, 0.8);
 }
 
-
-.novoFuncionario {
+/* Botões e tabela principal */
+.novoFuncionario, .botao, .modal-content button[type="submit"] {
     border-radius: 20px;
-    color: #000000;
-    background: #ffffff;
-    font-size: 20px;
+    color: #000;
+    background: #fff;
+    font-size: 18px;
+    padding: 10px 20px;
     cursor: pointer;
+    border: 1px solid #d0043c;
 }
 
-.novoFuncionario:hover {
+.novoFuncionario:hover, .botao:hover, .modal-content button[type="submit"]:hover {
     background: #cac6c6;
 }
 
 main {
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 650px;
+    padding: 20px;
 }
 
 .tela-tabela {
     background-color: #fff;
     border: 2px solid #000;
     border-radius: 8px;
-    overflow: hidden;
     width: 90%;
 }
 
@@ -93,6 +93,7 @@ h1 {
     border-bottom: 2px solid #d0043c;
 }
 
+/* Tabela */
 .rolagem {
     max-height: 400px;
     overflow-y: auto;
@@ -108,10 +109,10 @@ h1 {
     color: #d0043c;
     position: sticky;
     top: 0;
-    z-index: 10; /* Garante que o thead fique sobre as linhas */
+    z-index: 10;
 }
 
-.tabela thead th {
+.tabela thead th, .tabela tbody td {
     padding: 12px 15px;
     text-align: left;
 }
@@ -125,139 +126,12 @@ h1 {
 }
 
 .tabela tbody td {
-    padding: 12px 15px;
     border-bottom: 1px solid #ddd;
-
+    max-width: 150px;
+    word-wrap: break-word;
 }
 
-.tabela td {
-    word-wrap: break-word;  /* Permite a quebra de palavras longas */
-    max-width: 150px;       /* Define um tamanho máximo para a célula, ajuste conforme necessário */
-}
-
-.tabela tbody tr:last-child td {
-    border-bottom: none;
-}
-
-.editar-imagem {
-    background: none;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    display: inline-block;
-}
-
-.editar-imagem img {
-    width: 2vw;
-    display: block;
-}
-
-.editar-imagem::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background-color: #000; /* Cor da linha */
-    transition: width 0.3s ease;
-}
-
-.editar-imagem:hover::after {
-    width: 100%; /* A linha vai ocupar a largura total do botão ao passar o mouse */
-}
-
-.filtros {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 20px;
-}
-
-#filtro {
-    width: 200px;
-}
-
-.botoes {
-    display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 50px;
-}
-
-.botao {
-    border-radius: 20px;
-    border-color:2px solid #000000 ;
-    color: #000000;
-    background: #ffffff;
-    font-size: 20px;
-    padding: 20px;
-    cursor: pointer;
-}
-
-.botao:hover {
-    background: #cac6c6;
-}
-
-.cadastro1 {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    position: relative;
-}
-
-.cadastro1 label {
-    font-size: 1.25rem;
-    margin-left: 10px;
-    margin-bottom: 5px;
-    text-align: left;
-
-}
-
-.inputs {
-    border-radius: 20px;
-    width: 50%;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-#skills {
-    border-radius: 20px;
-    padding: 15px;
-}
-
-#cargoField {
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
-.autocomplete {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
-
-
-.options-list {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    max-height: 150px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    border-top: none;
-    background-color: #fff;
-    z-index: 1000;
-    display: none;
-}
-
-.option-item {
-    padding: 8px;
-    cursor: pointer;
-}
-
-.option-item:hover {
-    background-color: #f0f0f0;
-}
-
+/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -271,53 +145,37 @@ h1 {
 
 .modal-content {
     background-color: #ffffff;
-    color: #000000;
     margin: 10% auto;
     padding: 20px;
     border: 1px solid #d0043c;
     border-radius: 8px;
     width: 50%;
     max-width: 600px;
+    text-align: center;
 }
 
 .modal-content h2 {
     margin-top: 0;
     color: #d0043c;
-    text-align: center;
 }
 
 .modal-content label {
     display: block;
-    color: #000000;
+    color: #000;
     margin-top: 10px;
 }
 
-.modal-content input[type="text"],
-.modal-content input[type="date"] {
+.modal-content input[type="text"], .modal-content input[type="date"] {
     width: 100%;
-    padding: 8px;
-    border-radius: 4px;
-    margin: 5px 0 15px;
-    background-color: #ffffff;
-    color: #000000;
+    padding: 10px;
+    margin: 10px 0 15px;
+    border-radius: 5px;
     border: 1px solid #d0043c;
-}
-
-.modal-content button[type="submit"] {
-    background-color: #d0043c;
-    color: #ffffff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.modal-content button[type="submit"]:hover {
-    background-color: #ff1a4b;
+    color: #000;
 }
 
 .close {
-    color: #000000;
+    color: #000;
     float: right;
     font-size: 24px;
     font-weight: bold;
@@ -328,665 +186,57 @@ h1 {
     color: #d0043c;
 }
 
-
+/* Estilos para impressão */
 @media print {
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background: #ffffff;
-    }
-
-    header, .sidebar-background, .sidebar, .dark-mode {
-        display: none; /* Oculta elementos que não devem ser impressos */
+    header, .dark-mode {
+        display: none;
     }
 
     .tela-tabela {
         width: 100%;
-        box-shadow: none;
-        border: 1px solid #000000; /* Adiciona borda para a impressão */
-        border-radius: 0; /* Remove borda arredondada */
-    }
-
-    .tabela {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    .tabela thead {
-        background-color: #ffffff;
-        color: #d0043c;
-    }
-
-    .tabela thead th {
-        padding: 12px 15px;
-        text-align: left;
-        border: 1px solid #ddd;
-    }
-
-    .tabela tbody tr:nth-child(even) {
-        background-color: #f4f4f9;
+        border: 1px solid #000;
+        border-radius: 0;
     }
 
     .tabela tbody tr:hover {
-        background-color: #ffffff; /* Remove o efeito de hover na impressão */
+        background-color: #fff;
     }
-
-    .tabela tbody td {
-        padding: 12px 15px;
-        border: 1px solid #ddd;
-        word-wrap: break-word; /* Permite quebra de palavras longas */
-    }
-
-    .tabela td {
-        word-wrap: break-word;
-        max-width: none; /* Remove o limite de largura na impressão */
-    }
-
-    h1 {
-        font-size: 1.2em; /* Ajusta o tamanho do título para impressão */
-        border-bottom: 1px solid #d0043c;
-    }
-
-    .filtros {
-        display: none; /* Oculta filtros na impressão */
-    }
-
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.4);
-    }
-    
-    .modal-content {
-        background-color: #ffffff;
-        color: #000000;
-        margin: 10% auto;
-        padding: 20px;
-        border: 1px solid #d0043c;
-        border-radius: 8px;
-        width: 50%;
-        max-width: 600px;
-    }
-    
-    .modal-content h2 {
-        margin-top: 0;
-        color: #d0043c;
-        text-align: center;
-    }
-    
-    .modal-content label {
-        display: block;
-        color: #000000;
-        margin-top: 10px;
-    }
-    
-    .modal-content input[type="text"],
-    .modal-content input[type="date"] {
-        width: 100%;
-        padding: 8px;
-        border-radius: 4px;
-        margin: 5px 0 15px;
-        background-color: #ffffff;
-        color: #000000;
-        border: 1px solid #d0043c;
-    }
-    
-    .modal-content button[type="submit"] {
-        background-color: #d0043c;
-        color: #ffffff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    
-    .modal-content button[type="submit"]:hover {
-        background-color: #ff1a4b;
-    }
-    
-    .close {
-        color: #000000;
-        float: right;
-        font-size: 24px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-    
-    .close:hover {
-        color: #d0043c;
-    }    
-
 }
 
+/* Responsividade */
 @media (max-width: 768px) {
-    
-    header {
-        background-color: #ffffff   ;
-
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #d0043c;
-    
-    }
-    
-    header label {
-        margin: 5px;
-        cursor: pointer;
+    header label, .pages a {
         font-size: 14px;
     }
-    
-    .logo {
-        height: 1.8rem;
-    }
-    
-    .dark-mode {
-        border: 1px solid #000000;
-        color: #000000;
-        background: #ffffff;
-        padding: 10px;
-        cursor: pointer;
-        font-size: 10px;
-    }
-    
-    .dark-mode:hover {
-        background: rgba(213, 211, 211, 0.77);
+
+    .novoFuncionario, .botao {
+        font-size: 16px;
+        padding: 8px 15px;
     }
 
-    .botãoAbrir3linhas {
-        width: 30px;
-    
-    }
-    
-    .openSideBar {
-        border: none;
-        background-color: #ffffff;
-        cursor: pointer;
-        margin-right: 10px;
-    }
-    
-    .openSideBar1 {
-        border: none;
-        background-color: #ffffff;
-        cursor: pointer;
-        margin-right: 10px;
-    }
-    
-    
-    .banner {
-        width: 100%;
-        height: 65vh;
-    }
-
-    .novoFuncionario {
-        border-radius: 20px;
-        color: #000000;
-        background: #ffffff;
-        font-size: 20px;
-        cursor: pointer;
-    }
-    
-    .novoFuncionario:hover {
-        background: #cac6c6;
-    }
-    
-    main {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 650px;
-    }
-    
     .tela-tabela {
-        background-color: #fff;
-        box-shadow: 0px 0px 20px #000000, 0px 0px 20px #000000; 
-        border-radius: 8px;
-        overflow: hidden;
-        width: 90%;
-    
-        border: 2px solid #000000;
-    }
-    
-    h1 {
-        background-color: #ffffff;
-        color: #d0043c;
-        padding: 20px;
-        margin: 0;
-        text-align: center;
-        font-size: 1.5em;
-        border-bottom: 2px solid #d0043c;
-    }
-    
-    .rolagem {
-        max-height: 400px;
-        overflow-y: auto;
-    }
-    
-    .tabela {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    
-    .tabela thead {
-        background-color: #ffffff;
-        color: #d0043c;
-        position: sticky;
-        top: 0;
-        z-index: 10; /* Garante que o thead fique sobre as linhas */
-    }
-    
-    .tabela thead th {
-        padding: 12px 15px;
-        text-align: left;
-    }
-    
-    .tabela tbody tr:nth-child(even) {
-        background-color: #f4f4f9;
-    }
-    
-    .tabela tbody tr:hover {
-        background-color: #e0e0e0;
-    }
-    
-    .tabela tbody td {
-        padding: 12px 15px;
-        border-bottom: 1px solid #ddd;
-        cursor: pointer;
-    }
-    
-    .tabela td {
-        word-wrap: break-word;  /* Permite a quebra de palavras longas */
-        max-width: 150px;       /* Define um tamanho máximo para a célula, ajuste conforme necessário */
-    }
-    
-    .tabela tbody tr:last-child td {
-        border-bottom: none;
-    }
-    
-    .filtros {
-        display: flex;
-        justify-content: space-between;
-        margin: 10px 20px;
-    }
-    
-    #filtroMatricula {
-        width: 120px;
+        width: 95%;
     }
 
-    #filtro {
-        width: 200px;
-    }
-    
-    .botoes {
-        display: flex;
-        justify-content: space-evenly;
-        margin-bottom: 50px;
-    }
-    
-    .botao {
-        border-radius: 20px;
-        border-color:2px solid #000000 ;
-        color: #000000;
-        background: #ffffff;
-        font-size: 20px;
-        padding: 20px;
-        cursor: pointer;
-    }
-    
-    .botao:hover {
-        background: #cac6c6;
-    }
-    
-    .cadastro1 {
-        display: flex;
-        justify-content: space-evenly;
-        flex-direction: column;
-    }
-    
-    .cadastro1 label {
-        font-size: 1.25rem;
-        margin-left: 10px;
-        margin-bottom: 5px;
-        text-align: left;
-    
-    }
-    
-    .inputs {
-        border-radius: 20px;
-        width: 50%;
-        padding: 10px;
-        margin-bottom: 20px;
-    }
-    
-    #skills {
-        border-radius: 20px;
-        padding: 15px;
-    }
-    
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.4);
-    }
-    
     .modal-content {
-        background-color: #ffffff;
-        color: #000000;
-        margin: 10% auto;
-        padding: 20px;
-        border: 1px solid #d0043c;
-        border-radius: 8px;
-        width: 50%;
-        max-width: 600px;
+        width: 80%;
     }
-    
-    .modal-content h2 {
-        margin-top: 0;
-        color: #d0043c;
-        text-align: center;
-    }
-    
-    .modal-content label {
-        display: block;
-        color: #000000;
-        margin-top: 10px;
-    }
-    
-    .modal-content input[type="text"],
-    .modal-content input[type="date"] {
-        width: 100%;
-        padding: 8px;
-        border-radius: 4px;
-        margin: 5px 0 15px;
-        background-color: #ffffff;
-        color: #000000;
-        border: 1px solid #d0043c;
-    }
-    
-    .modal-content button[type="submit"] {
-        background-color: #d0043c;
-        color: #ffffff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    
-    .modal-content button[type="submit"]:hover {
-        background-color: #ff1a4b;
-    }
-    
-    .close {
-        color: #000000;
-        float: right;
-        font-size: 24px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-    
-    .close:hover {
-        color: #d0043c;
-    }
-    
 }
 
 @media (max-width: 600px) {
-    
-
-    .novoFuncionario {
-        border-radius: 20px;
-        color: #000000;
-        background: #ffffff;
-        font-size: 15px;
-        cursor: pointer;
+    .novoFuncionario, .botao {
+        font-size: 14px;
+        padding: 6px 10px;
     }
-    
-
-    
-    .botao {
-        border-radius: 20px;
-        border: 2px solid #000000;
-        color: #000000;
-        background: #ffffff;
-        font-size: 15px;
-        padding: 15px;
-        cursor: pointer;
-    }
-    
-    .cadastro1 {
-        display: flex;
-        justify-content: space-evenly;
-        flex-direction: column;
-    }
-    
-    .cadastro1 label {
-        font-size: 1.25rem;
-        margin-left: 10px;
-        margin-bottom: 5px;
-        text-align: left;
-    
-    }
-    
-    .inputs {
-        border-radius: 20px;
-        width: 50%;
-        padding: 10px;
-        margin-bottom: 20px;
-    }
-    
-    #skills {
-        border-radius: 20px;
-        padding: 15px;
-    }
-    
-
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.4);
-    }
-    
-    .modal-content {
-        background-color: #ffffff;
-        color: #000000;
-        margin: 10% auto;
-        padding: 20px;
-        border: 1px solid #d0043c;
-        border-radius: 8px;
-        width: 50%;
-        max-width: 600px;
-    }
-    
-    .modal-content h2 {
-        margin-top: 0;
-        color: #d0043c;
-        text-align: center;
-    }
-    
-    .modal-content label {
-        display: block;
-        color: #000000;
-        margin-top: 10px;
-    }
-    
-    .modal-content input[type="text"],
-    .modal-content input[type="date"] {
-        width: 100%;
-        padding: 8px;
-        border-radius: 4px;
-        margin: 5px 0 15px;
-        background-color: #ffffff;
-        color: #000000;
-        border: 1px solid #d0043c;
-    }
-    
-    .modal-content button[type="submit"] {
-        background-color: #d0043c;
-        color: #ffffff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    
-    .modal-content button[type="submit"]:hover {
-        background-color: #ff1a4b;
-    }
-    
-    .close {
-        color: #000000;
-        float: right;
-        font-size: 24px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-    
-    .close:hover {
-        color: #d0043c;
-    }
-    
 }
 
 @media (max-width: 450px) {
-    
-
-    .novoFuncionario {
-        border-radius: 20px;
-        color: #000000;
-        background: #ffffff;
-        font-size: 10px;
-        cursor: pointer;
-    }
-    
-    #filtroMatricula {
-        width: 100px;
+    .novoFuncionario, .botao {
+        font-size: 12px;
+        padding: 5px 8px;
     }
 
-    #filtro {
-        width: 100px;
-    }
-    
-    .botao {
-        border-radius: 20px;
-        border: 2px solid #000000;
-        color: #000000;
-        background: #ffffff;
-        font-size: 15px;
-        padding: 15px;
-        cursor: pointer;
-    }
-    
-    
-    .cadastro1 {
-        display: flex;
-        justify-content: space-evenly;
-        flex-direction: column;
-    }
-    
-    .cadastro1 label {
-        font-size: 1.25rem;
-        margin-left: 10px;
-        margin-bottom: 5px;
-        text-align: left;
-    
-    }
-    
-    .inputs {
-        border-radius: 20px;
-        width: 50%;
-        padding: 10px;
-        margin-bottom: 20px;
-    }
-    
-    #skills {
-        border-radius: 20px;
-        padding: 15px;
-    }
-    
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.4);
-    }
-    
     .modal-content {
-        background-color: #ffffff;
-        color: #000000;
-        margin: 10% auto;
-        padding: 20px;
-        border: 1px solid #d0043c;
-        border-radius: 8px;
-        width: 50%;
-        max-width: 600px;
+        width: 90%;
     }
-    
-    .modal-content h2 {
-        margin-top: 0;
-        color: #d0043c;
-        text-align: center;
-    }
-    
-    .modal-content label {
-        display: block;
-        color: #000000;
-        margin-top: 10px;
-    }
-    
-    .modal-content input[type="text"],
-    .modal-content input[type="date"] {
-        width: 100%;
-        padding: 8px;
-        border-radius: 4px;
-        margin: 5px 0 15px;
-        background-color: #ffffff;
-        color: #000000;
-        border: 1px solid #d0043c;
-    }
-    
-    .modal-content button[type="submit"] {
-        background-color: #d0043c;
-        color: #ffffff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    
-    .modal-content button[type="submit"]:hover {
-        background-color: #ff1a4b;
-    }
-    
-    .close {
-        color: #000000;
-        float: right;
-        font-size: 24px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-    
-    .close:hover {
-        color: #d0043c;
-    }
-    
 }

@@ -7,3 +7,5 @@ __pycache__/
 credentials.json
 token.pkl
 .venv/
+migrations/*.pyc
+migrations/__pycache__/
