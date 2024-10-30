@@ -114,7 +114,7 @@ def get_form_responses(request):
 @login_required
 def funcionario_view(request):  
     funcionarios = Funcionario.objects.all()
-    return render(request, "funcionarios.html",{'funcionarios': funcionarios})
+    return render(request, "funcionarios.html",{'funcionario': funcionarios})
 
 
 def criar_funcionario(request):
