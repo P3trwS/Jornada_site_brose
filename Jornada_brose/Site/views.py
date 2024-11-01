@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from .forms import LoginForm
-from .models import Funcionario
+from .models import Funcionario, Skill, Cargo
 from .forms import FuncionarioForm
 import json
 from django.http import JsonResponse
@@ -111,40 +111,71 @@ def get_form_responses(request):
     # Processar as respostas conforme necessário
     return HttpResponse(f'Respostas: {responses}')
 
-
 @login_required
 def funcionario_view(request):  
     funcionarios = Funcionario.objects.all()
-    return render(request, "funcionarios.html", {'funcionarios': funcionarios})
+    cargos = Cargo.objects.all()
+    skills = Skill.objects.all()
+    return render(request, "funcionarios.html", {'funcionarios': funcionarios, 'cargos': cargos, 'skills': skills})
 
-# Create
+# Criar novo funcionário
 @login_required
 def criar_funcionario(request):
     if request.method == 'POST':
+        print(request.POST)
         form = FuncionarioForm(request.POST)
         if form.is_valid():
-            form.save()
+            funcionario = form.save(commit=False)  # Salvamos sem salvar no banco para adicionar skills
+            funcionario.save()
+            
+            # Processar as skills existentes selecionadas
+            skills_existentes = request.POST.getlist('skills_existentes')
+            for skill_id in skills_existentes:
+                skill = Skill.objects.get(id=skill_id)
+                funcionario.skills.add(skill)
+            
+            # Adicionar nova skill, se houver
+            nova_skill_nome = request.POST.get('nova_skill')
+            if nova_skill_nome:
+                nova_skill, created = Skill.objects.get_or_create(nome=nova_skill_nome)
+                funcionario.skills.add(nova_skill)
+                
             messages.success(request, 'Funcionário criado com sucesso!')
             return redirect('funcionario')
         else:
             messages.error(request, 'Corrija os erros no formulário.')
     return redirect('funcionario')
 
-# Update
+# Editar funcionário existente
 @login_required
 def editar_funcionario(request, id):
     funcionario = get_object_or_404(Funcionario, id=id)
     if request.method == 'POST':
         form = FuncionarioForm(request.POST, instance=funcionario)
         if form.is_valid():
-            form.save()
+            funcionario = form.save(commit=False)
+            funcionario.save()
+            
+            # Atualizar skills existentes
+            funcionario.skills.clear()  # Remove todas as skills atuais
+            skills_existentes = request.POST.getlist('skills_existentes')
+            for skill_id in skills_existentes:
+                skill = Skill.objects.get(id=skill_id)
+                funcionario.skills.add(skill)
+            
+            # Adicionar nova skill, se houver
+            nova_skill_nome = request.POST.get('nova_skill')
+            if nova_skill_nome:
+                nova_skill, created = Skill.objects.get_or_create(nome=nova_skill_nome)
+                funcionario.skills.add(nova_skill)
+
             messages.success(request, 'Funcionário atualizado com sucesso!')
             return redirect('funcionario')
         else:
             messages.error(request, 'Corrija os erros no formulário.')
     return redirect('funcionario')
 
-# Delete
+# Deletar funcionário
 @login_required
 def deletar_funcionario(request, id):
     funcionario = get_object_or_404(Funcionario, id=id)

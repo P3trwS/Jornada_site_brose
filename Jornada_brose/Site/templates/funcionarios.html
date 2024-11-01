@@ -50,9 +50,13 @@
                     <tr>
                         <td>{{ funcionario.nome }}</td>
                         <td>{{ funcionario.cargo }}</td>
-                        <td>{{ funcionario.skill }}</td>
                         <td>
-                            <a href="javascript:void(0);" onclick="abrirModalEdicao('{{ funcionario.id }}', '{{ funcionario.nome }}', '{{ funcionario.cargo }}', '{{ funcionario.skill }}')">Editar</a> |
+                            {% for skill in funcionario.skills.all %}
+                                {{ skill.nome }}{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            <a href="javascript:void(0);" onclick="abrirModalEdicao('{{ funcionario.id }}', '{{ funcionario.nome }}', '{{ funcionario.cargo }}', '{{ funcionario.skills.all|join:", " }}')">Editar</a> |
                             <form action="{% url 'deletar_funcionario' funcionario.id %}" method="POST" style="display:inline;">
                                 {% csrf_token %}
                                 <button type="submit" onclick="return confirm('Tem certeza que deseja excluir?')">Deletar</button>
@@ -78,10 +82,24 @@
             <input type="text" id="nome" name="nome" required>
 
             <label for="cargo">Cargo:</label>
-            <input type="text" id="cargo" name="cargo" required>
+            <select id="cargo" name="cargo" required>
+                {% for cargo in cargos %}
+                    <option value="{{ cargo.id }}">{{ cargo.nome }}</option>
+                {% endfor %}
+            </select>
             
-            <label for="skill">Skill:</label>
-            <input type="text" id="skill" name="skill" required>
+            <label>Skills Existentes:</label>
+            <ul>
+                {% for skill in skills %}
+                    <li>
+                        <input type="checkbox" id="skill_{{ skill.id }}" name="skills_existentes" value="{{ skill.id }}">
+                        <label for="skill_{{ skill.id }}">{{ skill.nome }}</label>
+                    </li>
+                {% endfor %}
+            </ul>
+            
+            <label for="nova_skill">Adicionar Nova Skill:</label>
+            <input type="text" id="nova_skill" name="nova_skill" placeholder="Nova habilidade">
 
             <button type="submit">Salvar</button>
         </form>
@@ -100,10 +118,24 @@
             <input type="text" id="nomeEditar" name="nome" required>
 
             <label for="cargoEditar">Cargo:</label>
-            <input type="text" id="cargoEditar" name="cargo" required>
+            <select id="cargoEditar" name="cargo" required>
+                {% for cargo in cargos %}
+                    <option value="{{ cargo.id }}">{{ cargo.nome }}</option>
+                {% endfor %}
+            </select>
             
-            <label for="skillEditar">Skill:</label>
-            <input type="text" id="skillEditar" name="skill" required>
+            <label>Skills Existentes:</label>
+            <ul>
+                {% for skill in skills %}
+                    <li>
+                        <input type="checkbox" id="skillEditar_{{ skill.id }}" name="skills_existentes" value="{{ skill.id }}">
+                        <label for="skillEditar_{{ skill.id }}">{{ skill.nome }}</label>
+                    </li>
+                {% endfor %}
+            </ul>
+            
+            <label for="nova_skillEditar">Adicionar Nova Skill:</label>
+            <input type="text" id="nova_skillEditar" name="nova_skill" placeholder="Nova habilidade">
 
             <button type="submit">Salvar Alterações</button>
         </form>

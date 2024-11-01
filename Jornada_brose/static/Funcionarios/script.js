@@ -209,14 +209,32 @@ function fecharModal() {
     document.getElementById('modalNovoFuncionario').style.display = 'none';
 }
 
-function abrirModalEdicao(id, nome, cargo, skill) {
+function abrirModalEdicao(id, nome, cargo, skills) {
+    // Preenche os valores de nome e cargo
     document.getElementById('nomeEditar').value = nome;
     document.getElementById('cargoEditar').value = cargo;
-    document.getElementById('skillEditar').value = skill;
 
+    // Limpa as opções de skills selecionadas
+    const skillsSelect = document.getElementById('skillsExistentesEditar');
+    for (let i = 0; i < skillsSelect.options.length; i++) {
+        skillsSelect.options[i].selected = false;
+    }
+
+    // Marca as skills do funcionário como selecionadas
+    skills.forEach(skill => {
+        for (let i = 0; i < skillsSelect.options.length; i++) {
+            if (skillsSelect.options[i].value == skill.id) {
+                skillsSelect.options[i].selected = true;
+                break;
+            }
+        }
+    });
+
+    // Define a ação do formulário de edição
     const formEditar = document.getElementById('formEditarFuncionario');
     formEditar.action = `/funcionarios/editar/${id}/`;
 
+    // Exibe o modal de edição
     document.getElementById('modalEditarFuncionario').style.display = 'block';
 }
 
