@@ -106,26 +106,25 @@
 </div>
 
 
-<!-- Modal para editar um funcionário -->
 <div id="modalEditarFuncionario" class="modal" style="display:none;">
     <div class="modal-content">
         <span class="close" onclick="fecharModalEdicao()">&times;</span>
         <h2>Editar Funcionário</h2>
 
-        <form id="formEditarFuncionario" method="POST" action="{% url 'editar_funcionario' funcionario.id %}">
+        <form method="POST" id="formEditarFuncionario">
             {% csrf_token %}
-            <h3 for="nomeEditar">Nome:</h3>
+            <label for="nomeEditar">Nome:</label>
             <input type="text" id="nomeEditar" name="nome" required>
 
-            <h3 for="cargoEditar">Cargo:</h3>
+            <label for="cargoEditar">Cargo:</label>
             <select id="cargoEditar" name="cargo" required>
                 {% for cargo in cargos %}
                     <option value="{{ cargo.id }}">{{ cargo.nome }}</option>
                 {% endfor %}
             </select>
             
-            <h3 for="skillsExistentes">Skills Existentes:</h3>
-            <ul id="skillsExistentes">
+            <label>Skills Existentes:</label>
+            <ul>
                 {% for skill in skills %}
                     <li>
                         <input type="checkbox" id="skillEditar_{{ skill.id }}" name="skills_existentes" value="{{ skill.id }}">
@@ -133,21 +132,11 @@
                     </li>
                 {% endfor %}
             </ul>
+            
+            <label for="nova_skillEditar">Adicionar Nova Skill:</label>
+            <input type="text" id="nova_skillEditar" name="nova_skill" placeholder="Nova habilidade">
 
-            <h3 for="nova_skillEditar">Adicionar Nova Skill:</h3>
-            <div class="add-skill">
-                <input type="text" id="nova_skillEditar" name="nova_skill" placeholder="Nova habilidade">
-                <button id="addButtonEditar" type="button" onclick="adicionarSkillEditar()">
-                    <img id="addImgEditar" src="{% static 'Funcionarios/Light Mode/add.png' %}">
-                </button>
-            </div>
-
-            <!-- Área onde as novas habilidades adicionadas aparecerão -->
-            <div id="skillsContainerEditar"></div>
-
-            <div class="divBotao">
-                <button type="submit">Salvar Alterações</button>
-            </div>
+            <button type="submit">Salvar Alterações</button>
         </form>
     </div>
 </div>

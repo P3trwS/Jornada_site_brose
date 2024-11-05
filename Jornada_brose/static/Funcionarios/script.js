@@ -213,6 +213,12 @@ function fecharModal() {
 }
 
 function abrirModalEdicao(id, nome, cargo, skills) {
+    // Verifica se o id é válido antes de definir a URL de edição
+    if (!id) {
+        console.error("ID do funcionário não encontrado.");
+        return;
+    }
+
     // Preenche os valores de nome e cargo
     document.getElementById('nomeEditar').value = nome;
     document.getElementById('cargoEditar').value = cargo;
@@ -238,6 +244,7 @@ function abrirModalEdicao(id, nome, cargo, skills) {
     // Exibe o modal de edição
     document.getElementById('modalEditarFuncionario').style.display = 'block';
 }
+
 
 function fecharModalEdicao() {
     document.getElementById('modalEditarFuncionario').style.display = 'none';
