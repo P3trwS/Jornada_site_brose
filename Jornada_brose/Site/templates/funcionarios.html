@@ -77,32 +77,30 @@
         <span class="close" onclick="fecharModal()">&times;</span>
         <h2>Criar Novo Funcionário</h2>
 
-        <form method="POST" action="{% url 'criar_funcionario' %}">
+        <form id="form" method="POST" action="{% url 'criar_funcionario' %}">
             {% csrf_token %}
-            <label for="nome">Nome:</label>
+            <h3 for="nome">Nome:</h3>
             <input type="text" id="nome" name="nome" required>
 
-            <label for="cargo">Cargo:</label>
+            <h3 for="cargo">Cargo:</h3>
             <select id="cargo" name="cargo" required>
                 {% for cargo in cargos %}
                     <option value="{{ cargo.id }}">{{ cargo.nome }}</option>
                 {% endfor %}
             </select>
             
-            <label>Skills Existentes:</label>
-            <ul>
-                {% for skill in skills %}
-                    <li>
-                        <input type="checkbox" id="skill_{{ skill.id }}" name="skills_existentes" value="{{ skill.id }}">
-                        <label for="skill_{{ skill.id }}">{{ skill.nome }}</label>
-                    </li>
-                {% endfor %}
-            </ul>
-            
-            <label for="nova_skill">Adicionar Nova Skill:</label>
-            <input type="text" id="nova_skill" name="nova_skill" placeholder="Nova habilidade">
+            <h3 for="nova_skill">Adicionar Nova Skill:</h3>
+            <div class="add-skill">
+                <input type="text" id="nova_skill" placeholder="Nova habilidade">
+                <button id="addButton" type="button" onclick="adicionarSkill()"><img id="addImg" src="{% static 'Funcionarios/Light Mode/add.png' %}"></button>
+            </div>
 
-            <button type="submit">Salvar</button>
+            <!-- Área onde as novas habilidades adicionadas aparecerão -->
+            <div id="skillsContainer"></div>
+
+            <div class="divBotao">
+                <button type="submit">Salvar</button>
+            </div>
         </form>
     </div>
 </div>

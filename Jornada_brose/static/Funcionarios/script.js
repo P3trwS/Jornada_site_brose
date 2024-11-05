@@ -2,17 +2,20 @@ function darkMode() {
     const css = document.getElementById('css');
     const linhas = document.querySelectorAll('img[alt="3 linhas"]');
     const editar = document.querySelectorAll('img[alt="Editar"]');
+    const addImg = document.getElementById('addImg');
 
     //Operação para a troca de tema
     if (css.getAttribute('href') === '/static/Funcionarios/Dark Mode/dark.css') {
         css.setAttribute('href', '/static/Funcionarios/Light Mode/light.css'); // Muda para o modo claro
         linhas.forEach(linha => linha.setAttribute('src', '/static/IMAGENS IGUAIS/Light Mode/3 linhas preto.png'));
-        editar.forEach(edit => edit.setAttribute('src', '/static/Funcionarios/Light Mode/user-avatar-preto.png'))
+        editar.forEach(edit => edit.setAttribute('src', '/static/Funcionarios/Light Mode/user-avatar-preto.png'));
+        addImg.setAttribute('src', '/static/Funcionarios/Light Mode/add.png'); // Muda para o modo claro
 
     } else {
         css.setAttribute('href', '/static/Funcionarios/Dark Mode/dark.css'); // Muda para o modo escuro
         editar.forEach(edit => edit.setAttribute('src', '/static/Funcionarios/Dark Mode/user-avatar branco.png'))
         linhas.forEach(linha => linha.setAttribute('src', '/static/IMAGENS IGUAIS/Dark Mode/3 linhas branco.png'));
+        addImg.setAttribute('src', '/static/Funcionarios/Dark Mode/add-branco.png');
 
     }
 }
@@ -306,3 +309,40 @@ document.addEventListener('click', (event) => {
         optionsList.style.display = 'none';
     }
 });
+
+    function adicionarSkill() {
+        const skillInput = document.getElementById('nova_skill');
+        const skillValue = skillInput.value.trim();
+        
+        if (skillValue) {
+            const skillContainer = document.getElementById('skillsContainer');
+            
+            // Cria o elemento de skill (tag)
+            const skillTag = document.createElement('div');
+            skillTag.classList.add('skill-tag');
+            skillTag.innerText = skillValue;
+
+            // Adiciona um botão de exclusão para a skill
+            const deleteButton = document.createElement('button');
+            deleteButton.innerText = 'X';
+            deleteButton.classList.add('delete-skill');
+            deleteButton.onclick = function() {
+                skillContainer.removeChild(skillTag);
+                hiddenInput.remove(); // Remove o input hidden correspondente
+            };
+
+            // Adiciona o botão de exclusão à tag de skill
+            skillTag.appendChild(deleteButton);
+            skillContainer.appendChild(skillTag);
+
+            // Cria o input hidden para enviar a skill
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'skills[]'; // Envia como uma lista de skills no formulário
+            hiddenInput.value = skillValue;
+            skillContainer.appendChild(hiddenInput);
+
+            // Limpa o input após adicionar a skill
+            skillInput.value = '';
+        }
+    }

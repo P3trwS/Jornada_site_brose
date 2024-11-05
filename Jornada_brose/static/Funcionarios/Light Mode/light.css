@@ -21,20 +21,26 @@ header .logo {
 }
 
 header label {
-    margin: 0 10px;
+    margin: 10px;
     cursor: pointer;
+}
+
+.logo {
+    height: 2.5rem;
 }
 
 .pages {
     display: flex;
-    gap: 15px;
+    width: 50%;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .pages a {
     text-decoration: none;
     font-size: 20px;
-    color: #000;
-    padding: 10px 20px;
+    color: #000000;
+    padding: 20px;
     border-radius: 20px;
 }
 
@@ -73,7 +79,8 @@ header label {
 main {
     display: flex;
     justify-content: center;
-    padding: 20px;
+    align-items: center;
+    min-height: 650px;
 }
 
 .tela-tabela {
@@ -185,6 +192,94 @@ h1 {
 .close:hover {
     color: #d0043c;
 }
+
+#form h3 {
+    margin-bottom: 10px;
+}
+
+#form {
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+#nova_skill {
+
+    width: 70%;
+
+}
+
+.add-skill {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+#addButton {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+#addImg {
+    width: 50px;
+}
+
+.divBotao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+    .skill-tag {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 5px;
+        background-color: #ddd;
+        border-radius: 20px;
+        position: relative;
+    }
+
+    .delete-skill {
+        border: none;
+        background: none;
+        color: red;
+        margin-left: 8px;
+        cursor: pointer;
+    }
+
+    /* Estilo para o campo de entrada com botão "Adicionar" dentro */
+    .input-skill-group {
+        position: relative;
+        display: flex;
+        width: 100%;
+    }
+
+    .input-skill-group input {
+        width: 100%;
+        padding-right: 80px; /* Espaço para o botão */
+        box-sizing: border-box;
+    }
+
+    .input-skill-group button {
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 5px 10px;
+        border: none;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    /* Opção de estilo adicional para botão de adicionar ao passar o mouse */
+    .input-skill-group button:hover {
+        background-color: #0056b3;
+    }
 
 /* Estilos para impressão */
 @media print {
