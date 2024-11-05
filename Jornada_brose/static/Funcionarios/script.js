@@ -217,19 +217,17 @@ function abrirModalEdicao(id, nome, cargo, skills) {
     document.getElementById('nomeEditar').value = nome;
     document.getElementById('cargoEditar').value = cargo;
 
-    // Limpa as opções de skills selecionadas
-    const skillsSelect = document.getElementById('skillsExistentesEditar');
-    for (let i = 0; i < skillsSelect.options.length; i++) {
-        skillsSelect.options[i].selected = false;
-    }
+    // Limpa as checkboxes de skills selecionadas
+    const skillsCheckboxes = document.querySelectorAll('#skillsExistentes input[type="checkbox"]');
+    skillsCheckboxes.forEach(checkbox => {
+        checkbox.checked = false;
+    });
 
     // Marca as skills do funcionário como selecionadas
     skills.forEach(skill => {
-        for (let i = 0; i < skillsSelect.options.length; i++) {
-            if (skillsSelect.options[i].value == skill.id) {
-                skillsSelect.options[i].selected = true;
-                break;
-            }
+        const skillCheckbox = document.getElementById(`skillEditar_${skill.id}`);
+        if (skillCheckbox) {
+            skillCheckbox.checked = true;
         }
     });
 

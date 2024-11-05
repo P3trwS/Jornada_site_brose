@@ -12,6 +12,7 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import Flow
 import os
 import pickle
+from django.http import HttpRequest, HttpResponse
 
 # Create your views here.
 
@@ -111,75 +112,65 @@ def get_form_responses(request):
     # Processar as respostas conforme necessário
     return HttpResponse(f'Respostas: {responses}')
 
+
 @login_required
-def funcionario_view(request):  
-    funcionarios = Funcionario.objects.all()
+def funcionario_view(request: HttpRequest) -> HttpResponse:  
+    funcionarios = Funcionario.objects.select_related("cargo").prefetch_related("skills")
     cargos = Cargo.objects.all()
     skills = Skill.objects.all()
     return render(request, "funcionarios.html", {'funcionarios': funcionarios, 'cargos': cargos, 'skills': skills})
 
-# Criar novo funcionário
+
 @login_required
-def criar_funcionario(request):
+def criar_funcionario(request: HttpRequest) -> HttpResponse:
     if request.method == 'POST':
-        print(request.POST)
         form = FuncionarioForm(request.POST)
         if form.is_valid():
-            funcionario = form.save(commit=False)  # Salvamos sem salvar no banco para adicionar skills
+            funcionario = form.save(commit=False)
             funcionario.save()
-            
-            # Processar as skills existentes selecionadas
-            skills_existentes = request.POST.getlist('skills_existentes')
-            for skill_id in skills_existentes:
-                skill = Skill.objects.get(id=skill_id)
-                funcionario.skills.add(skill)
-            
-            # Adicionar nova skill, se houver
-            nova_skill_nome = request.POST.get('nova_skill')
-            if nova_skill_nome:
-                nova_skill, created = Skill.objects.get_or_create(nome=nova_skill_nome)
-                funcionario.skills.add(nova_skill)
-                
+            atualizar_skills(funcionario, request.POST)
             messages.success(request, 'Funcionário criado com sucesso!')
             return redirect('funcionario')
-        else:
-            messages.error(request, 'Corrija os erros no formulário.')
+        messages.error(request, 'Corrija os erros no formulário.')
     return redirect('funcionario')
 
-# Editar funcionário existente
+
 @login_required
-def editar_funcionario(request, id):
+def editar_funcionario(request: HttpRequest, id: int) -> HttpResponse:
     funcionario = get_object_or_404(Funcionario, id=id)
     if request.method == 'POST':
         form = FuncionarioForm(request.POST, instance=funcionario)
         if form.is_valid():
             funcionario = form.save(commit=False)
             funcionario.save()
-            
-            # Atualizar skills existentes
-            funcionario.skills.clear()  # Remove todas as skills atuais
-            skills_existentes = request.POST.getlist('skills_existentes')
-            for skill_id in skills_existentes:
-                skill = Skill.objects.get(id=skill_id)
-                funcionario.skills.add(skill)
-            
-            # Adicionar nova skill, se houver
-            nova_skill_nome = request.POST.get('nova_skill')
-            if nova_skill_nome:
-                nova_skill, created = Skill.objects.get_or_create(nome=nova_skill_nome)
-                funcionario.skills.add(nova_skill)
-
+            atualizar_skills(funcionario, request.POST)
             messages.success(request, 'Funcionário atualizado com sucesso!')
             return redirect('funcionario')
-        else:
-            messages.error(request, 'Corrija os erros no formulário.')
+        messages.error(request, 'Corrija os erros no formulário.')
     return redirect('funcionario')
 
-# Deletar funcionário
+
 @login_required
-def deletar_funcionario(request, id):
+def deletar_funcionario(request: HttpRequest, id: int) -> HttpResponse:
     funcionario = get_object_or_404(Funcionario, id=id)
     if request.method == 'POST':
         funcionario.delete()
         messages.success(request, 'Funcionário deletado com sucesso!')
     return redirect('funcionario')
+
+
+def atualizar_skills(funcionario: Funcionario, post_data: dict) -> None:
+    """
+    Atualiza as skills do funcionário, processando tanto skills existentes quanto novas.
+    """
+    funcionario.skills.clear()
+    skills_existentes = post_data.getlist('skills_existentes')
+    
+    for skill_id in skills_existentes:
+        skill = Skill.objects.get(id=skill_id)
+        funcionario.skills.add(skill)
+    
+    nova_skill_nome = post_data.get('nova_skill')
+    if nova_skill_nome:
+        nova_skill, _ = Skill.objects.get_or_create(nome=nova_skill_nome)
+        funcionario.skills.add(nova_skill)
