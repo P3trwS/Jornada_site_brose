@@ -37,7 +37,7 @@ class Skill(models.Model):
 class Funcionario(models.Model):
     nome: str = models.CharField(max_length=200)
     cargo: Any = models.ForeignKey(Cargo, on_delete=models.SET_NULL, null=True)
-    skills: any = models.ManyToManyField(Skill, through='EmployeeSkill')
+    skills: any = models.ManyToManyField(Skill, blank=True)
 
     def __str__(self) -> str:
         return self.nome

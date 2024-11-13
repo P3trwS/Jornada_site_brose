@@ -52,12 +52,16 @@
                         <td>{{ funcionario.nome }}</td>
                         <td>{{ funcionario.cargo }}</td>
                         <td>
-                            {% for skill in funcionario.skills.all %}
-                                {{ skill.nome }}{% if not forloop.last %}, {% endif %}
-                            {% endfor %}
+                            {% if funcionario.skills.all %}
+                                {% for skill in funcionario.skills.all %}
+                                    {{ skill.nome }}{% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                Sem skills
+                            {% endif %}
                         </td>
                         <td>
-                            <a href="javascript:void(0);" onclick="abrirModalEdicao('{{ funcionario.id }}', '{{ funcionario.nome }}', '{{ funcionario.cargo }}', '{{ funcionario.skills.all|join:", " }}')">Editar</a>
+                            <a href="javascript:void(0);" onclick="abrirModalEdicao('{{ funcionario.id }}', '{{ funcionario.nome }}', '{{ funcionario.cargo }}, '{{funcionario.skill}}'')">Editar</a>
                             <form action="{% url 'deletar_funcionario' funcionario.id %}" method="POST" style="display:inline;">
                                 {% csrf_token %}
                                 <button type="submit" onclick="return confirm('Tem certeza que deseja excluir?')">Deletar</button>
@@ -88,7 +92,6 @@
                     <option value="{{ cargo.id }}">{{ cargo.nome }}</option>
                 {% endfor %}
             </select>
-            
             <h3 for="nova_skill">Adicionar Nova Skill:</h3>
             <div class="add-skill">
                 <input type="text" id="nova_skill" placeholder="Nova habilidade">

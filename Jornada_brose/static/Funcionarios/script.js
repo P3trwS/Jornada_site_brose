@@ -315,39 +315,39 @@ document.addEventListener('click', (event) => {
     }
 });
 
-    function adicionarSkill() {
-        const skillInput = document.getElementById('nova_skill');
-        const skillValue = skillInput.value.trim();
+function adicionarSkill() {
+    const skillInput = document.getElementById('nova_skill');
+    const skillValue = skillInput.value.trim();
+    
+    if (skillValue) {
+        const skillContainer = document.getElementById('skillsContainer');
         
-        if (skillValue) {
-            const skillContainer = document.getElementById('skillsContainer');
-            
-            // Cria o elemento de skill (tag)
-            const skillTag = document.createElement('div');
-            skillTag.classList.add('skill-tag');
-            skillTag.innerText = skillValue;
+        // Cria a tag visual para a skill
+        const skillTag = document.createElement('div');
+        skillTag.classList.add('skill-tag');
+        skillTag.innerText = skillValue;
 
-            // Adiciona um botão de exclusão para a skill
-            const deleteButton = document.createElement('button');
-            deleteButton.innerText = 'X';
-            deleteButton.classList.add('delete-skill');
-            deleteButton.onclick = function() {
-                skillContainer.removeChild(skillTag);
-                hiddenInput.remove(); // Remove o input hidden correspondente
-            };
+        // Adiciona um botão de exclusão para remover a skill visualmente
+        const deleteButton = document.createElement('button');
+        deleteButton.innerText = 'X';
+        deleteButton.classList.add('delete-skill');
+        deleteButton.onclick = function() {
+            skillContainer.removeChild(skillTag);  // Remove a tag visual
+            hiddenInput.remove();  // Remove o input hidden correspondente
+        };
 
-            // Adiciona o botão de exclusão à tag de skill
-            skillTag.appendChild(deleteButton);
-            skillContainer.appendChild(skillTag);
+        // Adiciona o botão de exclusão à tag da skill e adiciona ao contêiner
+        skillTag.appendChild(deleteButton);
+        skillContainer.appendChild(skillTag);
 
-            // Cria o input hidden para enviar a skill
-            const hiddenInput = document.createElement('input');
-            hiddenInput.type = 'hidden';
-            hiddenInput.name = 'skills[]'; // Envia como uma lista de skills no formulário
-            hiddenInput.value = skillValue;
-            skillContainer.appendChild(hiddenInput);
+        // Cria o input hidden para enviar a skill no formulário
+        const hiddenInput = document.createElement('input');
+        hiddenInput.type = 'hidden';
+        hiddenInput.name = 'skills[]';  // Nome do campo enviado como lista
+        hiddenInput.value = skillValue;
+        skillContainer.appendChild(hiddenInput);
 
-            // Limpa o input após adicionar a skill
-            skillInput.value = '';
-        }
+        // Limpa o campo de input após adicionar a skill
+        skillInput.value = '';
     }
+}

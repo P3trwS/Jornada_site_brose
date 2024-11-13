@@ -128,12 +128,34 @@ def criar_funcionario(request: HttpRequest) -> HttpResponse:
         if form.is_valid():
             funcionario = form.save(commit=False)
             funcionario.save()
-            atualizar_skills(funcionario, request.POST)
+            print(f"Debug: Funcionário '{funcionario.nome}' salvo com sucesso!")  # Debug
+
+            # Captura todas as skills enviadas na lista 'skills[]'
+            skills_list = request.POST.getlist('skills[]')
+            print(f"Debug: Lista de skills recebida: {skills_list}")  # Debug para verificar a lista
+
+            for skill_name in skills_list:
+                # Verifica ou cria cada skill individualmente e associa ao funcionário
+                skill, created = Skill.objects.get_or_create(nome=skill_name)
+                funcionario.skills.add(skill)
+                print(f"Debug: Skill '{skill.nome}' associada ao funcionário '{funcionario.nome}'")  # Debug para cada skill
+
             messages.success(request, 'Funcionário criado com sucesso!')
             return redirect('funcionario')
-        messages.error(request, 'Corrija os erros no formulário.')
-    return redirect('funcionario')
+        else:
+            print("Debug: Erros no formulário:", form.errors)  # Debug de erros no formulário
+            messages.error(request, 'Corrija os erros no formulário.')
+    else:
+        form = FuncionarioForm()
 
+    cargos = Cargo.objects.all()
+    skills = Skill.objects.all()
+
+    return render(request, "funcionarios.html", {
+        'form': form,
+        'cargos': cargos,
+        'skills': skills,
+    })
 
 @login_required
 def editar_funcionario(request: HttpRequest, id: int) -> HttpResponse:
