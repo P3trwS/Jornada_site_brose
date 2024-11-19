@@ -158,6 +158,141 @@ header label {
     transition: left 0.3s, width 0.3s;
 }
 
+.novoFuncionario {
+    border-radius: 20px;
+    color: #ffffff;
+    background: #3c3c3c;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.novoFuncionario:hover {
+    background: #cac6c6;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 650px;
+}
+
+.tela-tabela {
+    background-color: #3c3c3c;
+    border: 2px solid #fff; 
+    border-radius: 8px;
+    overflow: hidden;
+    width: 90%;
+    
+}
+
+h1 {
+    background-color: #3c3c3c;
+    color: #d0043c;
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+    font-size: 1.5em;
+    border-bottom: 2px solid #d0043c;
+}
+
+.rolagem {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Para Firefox (ajustando a cor da barra de rolagem) */
+.rolagem {
+    scrollbar-width: auto; /* Largura da barra de rolagem no Firefox */
+    scrollbar-color: #6a6a6a #3c3c3c; /* Cor do polegar e do trilho */
+}
+
+
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela thead {
+    background-color: #3c3c3c;
+    color: #d0043c;
+    position: sticky;
+    top: 0;
+    z-index: 10; /* Garante que o thead fique sobre as linhas */
+}
+
+.tabela thead th {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.tabela tbody tr:nth-child(even) {
+    background-color: #3c3c3c;
+}
+
+.tabela tbody tr:hover {
+    background-color: #aca8a8;
+}
+
+.tabela tbody td {
+    color: #ffffff;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+
+}
+
+.tabela td {
+    word-wrap: break-word;  /* Permite a quebra de palavras longas */
+    max-width: 150px;       /* Define um tamanho máximo para a célula, ajuste conforme necessário */
+}
+
+.tabela tbody tr:last-child td {
+    border-bottom: none;
+}
+
+#filtroMatricula {
+    background-color: #3c3c3c;
+    color: #ffffff;
+}
+
+#filtroMatricula::placeholder {
+    color: #d5d3d3;
+}
+
+.editar-imagem {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
+.editar-imagem img {
+    width: 2vw;
+    display: block;
+}
+
+.editar-imagem::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ffffff; /* Cor da linha */
+    transition: width 0.3s ease;
+}
+
+.editar-imagem:hover::after {
+    width: 100%; /* A linha vai ocupar a largura total do botão ao passar o mouse */
+}
+
+.filtros {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 20px;
+}
+
 @media (max-width: 1100px) {
     
     header {
@@ -330,6 +465,3 @@ header label {
     }
     
 }
-
-
-

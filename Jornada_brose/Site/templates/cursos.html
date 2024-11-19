@@ -36,19 +36,91 @@
     </header>
 
     <main>
-      <!-- Banner -->
 
-      <div class="roleta-topicos">
-        <label class="topico" onclick="selecionarTopico(this, 'basico')">Cursos Nível 2</label>
-        <label class="topico" onclick="selecionarTopico(this, 'intermediario')">Cursos Nível 3</label>
-        <label class="topico" onclick="selecionarTopico(this, 'avançado')">Cursos Nível 4</label>
-        <div id="linha-animada"></div>
-      </div>
+      <div class="tela-tabela">
+          <h1>Cursos</h1>
+          
+          <div class="filtros">
+              <div class="filtros-inputs">
+                  <input type="text" id="filtroMatricula" placeholder="Filtrar por..." onkeyup="filtrarTabela()">
+              </div>
+          </div>
+          <div class="rolagem">
+              <table class="tabela" id="tabelaFuncionarios">
+                  <thead>
+                      <tr>
+                          <th>ID Cursos</th>
+                          <th>Área</th>
+                          <th>Know How</th>
+                          <th>Visualizar</th>
+                      </tr>
+                  </thead>
+                  <tbody>
 
-      <div id="cursos">
-        <!-- Espaço para os cursos disponíveis, que serão inseridos pelo JS -->
+                      <tr>
+                          <td>1</td>
+                          <td>Financeiro</td>
+                          <td>Aprender Juros simples</td>
+                          <td><button class="editar-imagem"><a href="{% url 'cargos desc' %}"><img src="{% static 'Cargos/Light Mode/user-avatar preto.png' %}" alt="Editar"></a></button></td>
+
+                      </tr>
+
+                      <tr>
+                          <td>2</td>
+                          <td>T.I</td>
+                          <td>Redes e servidores</td>
+                          <td><button class="editar-imagem"><img src="{% static 'Cargos/Light Mode/user-avatar preto.png' %}" alt="Editar"></button></td>
+                      <tr>
+                          <td>3</td>
+                          <td>Segurança do Trabalho</td>
+                          <td>Aprender a utilizar o EPI da maneira correta</td>
+                          <td><button class="editar-imagem"><img src="{% static 'Cargos/Light Mode/user-avatar preto.png' %}" alt="Editar"></button></td>
+                      </tr>
+                      <tr>
+                          <td>4</td>
+                          <td>T.I</td>
+                          <td>Melhorar o atendimento quando for atender um chamado</td>
+                          <td><button class="editar-imagem"><img src="{% static 'Cargos/Light Mode/user-avatar preto.png' %}" alt="Editar"></button></td>
+                      </tr>
+                      <tr>
+                          <td>5</td>
+                          <td>Comercial</td>
+                          <td>Curso de Línguas</td>
+                          <td><button class="editar-imagem"><img src="{% static 'Cargos/Light Mode/user-avatar preto.png' %}" alt="Editar"></button></td>
+                      </tr>
+                      <tr>
+                          <td>6</td>
+                          <td>Compras</td>
+                          <td>Análise de Preços</td>
+                          <td><button class="editar-imagem"><img src="{% static 'Cargos/Light Mode/user-avatar preto.png' %}" alt="Editar"></button></td>
+                      </tr>
+                      <tr>
+                          <td>7</td>
+                          <td>Engenharia</td>
+                          <td>Agilidade nos processos</td>
+                          <td><button class="editar-imagem"><img src="{% static 'Cargos/Light Mode/user-avatar preto.png' %}" alt="Editar"></button></td>
+                      </tr>
+                      <tr>
+                          <td>8</td>
+                          <td>Processos</td>
+                          <td>Analisar Processos existentes</td>
+                          <td><button class="editar-imagem"><img src="{% static 'Cargos/Light Mode/user-avatar preto.png' %}" alt="Editar"></button></td>
+                      </tr>
+                      <tr>
+                          <td>9</td>
+                          <td>Qualidade</td>
+                          <td>Realizar vistorias mais detalhadas</td>
+                          <td><button class="editar-imagem"><img src="{% static 'Cargos/Light Mode/user-avatar preto.png' %}" alt="Editar"></button></td>
+                      </tr>
+  
+                  </tbody>
+  
+              </table>
+          </div>
+      
       </div>
-    </main>
+  
+  </main>
 
 
 
